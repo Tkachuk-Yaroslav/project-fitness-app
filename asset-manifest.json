@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/project-fitness-app/static/css/main.e78ff33f.css",
-    "main.js": "/project-fitness-app/static/js/main.c9785fd7.js",
+    "main.css": "/project-fitness-app/static/css/main.8b4e9bdf.css",
+    "main.js": "/project-fitness-app/static/js/main.12f16fef.js",
+    "static/media/Roboto-Medium.ttf": "/project-fitness-app/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
+    "static/media/Roboto-Regular.ttf": "/project-fitness-app/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
+    "static/media/Roboto-Bold.ttf": "/project-fitness-app/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
     "index.html": "/project-fitness-app/index.html",
-    "main.e78ff33f.css.map": "/project-fitness-app/static/css/main.e78ff33f.css.map",
-    "main.c9785fd7.js.map": "/project-fitness-app/static/js/main.c9785fd7.js.map"
+    "main.8b4e9bdf.css.map": "/project-fitness-app/static/css/main.8b4e9bdf.css.map",
+    "main.12f16fef.js.map": "/project-fitness-app/static/js/main.12f16fef.js.map"
   },
   "entrypoints": [
-    "static/css/main.e78ff33f.css",
-    "static/js/main.c9785fd7.js"
+    "static/css/main.8b4e9bdf.css",
+    "static/js/main.12f16fef.js"
   ]
 }
