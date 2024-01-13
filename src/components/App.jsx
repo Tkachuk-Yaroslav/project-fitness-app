@@ -1,8 +1,11 @@
+import Calendar from './Calendar/Calendar';
 import { Container } from './styles/Container/Container';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export const App = () => {
   return (
     <Container>
+      <Calendar />
       <div
         style={{
           height: '100vh',
