@@ -32,8 +32,12 @@ const GlobalStyle = createGlobalStyle`
 
 
 body {
+    background-color: var(--black-color);
+    color: var(--white-color);
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100vh;
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
