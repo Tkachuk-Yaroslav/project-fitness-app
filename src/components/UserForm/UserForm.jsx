@@ -44,6 +44,7 @@ const UserForm = () => {
           currentWeight: '',
           desiredWeight: '',
           birthday: '',
+          blood: '',
         }}
         validationSchema={userFormSchema}
         onSubmit={onSubmit}
@@ -55,37 +56,39 @@ const UserForm = () => {
               name="name"
               type="text"
               placeholder="Enter your name"
-            ></CustomInput>
+            />
             <CustomInput
               label="email"
               name="email"
               type="email"
               placeholder="Enter your email"
-            ></CustomInput>
+            />
             <CustomInput
               label="height"
               name="height"
               type="number"
               placeholder="Enter your height"
-            ></CustomInput>
+            />
             <CustomInput
               label="currentWeight"
               name="currentWeight"
               type="number"
               placeholder="Enter your current weight"
-            ></CustomInput>
+            />
             <CustomInput
               label="desiredWeight"
               name="desiredWeight"
               type="number"
               placeholder="Enter your desired weight"
-            ></CustomInput>
-            <CustomInput
-              label="birthday"
-              name="birthday"
-              type="date"
-            ></CustomInput>
-            <CustomRadio label="1" type="radio" name="blood"></CustomRadio>
+            />
+            <CustomInput label="birthday" name="birthday" type="date" />
+            <div id="my-radio-group">Picked</div>
+            <div role="group" aria-labelledby="my-radio-group">
+              <CustomRadio label="1" type="radio" name="blood"></CustomRadio>
+              <CustomRadio label="2" type="radio" name="blood"></CustomRadio>
+              <CustomRadio label="3" type="radio" name="blood"></CustomRadio>
+              <CustomRadio label="4" type="radio" name="blood"></CustomRadio>
+            </div>
             <button disabled={isSubmitting} type="submit">
               Save
             </button>
