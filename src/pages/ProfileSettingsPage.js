@@ -4,11 +4,11 @@ import UserForm from 'components/UserForm/UserForm';
 
 const ProfileSettingsPage = () => {
   return (
-    <div>
-      <TitlePage>TitlePage</TitlePage>
-      <UserForm />
+    <>
+      <TitlePage>Profile Settings</TitlePage>
       <UserCard />
-    </div>
+      <UserForm />
+    </>
   );
 };
 export default ProfileSettingsPage;
