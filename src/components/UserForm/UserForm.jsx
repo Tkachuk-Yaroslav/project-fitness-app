@@ -1,7 +1,4 @@
-import { Formik, Field, Form, useFormik, validateYupSchema } from 'formik';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import { Formik, Form } from 'formik';
 import { WrapperUserForm } from './UserForm.styled';
 import userFormSchema from './schemas/userFormSchema';
 import CustomInput from './CustomInput';
