@@ -1,4 +1,4 @@
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import {
   FormStyled,
   WrapperForBloodAndSex,
@@ -13,6 +13,7 @@ import { CustomLabelStyled, WrapperInput } from './CustomInput.styled';
 const onSubmit = async (values, actions) => {
   await new Promise(resolve => setTimeout(resolve, 1000));
   actions.resetForm();
+  console.log(values);
 };
 const UserForm = () => {
   return (
@@ -34,39 +35,40 @@ const UserForm = () => {
       >
         {({ isSubmitting }) => (
           <FormStyled autoComplete="off">
+            <CustomInput label="Name" name="name" type="text" />
             <CustomInput
-              label="Name"
-              name="name"
-              type="text"
-              placeholder="Enter your name"
-            />
-            <CustomInput
+              disabled
               label="Email"
               name="email"
               type="email"
-              placeholder="Enter your email"
+              placeholder="annarybachok@gmail.com"
             />
 
             <WrapperInput>
               <CustomInput
+                className="input-form"
                 label="Height"
                 name="height"
                 type="number"
-                placeholder="Enter your height"
               />
               <CustomInput
-                label="CurrentWeight"
+                className="input-form"
+                label="Current Weight"
                 name="currentWeight"
                 type="number"
-                placeholder="Enter your current weight"
               />
               <CustomInput
-                label="DesiredWeight"
+                className="input-form"
+                label="Desired Weight"
                 name="desiredWeight"
                 type="number"
-                placeholder="Enter your desired weight"
               />
-              <CustomInput label="Birthday" name="birthday" type="date" />
+              <CustomInput
+                className="input-form"
+                label="Date of birth"
+                name="birthday"
+                type="date"
+              />
             </WrapperInput>
             <WrapperRadio>
               <div id="radio-blood">

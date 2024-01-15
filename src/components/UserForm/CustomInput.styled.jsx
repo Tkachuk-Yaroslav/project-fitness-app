@@ -13,19 +13,36 @@ export const CustomLabelStyled = styled('label')({
 });
 
 export const CustomInputStyled = styled('input')({
+  color: '#EFEDE8',
+
+  fontSize: 14,
+  lineHeight: 1.286,
   padding: 14,
   borderRadius: 12,
   border: '1px solid rgba(239, 237, 232, 0.30)',
   backgroundColor: 'inherit',
   outline: 'none',
-  color: 'inherit',
+  '&.input-form': {
+    width: 160,
+  },
   '&:focus': {
     border: '1px solid var(--orange-color)',
   },
+  '&&.input-error': {
+    border: '1px solid var(--error-color)',
+  },
+  // '&.input-success': {
+  //   border: '1px solid var(--success-color)',
+  // },
 });
 
 export const WrapperInput = styled('div')({
   display: 'flex',
   flexWrap: 'wrap',
   gap: 14,
+  justifyContent: 'space-around',
+});
+export const WrapperError = styled('div')({
+  width: 160,
+  color: 'var(--error-color)',
 });

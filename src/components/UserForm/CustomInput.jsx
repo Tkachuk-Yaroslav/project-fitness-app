@@ -1,29 +1,28 @@
 import { useField } from 'formik';
-import { CustomInputStyled, CustomLabelStyled } from './CustomInput.styled';
+import {
+  CustomInputStyled,
+  CustomLabelStyled,
+  WrapperError,
+} from './CustomInput.styled';
 
 const CustomInput = ({ label, ...props }) => {
-  const [field] = useField(props);
-  return (
-    <>
-      <CustomLabelStyled>
-        {label}
+  const [field, meta] = useField(props);
 
-        <CustomInputStyled
-          {...field}
-          {...props}
-          // style={
-          //   meta.error && meta.touched
-          //     ? { borderColor: 'red' }
-          //     : { borderColor: 'green' }
-          // }
-        />
-      </CustomLabelStyled>
-      {/* {meta.error && meta.touched ? (
-        <p style={{ color: 'red' }}>Error {label}</p>
+  return (
+    <CustomLabelStyled>
+      {label}
+      <CustomInputStyled
+        {...field}
+        {...props}
+        className={meta.error && meta.touched ? 'input-error' : ''}
+        {...props}
+      />
+      {meta.error && meta.touched ? (
+        <WrapperError className="error">{meta.error}</WrapperError>
       ) : (
-        <p style={{ color: 'green' }}>Success {label}</p>
-      )} */}
-    </>
+        ''
+      )}
+    </CustomLabelStyled>
   );
 };
 export default CustomInput;
