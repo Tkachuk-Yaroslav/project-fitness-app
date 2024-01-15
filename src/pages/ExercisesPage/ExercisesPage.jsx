@@ -1,4 +1,3 @@
-import ExercisesSubcategoriesList from "components/ExercisesSubcategoriesList/ExercisesSubcategoriesList"
 import { Container } from "components/styles/Container/Container"
 import { CategoriesList, ContainerWrapper, LinkStyled, ListElement } from "./ExercisesPage.styled"
 import TitlePage from "components/TitlePage/TitlePage"
@@ -7,7 +6,7 @@ import { Outlet } from "react-router-dom/dist"
 function Exercises() {
   return (
     <Container>
-    {/* <SectionExercises> */}
+   
       <ContainerWrapper>
       <TitlePage>Exercises</TitlePage>
       <CategoriesList>
@@ -24,8 +23,7 @@ function Exercises() {
     
       </ContainerWrapper>
       <Outlet/>
-    {/* {<ExercisesSubcategoriesList/>} */}
-    {/* </SectionExercises> */}
+    
     </Container>
   )
 }
