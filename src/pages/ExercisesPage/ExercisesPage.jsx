@@ -1,12 +1,19 @@
-import { Container } from 'components/styles/Container/Container';
-import React from 'react';
+import ExercisesCategories from "components/ExercisesCategories/ExercisesCategories"
+import ExercisesSubcategoriesList from "components/ExercisesSubcategoriesList/ExercisesSubcategoriesList"
+import { Container } from "components/styles/Container/Container"
+import { SectionExercises  } from "./ExercisesPage.styled"
+import TitlePage from "components/TitlePage/TitlePage"
 
-const ExercisesPage = () => {
+function Exercises() {
   return (
     <Container>
-      <div>ExercisesPage</div>
+    <SectionExercises>
+    <TitlePage>Exercises</TitlePage>
+    {<ExercisesCategories/>}
+    {<ExercisesSubcategoriesList/>}
+    </SectionExercises>
     </Container>
-  );
-};
+  )
+}
 
-export default ExercisesPage;
+export default Exercises
