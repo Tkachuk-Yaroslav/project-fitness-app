@@ -8,7 +8,7 @@ export const RadioInput = styled('input')({
   borderRadius: '50%',
   background: 'inherit',
   border: ' 2px solid #636366',
-  '&:hover': {
+  '&:checked': {
     background: 'var(--light-orange-color)',
     outline: ' 2px solid var(--light-orange-color)',
     border: '4px solid var(--black-color)',

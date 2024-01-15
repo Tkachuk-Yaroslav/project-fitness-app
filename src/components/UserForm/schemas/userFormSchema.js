@@ -7,7 +7,7 @@ const userFormSchema = yup.object().shape({
   currentWeight: yup.number().min(35).required(),
   desiredWeight: yup.number().min(35).required(),
   birthday: yup.date().required(),
-  bood: yup
+  blood: yup
     .number()
     .oneOf([1, 2, 3, 4], 'Selecting the blood field is required')
     .required(),
