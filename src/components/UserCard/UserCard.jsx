@@ -1,4 +1,5 @@
 import {
+  ButtonAddAvatar,
   ButtonWrapper,
   TextInfoUser,
   TextItemUser,
@@ -31,6 +32,11 @@ const UserCard = () => {
               fillOpacity="0.1"
             />
           </svg>
+          <ButtonAddAvatar>
+            <svg width={24} height={24}>
+              <use xlinkHref={`${sprite}#icon-add-avatar`} />
+            </svg>
+          </ButtonAddAvatar>
         </WrapperAvatar>
         <div>
           <Title2>Anna Rybachok</Title2>
