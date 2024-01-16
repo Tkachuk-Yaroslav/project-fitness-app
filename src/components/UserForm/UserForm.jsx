@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import {
+  ButtonSave,
   FormStyled,
   WrapperForBloodAndSex,
   WrapperRadio,
@@ -10,7 +11,6 @@ import CustomInput from './CustomInput';
 import CustomRadio from './CustomRadio';
 import { CustomLabelStyled, WrapperInput } from './CustomInput.styled';
 // import Calendar from 'components/Calendar/Calendar';
-
 
 const onSubmit = async (values, actions) => {
   await new Promise(resolve => setTimeout(resolve, 1000));
@@ -64,7 +64,7 @@ const UserForm = () => {
                 name="desiredWeight"
                 type="number"
               />
-           {/* <Calendar /> */}
+              {/* <Calendar /> */}
               <CustomInput
                 className="input-form"
                 label="Date of birth"
@@ -124,7 +124,11 @@ const UserForm = () => {
               </div>
             </WrapperRadio>
             <div id="radio-level-activity"></div>
-            <div role="group" aria-labelledby="radio-level-activity">
+            <div
+              role="group"
+              aria-labelledby="radio-level-activity"
+              style={{ marginBottom: 30 }}
+            >
               <CustomRadio
                 label="Sedentary lifestyle (little or no physical activity)"
                 type="radio"
@@ -156,9 +160,9 @@ const UserForm = () => {
                 value="5"
               ></CustomRadio>
             </div>
-            <button disabled={isSubmitting} type="submit">
+            <ButtonSave disabled={isSubmitting} type="submit">
               Save
-            </button>
+            </ButtonSave>
           </FormStyled>
         )}
       </Formik>
