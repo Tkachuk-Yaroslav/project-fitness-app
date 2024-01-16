@@ -89,7 +89,9 @@ export const LogoutBtn = styled.button`
   justify-content: center;
   align-items: center;
   gap: 8px;
-  padding: 10px;
+  /* padding: 10px; */
+  padding: 2px 0;
+  width: 76px;
 
   font-size: 16px;
   font-weight: 400;
@@ -100,5 +102,10 @@ export const LogoutBtn = styled.button`
 
   @media screen and (max-width: 1439px) {
     display: none;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
   }
 `;

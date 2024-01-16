@@ -78,7 +78,7 @@ const UserMenu = () => {
         {/* <LogoutBtn type="button" onClick={handleLogOut}> */}
         <LogoutBtn type="button">
           <span>Logout</span>
-          <svg width="20px" height="20px">
+          <svg>
             <use href={`${sprite}#icon-log-out`}></use>
           </svg>
         </LogoutBtn>
