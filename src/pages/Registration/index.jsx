@@ -1,10 +1,9 @@
-import { Container } from 'components/styles/Container/Container';
-import FormRegistration from 'Forms/Authentication/FormRegistration';
+import FormRegistration from 'Forms/FormRegistration';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { registrationThunk } from '../../redux/auth/thunks';
 
-const SignUpPage = () => {
+const Registration = () => {
   const dispatch = useDispatch();
 
   const registration = async body => {
@@ -15,18 +14,14 @@ const SignUpPage = () => {
         position: 'top-center',
       });
     } catch (error) {
-      toast.error(error.message, {
+      toast.error('Email or password error', {
         duration: 3000,
         position: 'top-center',
       });
     }
   };
 
-  return (
-    <Container>
-      <FormRegistration registration={registration} />
-    </Container>
-  );
+  return <FormRegistration registration={registration} />;
 };
 
-export default SignUpPage;
+export default Registration;
