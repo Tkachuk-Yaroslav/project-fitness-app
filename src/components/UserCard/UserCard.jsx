@@ -16,7 +16,7 @@ import sprite from '../../images/sprite.svg';
 
 const UserCard = () => {
   return (
-    <>
+    <div>
       <WrapperUser>
         <WrapperAvatar>
           <svg
@@ -102,7 +102,7 @@ const UserCard = () => {
           </svg>
         </button>
       </ButtonWrapper>
-    </>
+    </div>
   );
 };
 export default UserCard;

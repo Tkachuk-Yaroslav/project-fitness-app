@@ -3,7 +3,7 @@ import { RadioInput, RadioLabel } from './CustomRadio.styled';
 
 const CustomRadio = ({ label, ...props }) => {
   const [field] = useField(props);
-  console.log(field);
+  // console.log(field);
   // console.log('meta', meta);
   return (
     <div>
