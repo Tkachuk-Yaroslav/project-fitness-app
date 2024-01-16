@@ -63,8 +63,8 @@ export const ProfileSvg = styled.svg`
 `;
 
 export const AvatarHeader = styled.div`
-  width: 46px;
-  height: 46px;
+  width: 37px;
+  height: 37px;
   border-radius: 50%;
   border: 1px solid var(--orange-color);
   display: flex;
@@ -72,7 +72,8 @@ export const AvatarHeader = styled.div`
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    //ДОПИСАТИ
+    width: 46px;
+    height: 46px;
   }
 `;
 
@@ -87,7 +88,7 @@ export const LogoutBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   padding: 10px;
 
   font-size: 16px;

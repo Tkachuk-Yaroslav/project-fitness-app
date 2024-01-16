@@ -1,53 +1,18 @@
-//to remove component here
 import sprite from '../../images/sprite.svg';
 import { HeaderTag, LogoLink, Svg, UserContainer } from './Header.styled';
 import UserMenu from 'components/UserMenu/UserMenu';
 import { MobileMenuBtn } from 'components/MobileMenuBtn/MobileMenuBtn';
-
-// const Header = () => {
-//   return (
-//     <HeaderTag>
-//       <Container>
-//         <HeaderContainer>
-//           <Nav>
-//             <List>
-//               <li>
-//                 <StyledLink to="/">
-//                   <Svg>
-//                     <use href={`${sprite}#icon-logo`}></use>
-//                   </Svg>
-//                 </StyledLink>
-//               </li>
-//               <li>
-//                 <StyledLink to="/profile">Profile Settings</StyledLink>
-//               </li>
-//               <li>
-//                 <StyledLink to="/diary">Diary</StyledLink>
-//               </li>
-//               <li>
-//                 <StyledLink to="/products">Products</StyledLink>
-//               </li>
-//               <li>
-//                 <StyledLink to="/exercises">Exercises</StyledLink>
-//               </li>
-//             </List>
-//           </Nav>
-//         </HeaderContainer>
-//       </Container>
-//     </HeaderTag>
-//   );
-// };
-
-//////////////////
+import { useState } from 'react';
+import MobileMenu from 'components/MobileMenu/MobileMenu';
 
 const Header = () => {
   //заглушка під редакс Саши
   const isLoggedIn = true;
 
-  //   const [isOpen, setIsOpen] = useState(false);
-  //   const onClickMenuBtn = () => {
-  //     setIsOpen({ isOpen: !isOpen });
-  //   };
+  const [isOpen, setIsOpen] = useState(false);
+  const onClickMenuBtn = () => {
+    setIsOpen({ isOpen: !isOpen });
+  };
   return (
     <HeaderTag
       style={
@@ -66,20 +31,11 @@ const Header = () => {
         {isLoggedIn && (
           <>
             <UserMenu />
-            <MobileMenuBtn />
-            <div>MobileMenu</div>
-            {/* <MobileMenuButton onClick={onClickMenuBtn} /> */}
-            {/* <MobileMenu isOpen={isOpen} /> */}
+            <MobileMenuBtn onClick={onClickMenuBtn} />
+            <MobileMenu isOpen={isOpen} />
           </>
         )}
       </UserContainer>
-      {/* <StyledLink to="/profile">Profile Settings</StyledLink>
-      
-      <StyledLink to="/diary">Diary</StyledLink>
-      
-      <StyledLink to="/products">Products</StyledLink>
-      
-      <StyledLink to="/exercises">Exercises</StyledLink> */}
     </HeaderTag>
   );
 };
