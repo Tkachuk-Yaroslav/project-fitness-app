@@ -3,6 +3,7 @@ import { WrapperUserForm } from './UserForm.styled';
 import userFormSchema from './schemas/userFormSchema';
 import CustomInput from './CustomInput';
 import CustomRadio from './CustomRadio';
+// import Calendar from 'components/Calendar/Calendar';
 
 const onSubmit = async (values, actions) => {
   console.log(values);
@@ -78,6 +79,7 @@ const UserForm = () => {
               type="number"
               placeholder="Enter your desired weight"
             />
+            {/* <Calendar /> */}
             <CustomInput label="birthday" name="birthday" type="date" />
             <div id="my-radio-group">Picked</div>
             <div role="group" aria-labelledby="my-radio-group">

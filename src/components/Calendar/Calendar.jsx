@@ -4,7 +4,6 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 import sprite from '../../images/sprite.svg';
 import { useState } from 'react';
-// import { InputField } from '../UserForm/UserForm.styled';
 
 const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);

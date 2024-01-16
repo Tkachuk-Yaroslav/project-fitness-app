@@ -8,6 +8,7 @@ import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
 import ProfilePage from 'pages/ProfilePage/ProfilePage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export const App = () => {
   return (
