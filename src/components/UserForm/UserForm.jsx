@@ -9,6 +9,8 @@ import userFormSchema from './schemas/userFormSchema';
 import CustomInput from './CustomInput';
 import CustomRadio from './CustomRadio';
 import { CustomLabelStyled, WrapperInput } from './CustomInput.styled';
+// import Calendar from 'components/Calendar/Calendar';
+
 
 const onSubmit = async (values, actions) => {
   await new Promise(resolve => setTimeout(resolve, 1000));
@@ -43,7 +45,6 @@ const UserForm = () => {
               type="email"
               placeholder="annarybachok@gmail.com"
             />
-
             <WrapperInput>
               <CustomInput
                 className="input-form"
@@ -63,6 +64,7 @@ const UserForm = () => {
                 name="desiredWeight"
                 type="number"
               />
+           {/* <Calendar /> */}
               <CustomInput
                 className="input-form"
                 label="Date of birth"
@@ -154,7 +156,6 @@ const UserForm = () => {
                 value="5"
               ></CustomRadio>
             </div>
-
             <button disabled={isSubmitting} type="submit">
               Save
             </button>
