@@ -1,3 +1,4 @@
+
 import React from 'react';
 import DayDashboard from 'components/DayDashboard/DayDashboard';
 import DayProducts from 'components/DayProducts/DayProducts';
@@ -13,6 +14,7 @@ const DiaryPage = () => {
         <DayExercises />
       </DiaryInfoContainer>
     </DiaryContainer>
+
   );
 };
 
