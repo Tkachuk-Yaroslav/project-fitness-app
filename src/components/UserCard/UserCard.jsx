@@ -15,7 +15,10 @@ import {
 import sprite from '../../images/sprite.svg';
 import { LogoutBtn } from 'components/UserMenu/UserMenu.styled';
 
-const UserCard = () => {
+const UserCard = ({ user }) => {
+  const { name } = user;
+  console.log(user);
+
   return (
     <div>
       <WrapperUser>
@@ -40,7 +43,7 @@ const UserCard = () => {
           </ButtonAddAvatar>
         </WrapperAvatar>
         <div>
-          <Title2>Anna Rybachok</Title2>
+          <Title2>{name ? name : ''}</Title2>
           <TextUser>User</TextUser>
         </div>
       </WrapperUser>
