@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-fitness-app/static/css/main.21576fdd.css",
-    "main.js": "/project-fitness-app/static/js/main.7413d837.js",
+    "main.js": "/project-fitness-app/static/js/main.ddf574c3.js",
     "static/js/661.ae31527a.chunk.js": "/project-fitness-app/static/js/661.ae31527a.chunk.js",
     "static/js/138.3cd17f4a.chunk.js": "/project-fitness-app/static/js/138.3cd17f4a.chunk.js",
     "static/js/63.4c145c8a.chunk.js": "/project-fitness-app/static/js/63.4c145c8a.chunk.js",
@@ -16,13 +16,13 @@
     "static/media/hero-tablet-1x.jpg": "/project-fitness-app/static/media/hero-tablet-1x.3f8d16726976f0b86306.jpg",
     "index.html": "/project-fitness-app/index.html",
     "main.21576fdd.css.map": "/project-fitness-app/static/css/main.21576fdd.css.map",
-    "main.7413d837.js.map": "/project-fitness-app/static/js/main.7413d837.js.map",
+    "main.ddf574c3.js.map": "/project-fitness-app/static/js/main.ddf574c3.js.map",
     "661.ae31527a.chunk.js.map": "/project-fitness-app/static/js/661.ae31527a.chunk.js.map",
     "138.3cd17f4a.chunk.js.map": "/project-fitness-app/static/js/138.3cd17f4a.chunk.js.map",
     "63.4c145c8a.chunk.js.map": "/project-fitness-app/static/js/63.4c145c8a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.21576fdd.css",
-    "static/js/main.7413d837.js"
+    "static/js/main.ddf574c3.js"
   ]
 }
