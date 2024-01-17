@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { refresh, logOut, setToken } from 'api/auth';
-import { signIn, signUp } from 'api/auth';
+import { signIn, signUp, refresh, logOut, setToken } from 'api/auth';
 
 export const registrationThunk = createAsyncThunk(
   'auth/registration',
@@ -26,29 +25,29 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
-// export const refreshThunk = createAsyncThunk(
-//   'auth/current',
-//   async (_, thunkAPI) => {
-//     const { token } = thunkAPI.getState().auth;
-//     if (!token) return thunkAPI.rejectWithValue('Token is missing');
-//     setToken(token);
+export const refreshThunk = createAsyncThunk(
+  'auth/current',
+  async (_, thunkAPI) => {
+    const { token } = thunkAPI.getState().auth;
+    if (!token) return thunkAPI.rejectWithValue('Token is missing');
+    setToken(token);
 
-//     try {
-//       const data = await refresh();
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.response.data);
-//     }
-//   }
-// );
+    try {
+      const data = await refresh();
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
 
-// export const logoutThunk = createAsyncThunk(
-//   'auth/logout',
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       await logOut();
-//     } catch (error) {
-//       return rejectWithValue(error.response.data);
-//     }
-//   }
-// );
+export const logoutThunk = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      await logOut();
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);

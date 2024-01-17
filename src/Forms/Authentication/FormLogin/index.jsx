@@ -101,7 +101,14 @@ const FormLogin = ({ login }) => {
               )}
             </div>
           </div>
-          <button type="submit" disabled={formik.isSubmitting}>
+          <button
+            type="submit"
+            disabled={
+              !formik.isValid ||
+              formik.isSubmitting ||
+              Object.keys(formik.touched).length === 0
+            }
+          >
             Sign In
           </button>
           <div className="navigate-cont">

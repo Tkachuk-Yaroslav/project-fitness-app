@@ -1,13 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { refreshThunk, logoutThunk } from './thunks';
-import { loginThunk, registrationThunk } from './thunks';
-// import { handleLogout, handleRefreshFul, handleRefreshRej } from './helpers';
-import { handleAuth } from './helpers';
+import {
+  refreshThunk,
+  logoutThunk,
+  loginThunk,
+  registrationThunk,
+} from './thunks';
+import {
+  handleLogout,
+  handleRefreshFul,
+  handleRefreshRej,
+  handleAuth,
+} from './helpers';
 
 const initialState = {
   token: '',
   user: null,
-  isRefreshing: true,
+  isLoggedIn: false,
 };
 
 export const authSlice = createSlice({
@@ -17,9 +25,9 @@ export const authSlice = createSlice({
     builder
       .addCase(registrationThunk.fulfilled, handleAuth)
       .addCase(loginThunk.fulfilled, handleAuth)
-      // .addCase(refreshThunk.fulfilled, handleRefreshFul)
-      // .addCase(refreshThunk.rejected, handleRefreshRej)
-      // .addCase(logoutThunk.fulfilled, handleLogout);
+      .addCase(refreshThunk.fulfilled, handleRefreshFul)
+      .addCase(refreshThunk.rejected, handleRefreshRej)
+      .addCase(logoutThunk.fulfilled, handleLogout);
   },
 });
 
