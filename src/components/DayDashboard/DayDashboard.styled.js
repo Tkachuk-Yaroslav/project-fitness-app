@@ -89,7 +89,7 @@ export const DashboardItems = styled.li`
   line-height: calc(16 / 12);
   && > h3 {
     color: ${props => {
-      if (props.titleColor === 'lighter') return 'rgba(239, 237, 232, 0.8)';
+      if (props.index === 1) return 'rgba(239, 237, 232, 0.8)';
       return 'rgba(239, 237, 232, 0.4)';
     }};
   }
