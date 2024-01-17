@@ -4,10 +4,12 @@ import DayProducts from 'components/DayProducts/DayProducts';
 import DayExercises from 'components/DayExercises/DayExercises';
 import { DiaryContainer, DiaryInfoContainer } from './DiaryPage.styled';
 import { Container } from 'components/styles/Container/Container';
+import Calendar from 'components/Calendar/Calendar';
 
 const DiaryPage = () => {
   return (
     <Container>
+      <Calendar />
       <DiaryContainer>
         <DayDashboard />
         <DiaryInfoContainer>
