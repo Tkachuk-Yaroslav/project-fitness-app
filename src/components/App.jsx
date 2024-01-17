@@ -20,6 +20,7 @@ import { refreshThunk } from '../redux/auth/thunks';
 import PrivateRoute from 'guards/PrivateRoute';
 import PublicRoute from 'guards/PublicRoute';
 import { selectorAppState } from '../redux/appState/selectors';
+import { Navigate } from 'react-router-dom/dist';
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
 const SignUpPage = lazy(() => import('pages/SignUpPage/SignUpPage'));
@@ -85,6 +86,7 @@ export const App = () => {
                 </PrivateRoute>
               }
             >
+              <Route index element={<Navigate to="body_parts" replace />} />
               <Route
                 path="body_parts"
                 element={

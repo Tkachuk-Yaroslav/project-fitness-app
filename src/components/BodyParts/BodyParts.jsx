@@ -1,15 +1,16 @@
-import { getExercisesBodyParts } from "api/ApiExercises";
+import { getExercisesAllFilter} from "api/ApiExercises";
 import { useEffect, useState } from "react";
 import { CardCategory, CardContainer, CardImg, CardName, CardText, CardsItems } from "./BodyParts.styled";
 import { NavLink } from "react-router-dom/dist";
 
 function BodyParts() {
+  const filter = "Body parts"
          const [listExercises, setExercises] = useState([])
             useEffect(() => {
                 const fetchExercisesBodyParts = async () => {
                   try {
-                    const data = await getExercisesBodyParts()
-                    setExercises(data)
+                    const data = await getExercisesAllFilter(filter)
+                    setExercises(data.result)
                     
                   } catch (error) {
                     console.log(error)
