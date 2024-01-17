@@ -1,10 +1,9 @@
-import { Container } from 'components/styles/Container/Container';
-import FormLogin from 'Forms/Authentication/FormLogin';
+import FormLogin from 'Forms/FormLogin';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { loginThunk } from '../../redux/auth/thunks';
 
-const SignInPage = () => {
+const Login = () => {
   const dispatch = useDispatch();
 
   const login = async body => {
@@ -15,18 +14,14 @@ const SignInPage = () => {
         position: 'top-center',
       });
     } catch (error) {
-      toast.error(error.message, {
+      toast.error('Email or password error', {
         duration: 3000,
         position: 'top-center',
       });
     }
   };
 
-  return (
-    <Container>
-      <FormLogin login={login} />
-    </Container>
-  );
+  return <FormLogin login={login} />;
 };
 
-export default SignInPage;
+export default Login;
