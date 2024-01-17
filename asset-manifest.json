@@ -1,17 +1,23 @@
 {
   "files": {
     "main.css": "/project-fitness-app/static/css/main.21576fdd.css",
-    "main.js": "/project-fitness-app/static/js/main.d0514fa0.js",
+    "main.js": "/project-fitness-app/static/js/main.f12bc02d.js",
+    "static/js/661.a0b014bd.chunk.js": "/project-fitness-app/static/js/661.a0b014bd.chunk.js",
+    "static/js/138.af60bc80.chunk.js": "/project-fitness-app/static/js/138.af60bc80.chunk.js",
+    "static/js/63.c01d116f.chunk.js": "/project-fitness-app/static/js/63.c01d116f.chunk.js",
     "static/media/Roboto-Medium.ttf": "/project-fitness-app/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/project-fitness-app/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Bold.ttf": "/project-fitness-app/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
     "static/media/sprite.svg": "/project-fitness-app/static/media/sprite.8a997191d1e42ac50d568a7ee783fb27.svg",
     "index.html": "/project-fitness-app/index.html",
     "main.21576fdd.css.map": "/project-fitness-app/static/css/main.21576fdd.css.map",
-    "main.d0514fa0.js.map": "/project-fitness-app/static/js/main.d0514fa0.js.map"
+    "main.f12bc02d.js.map": "/project-fitness-app/static/js/main.f12bc02d.js.map",
+    "661.a0b014bd.chunk.js.map": "/project-fitness-app/static/js/661.a0b014bd.chunk.js.map",
+    "138.af60bc80.chunk.js.map": "/project-fitness-app/static/js/138.af60bc80.chunk.js.map",
+    "63.c01d116f.chunk.js.map": "/project-fitness-app/static/js/63.c01d116f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.21576fdd.css",
-    "static/js/main.d0514fa0.js"
+    "static/js/main.f12bc02d.js"
   ]
 }
