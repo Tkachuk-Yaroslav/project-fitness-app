@@ -5,6 +5,12 @@ import ProductsPage from 'pages/ProductsPage/ProductsPage';
 import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
 import ProfilePage from 'pages/ProfilePage/ProfilePage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
+
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
+import BodyParts from './BodyParts/BodyParts';
+import Muscles from './Muscles/Muscles';
+import Equipment from './Equipment/Equipment';
+
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { lazy } from 'react';
@@ -29,6 +35,24 @@ export const App = () => {
   }, [dispatch]);
 
   return (
+
+    //<Routes>
+      //<Route path="/" element={<Layout />}>
+        //<Route index element={<WelcomePage />} />
+        //<Route path="signup" element={<SignUpPage />} />
+        //<Route path="signin" element={<SignInPage />} />
+        //<Route path="diary" element={<DiaryPage />} />
+        //<Route path="products" element={<ProductsPage />} />
+        //<Route path="exercises" element={<ExercisesPage />}>
+         // <Route path="body_parts" element={<BodyParts />} />
+          //<Route path="muscles" element={<Muscles />} />
+          //<Route path="equipment" element={<Equipment />} />
+        //</Route>
+        //<Route path="profile" element={<ProfilePage />} />
+        //<Route path="*" element={<ErrorPage />} />
+      //</Route>
+    //</Routes>*/
+
     <>
       {!isLoading ? (
         <Routes>
@@ -80,7 +104,11 @@ export const App = () => {
                   <ExercisesPage />
                 </PrivateRoute>
               }
-            />
+            >
+                <Route path="body_parts" element={<BodyParts />} />
+          <Route path="muscles" element={<Muscles />} />
+          <Route path="equipment" element={<Equipment />} />
+            </Route>
             <Route
               path="profile"
               element={
@@ -94,5 +122,6 @@ export const App = () => {
         </Routes>
       ) : <div>Loader</div>}
     </>
+
   );
 };
