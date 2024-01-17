@@ -1,4 +1,5 @@
 import {
+  ButtonAddAvatar,
   ButtonWrapper,
   TextInfoUser,
   TextItemUser,
@@ -12,10 +13,11 @@ import {
   WrapperUser,
 } from './UserCard.styled';
 import sprite from '../../images/sprite.svg';
+import { LogoutBtn } from 'components/UserMenu/UserMenu.styled';
 
 const UserCard = () => {
   return (
-    <>
+    <div>
       <WrapperUser>
         <WrapperAvatar>
           <svg
@@ -31,6 +33,11 @@ const UserCard = () => {
               fillOpacity="0.1"
             />
           </svg>
+          <ButtonAddAvatar>
+            <svg width={24} height={24}>
+              <use xlinkHref={`${sprite}#icon-add-avatar`} />
+            </svg>
+          </ButtonAddAvatar>
         </WrapperAvatar>
         <div>
           <Title2>Anna Rybachok</Title2>
@@ -70,33 +77,14 @@ const UserCard = () => {
         </TextInfoUser>
       </WrapperSVGText>
       <ButtonWrapper>
-        <button type="submit">
-          Logout
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-          >
-            <path
-              d="M7.5 2.5H6.5C5.09987 2.5 4.3998 2.5 3.86502 2.77248C3.39462 3.01217 3.01217 3.39462 2.77248 3.86502C2.5 4.3998 2.5 5.09987 2.5 6.5V13.5C2.5 14.9001 2.5 15.6002 2.77248 16.135C3.01217 16.6054 3.39462 16.9878 3.86502 17.2275C4.3998 17.5 5.09987 17.5 6.5 17.5H7.5"
-              stroke="#E6533C"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M13.3333 14.1666L17.5 9.99998M17.5 9.99998L13.3333 5.83331M17.5 9.99998H7.5"
-              stroke="#E6533C"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+        <LogoutBtn type="button">
+          <span>Logout</span>
+          <svg>
+            <use href={`${sprite}#icon-log-out`}></use>
           </svg>
-        </button>
+        </LogoutBtn>
       </ButtonWrapper>
-    </>
+    </div>
   );
 };
 export default UserCard;

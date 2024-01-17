@@ -9,6 +9,8 @@ export const WrapperUser = styled('div')({
   textAlign: 'center',
 });
 export const WrapperAvatar = styled('div')({
+  position: 'relative',
+
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -103,4 +105,18 @@ export const TextInfoUser = styled('p')({
 });
 export const ButtonWrapper = styled('div')({
   textAlign: 'end',
+});
+
+export const ButtonAddAvatar = styled('button')({
+  backgroundColor: 'transparent',
+  position: 'absolute',
+  bottom: '-20%',
+  '@media screen and (min-width: 768px)': {
+    bottom: '-15%',
+
+    svg: {
+      width: 32,
+      height: 32,
+    },
+  },
 });

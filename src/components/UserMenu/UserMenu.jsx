@@ -11,9 +11,14 @@ import {
 } from './UserMenu.styled';
 import { NavLink } from 'react-router-dom';
 import sprite from '../../images/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { logoutThunk } from '../../redux/auth/thunks';
 
 const UserMenu = () => {
-  // заглушки для бека і редакса
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => dispatch(logoutThunk());
+  // заглушки для бека
   const avatarUser = null;
 
   const user = {
@@ -76,9 +81,9 @@ const UserMenu = () => {
         </NavLink>
         <AvatarHeader>{user.avatarURL ? avatarUser : avatarLogo}</AvatarHeader>
         {/* <LogoutBtn type="button" onClick={handleLogOut}> */}
-        <LogoutBtn type="button">
+        <LogoutBtn type="button" onClick={handleLogOut}>
           <span>Logout</span>
-          <svg width="20" height="20">
+          <svg>
             <use href={`${sprite}#icon-log-out`}></use>
           </svg>
         </LogoutBtn>
