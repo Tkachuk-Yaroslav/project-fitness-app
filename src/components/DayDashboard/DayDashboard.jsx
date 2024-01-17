@@ -16,7 +16,7 @@ const DayDashboard = () => {
     <div>
       <DashboardSection>
         <DashboardList>
-          <DashboardItems titleColor={'lighter'}>
+          <DashboardItems index={1}>
             <DashboardTitle>
               <svg width={20} height={20}>
                 <use xlinkHref={`${sprite}#icon-fork-knife`} />
@@ -25,7 +25,7 @@ const DayDashboard = () => {
             </DashboardTitle>
             <DashboardData>2200</DashboardData>
           </DashboardItems>
-          <DashboardItems titleColor={'lighter'}>
+          <DashboardItems index={1}>
             <DashboardTitle>
               <svg width={20} height={20}>
                 <use xlinkHref={`${sprite}#icon-dumbbell`} />
