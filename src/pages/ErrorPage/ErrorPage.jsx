@@ -1,8 +1,8 @@
-import { Container } from 'components/styles/Container/Container';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../images/sprite.svg';
 import {
+  ContainerError,
   GoHomeBtn,
   Text404Container,
   Text404,
@@ -10,11 +10,12 @@ import {
   Page404Container,
   Svg,
   LogoLink,
+  BgImgContainer,
 } from './ErrorPage.styled';
 
 const ErrorPage = () => {
   return (
-    <Container>
+    <ContainerError>
       <Page404Container>
         <Text404Container>
           <LogoLink to="/">
@@ -34,8 +35,9 @@ const ErrorPage = () => {
             <Link to="/">Go Home</Link>
           </GoHomeBtn>
         </Text404Container>
+        <BgImgContainer></BgImgContainer>
       </Page404Container>
-    </Container>
+    </ContainerError>
   );
 };
 
