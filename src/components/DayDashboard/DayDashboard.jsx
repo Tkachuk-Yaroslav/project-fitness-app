@@ -6,42 +6,82 @@ import {
   DashboardTitle,
   DashboardData,
   DashboardText,
+  IconWrap,
+  DashboardTextContainer,
 } from './DayDashboard.styled';
+import sprite from '../../images/sprite.svg';
 
 const DayDashboard = () => {
   return (
     <div>
       <DashboardSection>
         <DashboardList>
-          <DashboardItems>
-            <DashboardTitle>Daily calorie intake</DashboardTitle>
+          <DashboardItems titleColor={'lighter'}>
+            <DashboardTitle>
+              <svg width={20} height={20}>
+                <use xlinkHref={`${sprite}#icon-fork-knife`} />
+              </svg>
+              Daily calorie intake
+            </DashboardTitle>
             <DashboardData>2200</DashboardData>
           </DashboardItems>
-          <DashboardItems>
-            <DashboardTitle>Daily physical activity</DashboardTitle>
+          <DashboardItems titleColor={'lighter'}>
+            <DashboardTitle>
+              <svg width={20} height={20}>
+                <use xlinkHref={`${sprite}#icon-dumbbell`} />
+              </svg>
+              Daily physical activity
+            </DashboardTitle>
             <DashboardData>110 min</DashboardData>
           </DashboardItems>
           <DashboardItems>
-            <DashboardTitle>Сalories consumed</DashboardTitle>
+            <DashboardTitle>
+              <svg width={20} height={20}>
+                <use xlinkHref={`${sprite}#icon-apple`} />
+              </svg>
+              Сalories consumed
+            </DashboardTitle>
             <DashboardData>707</DashboardData>
           </DashboardItems>
           <DashboardItems>
-            <DashboardTitle>Сalories burned</DashboardTitle>
+            <DashboardTitle>
+              <svg width={20} height={20}>
+                <use xlinkHref={`${sprite}#icon-fire`} />
+              </svg>
+              Сalories burned
+            </DashboardTitle>
             <DashboardData>855</DashboardData>
           </DashboardItems>
           <DashboardItems>
-            <DashboardTitle>Calories remaining</DashboardTitle>
+            <DashboardTitle>
+              <svg width={20} height={20}>
+                <use xlinkHref={`${sprite}#icon-bubble`} />
+              </svg>
+              Calories remaining
+            </DashboardTitle>
             <DashboardData>1493</DashboardData>
           </DashboardItems>
           <DashboardItems>
-            <DashboardTitle>Sports remaining</DashboardTitle>
+            <DashboardTitle>
+              <svg width={20} height={20}>
+                <use xlinkHref={`${sprite}#icon-running-figure`} />
+              </svg>
+              Sports remaining
+            </DashboardTitle>
             <DashboardData>85 min</DashboardData>
           </DashboardItems>
         </DashboardList>
-        <DashboardText>
-          Record all your meals in the calorie diary every day. This will help
-          you be aware of your nutrition and make informed choices.
-        </DashboardText>
+        <DashboardTextContainer>
+          <IconWrap>
+            <svg width={20} height={20}>
+              <use xlinkHref={`${sprite}#icon-attention`} />
+            </svg>
+          </IconWrap>
+          <DashboardText>
+            Record all your meals in the calorie diary every day. This will help
+            you be aware of your nutrition and make informed choices.
+          </DashboardText>
+        </DashboardTextContainer>
       </DashboardSection>
     </div>
   );

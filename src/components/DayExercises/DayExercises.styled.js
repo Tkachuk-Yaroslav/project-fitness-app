@@ -40,6 +40,9 @@ export const ExercisesTitle = styled.h3`
 `;
 
 export const ExercisesLink = styled(Link)`
+  display: flex;
+  gap: 8px;
+  align-items: center;
   color: var(--orange-color);
   font-size: 14px;
   font-weight: 500;
