@@ -4,10 +4,11 @@ import UserMenu from 'components/UserMenu/UserMenu';
 import { MobileMenuBtn } from 'components/MobileMenuBtn/MobileMenuBtn';
 import { useState } from 'react';
 import MobileMenu from 'components/MobileMenu/MobileMenu';
+import { useSelector } from 'react-redux';
+import { isLoggedInSelector } from '../../redux/auth/selectors';
 
 const Header = () => {
-  //заглушка під редакс Саши
-  const isLoggedIn = true;
+  const isLoggedIn = useSelector(isLoggedInSelector);
 
   const [isOpen, setIsOpen] = useState(false);
   const onClickMenuBtn = () => {
