@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 
 export const WelcomeCont = styled('div')(() => {
   return {
+    marginTop: '66px',
     '.line-body': {
       position: 'absolute',
       marginTop: '40px',
@@ -10,11 +11,11 @@ export const WelcomeCont = styled('div')(() => {
       height: '40px',
     },
     h1: {
+      fontFamily: 'RobotoMedium',
       fontWeight: 500,
       fontSize: '38px',
       lineHeight: 1.05,
       letterSpacing: '0.01em',
-      marginTop: '87px',
       marginBottom: '40px',
       position: 'relative',
       zIndex: '1',
@@ -53,6 +54,7 @@ export const WelcomeCont = styled('div')(() => {
       borderColor: 'var(--orange-color)',
     },
     '@media screen and (min-width: 768px)': {
+      marginTop: '105px',
       '.line-body': {
         marginTop: '84px',
         marginLeft: '-16px',
@@ -63,7 +65,6 @@ export const WelcomeCont = styled('div')(() => {
         fontSize: '70px',
         lineHeight: 1.12,
         letterSpacing: '0.01em',
-        marginTop: '149px',
         marginBottom: '64px',
       },
       button: {
@@ -76,9 +77,9 @@ export const WelcomeCont = styled('div')(() => {
       },
     },
     '@media screen and (min-width: 1440px)': {
+      marginTop: '116px',
       h1: {
         width: '598px',
-        marginTop: '160px',
       },
     },
   };

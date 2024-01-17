@@ -14,9 +14,9 @@ import { Toaster } from 'react-hot-toast';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/project-fitness-app">
-      <GlobalStyle />
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
+          <GlobalStyle />
           <App />
           {/* <Error /> */}
           <Toaster />

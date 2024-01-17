@@ -2,11 +2,11 @@ import { styled } from 'styled-components';
 
 export const AuthCont = styled('div')(() => {
   return {
+    marginTop: '66px',
     h1: {
       fontWeight: '700',
       fontSize: '24px',
       lineHeight: 1.17,
-      marginTop: '87px',
       marginBottom: '14px',
     },
     '.main-descr': {
@@ -28,6 +28,7 @@ export const AuthCont = styled('div')(() => {
       color: 'var(--white-color)',
       textIndent: '14px',
       outline: 'none',
+      paddingTop: '2px',
       transition: 'border-color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
       '&:hover, &:focus': {
         borderColor: 'var(--orange-color)',
@@ -47,6 +48,7 @@ export const AuthCont = styled('div')(() => {
     },
     '.notify-cont': {
       display: 'flex',
+      alignItems: 'center',
       gap: '4px',
       marginTop: '4px',
     },
@@ -90,10 +92,10 @@ export const AuthCont = styled('div')(() => {
       textDecoration: 'underline',
     },
     '@media screen and (min-width: 768px)': {
+      marginTop: '105px',
       h1: {
         fontSize: '32px',
         lineHeight: 1.375,
-        marginTop: '149px',
         marginBottom: '16px',
       },
       '.main-descr': {
@@ -122,9 +124,7 @@ export const AuthCont = styled('div')(() => {
       },
     },
     '@media screen and (min-width: 1440px)': {
-      h1: {
-        marginTop: '160px',
-      },
+      marginTop: '116px',
     },
   };
 });

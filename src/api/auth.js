@@ -7,9 +7,9 @@ export const setToken = token => {
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
 
-// const deleteToken = () => {
-//   delete axios.defaults.headers.common['Authorization'];
-// };
+const deleteToken = () => {
+  delete axios.defaults.headers.common['Authorization'];
+};
 
 export async function signUp(body) {
   // const { data } = await axios.post(`users/signup`, body);
@@ -24,12 +24,12 @@ export async function signIn(body) {
   return data;
 }
 
-// export async function refresh() {
-//   const { data } = await axios.get(`users/current`);
-//   return data;
-// }
+export async function refresh() {
+  const { data } = await axios.get(`users/current`);
+  return data;
+}
 
-// export async function logOut() {
-//   await axios.post(`users/logout`);
-//   deleteToken();
-// }
+export async function logOut() {
+  await axios.post(`users/logout`);
+  deleteToken();
+}

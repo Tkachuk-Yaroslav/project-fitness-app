@@ -139,7 +139,14 @@ const FormRegistration = ({ registration }) => {
               )}
             </div>
           </div>
-          <button type="submit" disabled={formik.isSubmitting}>
+          <button
+            type="submit"
+            disabled={
+              !formik.isValid ||
+              formik.isSubmitting ||
+              Object.keys(formik.touched).length === 0
+            }
+          >
             Sign Up
           </button>
           <div className="navigate-cont">
