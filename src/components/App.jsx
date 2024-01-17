@@ -6,7 +6,6 @@ import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
 import ProfilePage from 'pages/ProfilePage/ProfilePage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
 
-import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import BodyParts from './BodyParts/BodyParts';
 import Muscles from './Muscles/Muscles';
 import Equipment from './Equipment/Equipment';
@@ -25,7 +24,6 @@ const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
 const SignUpPage = lazy(() => import('pages/SignUpPage/SignUpPage'));
 
-
 export const App = () => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector(selectorAppState);
@@ -35,24 +33,6 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-
-    //<Routes>
-      //<Route path="/" element={<Layout />}>
-        //<Route index element={<WelcomePage />} />
-        //<Route path="signup" element={<SignUpPage />} />
-        //<Route path="signin" element={<SignInPage />} />
-        //<Route path="diary" element={<DiaryPage />} />
-        //<Route path="products" element={<ProductsPage />} />
-        //<Route path="exercises" element={<ExercisesPage />}>
-         // <Route path="body_parts" element={<BodyParts />} />
-          //<Route path="muscles" element={<Muscles />} />
-          //<Route path="equipment" element={<Equipment />} />
-        //</Route>
-        //<Route path="profile" element={<ProfilePage />} />
-        //<Route path="*" element={<ErrorPage />} />
-      //</Route>
-    //</Routes>*/
-
     <>
       {!isLoading ? (
         <Routes>
@@ -105,9 +85,30 @@ export const App = () => {
                 </PrivateRoute>
               }
             >
-                <Route path="body_parts" element={<BodyParts />} />
-          <Route path="muscles" element={<Muscles />} />
-          <Route path="equipment" element={<Equipment />} />
+              <Route
+                path="body_parts"
+                element={
+                  <PrivateRoute>
+                    <BodyParts />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="muscles"
+                element={
+                  <PrivateRoute>
+                    <Muscles />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="equipment"
+                element={
+                  <PrivateRoute>
+                    <Equipment />
+                  </PrivateRoute>
+                }
+              />
             </Route>
             <Route
               path="profile"
@@ -120,8 +121,9 @@ export const App = () => {
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
-      ) : <div>Loader</div>}
+      ) : (
+        <div>Loader</div>
+      )}
     </>
-
   );
 };
