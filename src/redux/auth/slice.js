@@ -14,7 +14,19 @@ import {
 
 const initialState = {
   token: '',
-  user: null,
+  user: {},
+  // result: {
+  //   name: '',
+  //   email: '',
+  //   birthday: '',
+  //   blood: '',
+  //   bmr: '',
+  //   currentWeight: '',
+  //   desiredWeight: '',
+  //   height: '',
+  //   levelActivity: '',
+  //   sex: '',
+  // },
   isLoggedIn: false,
 };
 
