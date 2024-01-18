@@ -1,11 +1,12 @@
 export const handleAuth = (state, { payload }) => {
   state.token = payload.token;
-  state.user = payload.user;
+  state.user = { ...state.user, ...payload.user };
   state.isLoggedIn = true;
 };
 
 export const handleRefreshFul = (state, { payload }) => {
-  state.user = payload;
+  console.log(payload.result, 'uidcbubcd');
+  state.user = { ...state.user, ...payload };
   state.isLoggedIn = true;
 };
 

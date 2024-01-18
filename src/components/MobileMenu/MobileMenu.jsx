@@ -10,8 +10,8 @@ import {
   LogoutSvg,
 } from './MobileMenu.styled';
 import sprite from '../../images/sprite.svg';
-// import { useDispatch } from 'react-redux';
-// import { logOut } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { logoutThunk } from '../../redux/auth/thunks';
 
 const MobileMenu = ({ isOpen }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
@@ -58,11 +58,11 @@ const MobileMenu = ({ isOpen }) => {
   useEffect(() => {
     setMenuIsOpen(isOpen);
   }, [isOpen]);
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleLogOut = () => {
     closeMenu();
-    // dispatch(logOut());
+    dispatch(logoutThunk());
   };
   return (
     <>

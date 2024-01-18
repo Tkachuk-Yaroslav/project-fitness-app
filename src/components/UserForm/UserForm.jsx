@@ -10,27 +10,42 @@ import userFormSchema from './schemas/userFormSchema';
 import CustomInput from './CustomInput';
 import CustomRadio from './CustomRadio';
 import { CustomLabelStyled, WrapperInput } from './CustomInput.styled';
+import { useSelector } from 'react-redux';
 // import Calendar from 'components/Calendar/Calendar';
 
 const onSubmit = async (values, actions) => {
   await new Promise(resolve => setTimeout(resolve, 1000));
   actions.resetForm();
-  console.log(values);
+  // console.log(values);
 };
 const UserForm = () => {
+  const user = useSelector(state => state.auth.user.result);
+  console.log(user, 'USER');
+  const {
+    name,
+    email,
+    height,
+    currentWeight,
+    desiredWeight,
+    birthday,
+    blood,
+    sex,
+    levelActivity,
+  } = user;
+
   return (
     <WrapperUserForm>
       <Formik
         initialValues={{
-          name: '',
-          email: '',
-          height: '',
-          currentWeight: '',
-          desiredWeight: '',
-          birthday: '',
-          blood: '',
-          sex: '',
-          levelActivity: '',
+          name,
+          email,
+          height: height ? height : 0,
+          currentWeight: currentWeight ? currentWeight : 0,
+          desiredWeight: desiredWeight ? desiredWeight : 0,
+          birthday: birthday ? birthday : '',
+          blood: blood ? blood : '',
+          sex: sex ? sex : '',
+          levelActivity: levelActivity ? levelActivity : '',
         }}
         validationSchema={userFormSchema}
         onSubmit={onSubmit}
@@ -39,6 +54,7 @@ const UserForm = () => {
           <FormStyled autoComplete="off">
             <CustomInput label="Name" name="name" type="text" />
             <CustomInput
+              className="disabled"
               disabled
               label="Email"
               name="email"
@@ -112,13 +128,13 @@ const UserForm = () => {
                     label="Male"
                     type="radio"
                     name="sex"
-                    value="Male"
+                    value="male"
                   ></CustomRadio>
                   <CustomRadio
                     label="Female"
                     type="radio"
                     name="sex"
-                    value="Female"
+                    value="female"
                   ></CustomRadio>
                 </WrapperForBloodAndSex>
               </div>

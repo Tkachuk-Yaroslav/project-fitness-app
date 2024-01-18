@@ -1,16 +1,38 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import heroMobile1 from '../../images/hero-mobile-1x.jpg';
+import heroMobile2 from '../../images/hero-mobile-2x.jpg';
+import heroTablet1 from '../../images/hero-tablet-1x.jpg';
+import heroTablet2 from '../../images/hero-tablet-2x.jpg';
+import hero1 from '../../images/hero-1x.jpg';
+import hero2 from '../../images/hero-2x.jpg';
+
+export const ContainerError = styled.div`
+  width: 100%;
+  margin: 0 auto;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
+`;
+
 export const Page404Container = styled.div`
-  background-color: var(--black-color);
-  background-image: linear-gradient(
-      rgba(46, 47, 66, 0.7),
-      rgba(46, 47, 66, 0.7)
-    ),
-    url('/images/side-view-people-training-gym.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right bottom;
+  width: 100%;
+  display: flex;
+  margin-top: -61px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: -84px;
+  }
 `;
 
 export const LogoLink = styled(Link)`
@@ -98,5 +120,36 @@ export const GoHomeBtn = styled.button`
     padding: 16px 60px;
     font-size: 20px;
     line-height: 1.2;
+  }
+`;
+
+export const BgImgContainer = styled.div`
+  /* width: 135px; */
+  width: 100%;
+  background-image: url(${heroMobile1});
+  background-image: -webkit-image-set(
+    url(${heroMobile1}) 1x,
+    url(${heroMobile2}) 2x
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @media screen and (min-width: 375px) {
+    width: 135px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 348px;
+    background-image: -webkit-image-set(
+      url(${heroTablet1}) 1x,
+      url(${heroTablet2}) 2x
+    );
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 772px;
+    height: 800px;
+    background-image: -webkit-image-set(url(${hero1}) 1x, url(${hero2}) 2x);
   }
 `;

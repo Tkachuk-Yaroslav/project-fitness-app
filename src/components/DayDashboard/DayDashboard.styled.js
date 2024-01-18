@@ -47,6 +47,33 @@ export const DashboardList = styled.ul`
   }
 `;
 
+// export const DashboardItems = styled.li`
+//   /* position: relative; */
+//   width: 165px;
+//   height: 96px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   border-radius: 12px;
+//   border: 1px solid rgba(239, 237, 232, 0.2);
+//   background-color: rgba(239, 237, 232, 0.05);
+//   padding: 14px;
+//   font-size: 12px;
+//   line-height: calc(16 / 12);
+//   && > h3 {
+//       color: ${props => {
+//         if (props.index === 0 || props.index === 1)
+//           return 'rgba(239, 237, 232, 0.8)';
+//         if (props.index === 2) return 'rgba(239, 237, 232, 0.4)';
+//       }};
+//   /* flex-basis: calc((100% - 1 * 45px) / 2); */
+//   @media screen and (min-width: 768px) {
+//     flex-basis: auto;
+//     width: 187px;
+//     height: 116px;
+//     padding: 18px;
+//   };
+// `;
 export const DashboardItems = styled.li`
   /* position: relative; */
   width: 165px;
@@ -60,7 +87,13 @@ export const DashboardItems = styled.li`
   padding: 14px;
   font-size: 12px;
   line-height: calc(16 / 12);
-  /* flex-basis: calc((100% - 1 * 45px) / 2); */
+  && > h3 {
+    color: ${props => {
+      if (props.index === 1) return 'rgba(239, 237, 232, 0.8)';
+      return 'rgba(239, 237, 232, 0.4)';
+    }};
+  }
+
   @media screen and (min-width: 768px) {
     flex-basis: auto;
     width: 187px;
@@ -70,7 +103,10 @@ export const DashboardItems = styled.li`
 `;
 
 export const DashboardTitle = styled.h3`
-  color: rgba(239, 237, 232, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  /* color: rgba(239, 237, 232, 0.4); */
   font-size: 12px;
   font-weight: 400;
   line-height: calc(16 / 12);
@@ -90,7 +126,14 @@ export const DashboardData = styled.p`
   }
 `;
 
+export const DashboardTextContainer = styled.div`
+  display: flex;
+  gap: 8px;
+`;
+
 export const DashboardText = styled.p`
+  display: flex;
+  max-width: 300px;
   color: rgba(239, 237, 232, 0.3);
   font-size: 14px;
   font-weight: 400;
@@ -98,8 +141,20 @@ export const DashboardText = styled.p`
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: calc(24 / 16);
+    max-width: 558px;
   }
   @media screen and (min-width: 1440px) {
-    width: 390px;
+    width: 358px;
   }
+`;
+
+export const IconWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--beige-color);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--beige-color);
 `;

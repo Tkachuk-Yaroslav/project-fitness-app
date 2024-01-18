@@ -1,5 +1,10 @@
 import { Route, Routes } from 'react-router';
 import Layout from './Layout/Layout';
+
+import BodyParts from './BodyParts/BodyParts';
+import Muscles from './Muscles/Muscles';
+import Equipment from './Equipment/Equipment';
+
 import 'react-datepicker/dist/react-datepicker.css';
 import { lazy } from 'react';
 import { useEffect } from 'react';
@@ -80,7 +85,32 @@ export const App = () => {
                 <ExercisesPage />
               </PrivateRoute>
             }
-          />
+          >
+            <Route
+              path="body_parts"
+              element={
+                <PrivateRoute>
+                  <BodyParts />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="muscles"
+              element={
+                <PrivateRoute>
+                  <Muscles />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="equipment"
+              element={
+                <PrivateRoute>
+                  <Equipment />
+                </PrivateRoute>
+              }
+            />
+          </Route>
           <Route
             path="profile"
             element={

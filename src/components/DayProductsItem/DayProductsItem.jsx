@@ -6,7 +6,10 @@ import {
   ProductsItem,
   ProductsTitle,
   ProductsData,
+  TrashBtn,
+  IndicatorIcon,
 } from './DayProductsItem.styled';
+import sprite from '../../images/sprite.svg';
 
 const DayProductsItem = () => {
   return (
@@ -30,9 +33,17 @@ const DayProductsItem = () => {
         </ProductsItem>
         <ProductsItem index={4}>
           <ProductsTitle>Recommend</ProductsTitle>
-          <ProductsData>Yes</ProductsData>
+          <ProductsData>
+            <IndicatorIcon />
+            Yes
+          </ProductsData>
         </ProductsItem>
       </ProductsList>
+      <TrashBtn>
+        <svg width={20} height={20}>
+          <use xlinkHref={`${sprite}#icon-trash`} />
+        </svg>
+      </TrashBtn>
     </ProductsContainer>
   );
 };

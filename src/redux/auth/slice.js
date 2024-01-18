@@ -5,16 +5,24 @@ import {
   loginThunk,
   registrationThunk,
 } from './thunks';
-import {
-  handleLogout,
-  handleRefreshFul,
-  handleRefreshRej,
-  handleAuth,
-} from './helpers';
+import { handleRefreshFul, handleRefreshRej, handleAuth } from './helpers';
 
 const initialState = {
   token: '',
-  user: null,
+
+  user: {
+    result: {
+      name: null,
+      email: null,
+      height: 160,
+      currentWeight: 60,
+      desiredWeight: 55,
+      birthday: '08.01.1987',
+      blood: 1,
+      sex: 'male',
+      levelActivity: 2,
+    },
+  },
   isLoggedIn: false,
 };
 
@@ -27,7 +35,11 @@ export const authSlice = createSlice({
       .addCase(loginThunk.fulfilled, handleAuth)
       .addCase(refreshThunk.fulfilled, handleRefreshFul)
       .addCase(refreshThunk.rejected, handleRefreshRej)
-      .addCase(logoutThunk.fulfilled, handleLogout);
+      .addCase(logoutThunk.fulfilled, state => {
+        state.user = initialState.user;
+        state.token = null;
+        state.isLoggedIn = false;
+      });
   },
 });
 

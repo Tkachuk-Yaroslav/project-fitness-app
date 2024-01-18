@@ -13,7 +13,7 @@ export const CustomLabelStyled = styled('label')({
 });
 
 export const CustomInputStyled = styled('input')({
-  color: '#EFEDE8',
+  color: 'var(--white-color)',
 
   fontSize: 14,
   lineHeight: 1.286,
@@ -22,6 +22,9 @@ export const CustomInputStyled = styled('input')({
   border: '1px solid rgba(239, 237, 232, 0.30)',
   backgroundColor: 'inherit',
   outline: 'none',
+  '&.disabled': {
+    color: 'rgba(239, 237, 232, 0.60)',
+  },
   '&.input-form': {
     width: 160,
   },

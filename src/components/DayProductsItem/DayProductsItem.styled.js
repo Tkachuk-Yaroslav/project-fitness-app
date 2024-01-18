@@ -2,6 +2,7 @@ import styled from 'styled-components';
 export const ProductsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   /* color: white; */
   /* margin-bottom: 40px; */
 `;
@@ -12,7 +13,7 @@ export const ProductsList = styled.ul`
   gap: 16px;
   :nth-child(1),
   :nth-child(2) {
-    grid-column: span 3;
+    grid-column: span 5;
   }
   @media screen and (min-width: 768px) {
     display: flex;
@@ -34,6 +35,13 @@ export const ProductsList = styled.ul`
 `;
 
 export const ProductsItem = styled.li`
+  && > p {
+    width: ${props => {
+      if (props.index === 3) return '80px';
+      if (props.index === 4) return '80px';
+      if (props.index === 5) return '76px';
+    }};
+  }
   @media screen and (min-width: 768px) {
     && > p {
       width: ${props => {
@@ -72,6 +80,9 @@ export const ProductsTitle = styled.h4`
 `;
 
 export const ProductsData = styled.p`
+  display: flex;
+  gap: 8px;
+  align-items: center;
   padding: 10px 14px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -85,4 +96,26 @@ export const ProductsData = styled.p`
   /* @media screen and (min-width: 768px) {
     display: ${props => (props.displayed ? 'none' : 'block')};
   }  */
+`;
+
+export const IndicatorIcon = styled.div`
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--success-color);
+`;
+
+export const TrashBtn = styled.button`
+  background-color: transparent;
+  position: absolute;
+  top: 198px;
+  right: 0px;
+  @media screen and (min-width: 768px) {
+    top: 34px;
+    right: 8px;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 34px;
+    right: 20px;
+  }
 `;

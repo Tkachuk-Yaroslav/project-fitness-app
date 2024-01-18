@@ -6,7 +6,9 @@ import {
   ProductsItem,
   ProductsTitle,
   ProductsData,
+  TrashBtn,
 } from './DayExercisesItem.styled';
+import sprite from '../../images/sprite.svg';
 
 const DayExercisesItem = () => {
   return (
@@ -37,6 +39,11 @@ const DayExercisesItem = () => {
           <ProductsData>Yes</ProductsData>
         </ProductsItem>
       </ProductsList>
+      <TrashBtn>
+        <svg width={20} height={20}>
+          <use xlinkHref={`${sprite}#icon-trash`} />
+        </svg>
+      </TrashBtn>
     </ProductsContainer>
   );
 };
