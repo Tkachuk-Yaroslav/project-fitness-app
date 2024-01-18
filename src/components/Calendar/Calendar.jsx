@@ -11,13 +11,10 @@ const Calendar = ({ name = '' }) => {
   const { value } = meta;
   const { setValue } = helpers;
 
-  console.log(name);
   // const [selectedDate, setSelectedDate] = useState(null);
   const handleDateChange = date => {
     setValue(date);
-    console.log(date);
   };
-  console.log(value);
 
   return (
     <>
