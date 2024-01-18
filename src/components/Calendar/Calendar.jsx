@@ -3,15 +3,21 @@ import { CalendarGlobalStyles, IconSvg, InputField } from './Calendar.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 import sprite from '../../images/sprite.svg';
-import { useState } from 'react';
+// import { useState } from 'react';
+import { useField } from 'formik';
 
-const Calendar = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
+const Calendar = ({ name = '' }) => {
+  const [field, meta, helpers] = useField(name);
+  const { value } = meta;
+  const { setValue } = helpers;
+
+  console.log(name);
+  // const [selectedDate, setSelectedDate] = useState(null);
   const handleDateChange = date => {
-    setSelectedDate(date);
+    setValue(date);
     console.log(date);
   };
-  //   console.log(selectedDate);
+  console.log(value);
 
   return (
     <>
@@ -21,13 +27,14 @@ const Calendar = () => {
         </IconSvg>
 
         <DatePicker
-          selected={selectedDate}
+          {...field}
+          selected={value}
           onChange={handleDateChange}
           customInput={<InputField style={{ cursor: 'pointer' }} />}
           dateFormat={'dd/MM/yyyy'}
           calendarStartDay={1}
           formatWeekDay={day => day.substring(0, 1)}
-          placeholderText={selectedDate === null ? 'Birthday' : null}
+          placeholderText={value === null ? 'Birthday' : null}
         />
 
         <CalendarGlobalStyles />
