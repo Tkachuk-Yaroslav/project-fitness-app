@@ -10,6 +10,7 @@ import userFormSchema from './schemas/userFormSchema';
 import CustomInput from './CustomInput';
 import CustomRadio from './CustomRadio';
 import { CustomLabelStyled, WrapperInput } from './CustomInput.styled';
+import { useSelector } from 'react-redux';
 // import Calendar from 'components/Calendar/Calendar';
 
 const onSubmit = async (values, actions) => {
@@ -17,7 +18,9 @@ const onSubmit = async (values, actions) => {
   actions.resetForm();
   // console.log(values);
 };
-const UserForm = ({ user }) => {
+const UserForm = () => {
+  const user = useSelector(state => state.auth.user.result);
+  console.log(user, 'USER');
   const {
     name,
     email,
@@ -29,7 +32,7 @@ const UserForm = ({ user }) => {
     sex,
     levelActivity,
   } = user;
-  // console.log(user);
+
   return (
     <WrapperUserForm>
       <Formik
