@@ -14,13 +14,13 @@ export const TrainingBgWrapperCont = styled.div`
     content: '';
     position: fixed;
     top: 0;
-    left: 50%;
-    /* left: 100%; */
+    /* left: 50%; */
+    left: 100%;
     width: 446px;
     height: 669px;
     background-image: url(${imagePathMob});
-    transform: translate(-110.5px, 241px);
-    /* transform: translate(-298px, 241px); */
+    /* transform: translate(-110.5px, 241px); */
+    transform: translate(-298px, 241px);
     background-size: 446px 669px;
     z-index: -10;
   }
@@ -31,8 +31,8 @@ export const TrainingBgWrapperCont = styled.div`
   }
   &.page404 {
     &::before {
-      transform: translate(-80.5px, 241px);
-      /* transform: translate(-268px, 241px); */
+      /* transform: translate(-80.5px, 241px); */
+      transform: translate(-268px, 241px);
     }
   }
   @media (min-device-pixel-ratio: 2),
@@ -54,8 +54,8 @@ export const TrainingBgWrapperCont = styled.div`
       width: 670px;
       height: 1005px;
       background-image: url(${imagePathDesktopAndTablet});
-      transform: translate(-53px, 131px);
-      /* transform: translate(-437px, 131px); */
+      /* transform: translate(-53px, 131px); */
+      transform: translate(-437px, 131px);
       background-size: 670px 1005px;
     }
     &.pageSign {
@@ -65,8 +65,8 @@ export const TrainingBgWrapperCont = styled.div`
     }
     &.page404 {
       &::before {
-        transform: translate(-53px, 131px);
-        /* transform: translate(-437px, 131px); */
+        /* transform: translate(-53px, 131px); */
+        transform: translate(-437px, 131px);
       }
     }
     @media (min-device-pixel-ratio: 2),
@@ -82,13 +82,13 @@ export const TrainingBgWrapperCont = styled.div`
   @media screen and (min-width: 1440px) {
     &::before {
       background-image: url(${imagePathDesktopAndTablet});
-      transform: translate(50px, -152px);
-      /* transform: translate(-670px, -152px); */
+      /* transform: translate(50px, -152px); */
+      transform: translate(-670px, -152px);
     }
     &.page404 {
       &::before {
-        transform: translate(50px, -152px);
-        /* transform: translate(-670px, -152px); */
+        /* transform: translate(50px, -152px); */
+        transform: translate(-670px, -152px);
       }
     }
     @media (min-device-pixel-ratio: 2),
