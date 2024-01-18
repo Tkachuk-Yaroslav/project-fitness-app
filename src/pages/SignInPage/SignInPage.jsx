@@ -3,6 +3,7 @@ import FormLogin from 'Forms/Authentication/FormLogin';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { loginThunk } from '../../redux/auth/thunks';
+import { TrainingBgWrapperCont } from 'components/TrainingBgWrapper/TrainingBgWrapper.styled';
 
 const SignInPage = () => {
   const dispatch = useDispatch();
@@ -23,9 +24,11 @@ const SignInPage = () => {
   };
 
   return (
-    <Container>
-      <FormLogin login={login} />
-    </Container>
+    <TrainingBgWrapperCont className="pageSign">
+      <Container>
+        <FormLogin login={login} />
+      </Container>
+    </TrainingBgWrapperCont>
   );
 };
 

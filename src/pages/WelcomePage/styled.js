@@ -9,16 +9,14 @@ export const WelcomeCont = styled('div')(() => {
       marginLeft: '-9px',
       width: '98px',
       height: '40px',
+      zIndex: '-1',
     },
     h1: {
       fontFamily: 'RobotoMedium',
-      fontWeight: 500,
       fontSize: '38px',
       lineHeight: 1.05,
       letterSpacing: '0.01em',
       marginBottom: '40px',
-      position: 'relative',
-      zIndex: '1',
     },
     button: {
       fontSize: '16px',

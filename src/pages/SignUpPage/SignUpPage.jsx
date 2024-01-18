@@ -3,6 +3,7 @@ import FormRegistration from 'Forms/Authentication/FormRegistration';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { registrationThunk } from '../../redux/auth/thunks';
+import { TrainingBgWrapperCont } from 'components/TrainingBgWrapper/TrainingBgWrapper.styled';
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
@@ -23,9 +24,11 @@ const SignUpPage = () => {
   };
 
   return (
-    <Container>
-      <FormRegistration registration={registration} />
-    </Container>
+    <TrainingBgWrapperCont className="pageSign">
+      <Container>
+        <FormRegistration registration={registration} />
+      </Container>
+    </TrainingBgWrapperCont>
   );
 };
 
