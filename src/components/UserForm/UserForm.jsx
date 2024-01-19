@@ -14,13 +14,13 @@ import { useSelector } from 'react-redux';
 // import Calendar from 'components/Calendar/Calendar';
 
 const onSubmit = async (values, actions) => {
+  console.log('values', values);
   await new Promise(resolve => setTimeout(resolve, 1000));
   actions.resetForm();
-  // console.log(values);
 };
 const UserForm = () => {
-  const user = useSelector(state => state.auth.user.result);
-  console.log(user, 'USER');
+  const { user } = useSelector(state => state.auth);
+  // console.log(user, 'USERForm');
   const {
     name,
     email,
@@ -50,12 +50,12 @@ const UserForm = () => {
         validationSchema={userFormSchema}
         onSubmit={onSubmit}
       >
-        {({ isSubmitting }) => (
+        {() => (
           <FormStyled autoComplete="off">
             <CustomInput label="Name" name="name" type="text" />
             <CustomInput
               className="disabled"
-              disabled
+              // disabled
               label="Email"
               name="email"
               type="email"
@@ -80,13 +80,7 @@ const UserForm = () => {
                 name="desiredWeight"
                 type="number"
               />
-              {/* <Calendar /> */}
-              <CustomInput
-                className="input-form"
-                label="Date of birth"
-                name="birthday"
-                type="date"
-              />
+              {/* <Calendar name="birthday" /> */}
             </WrapperInput>
             <WrapperRadio>
               <div id="radio-blood">
@@ -176,9 +170,7 @@ const UserForm = () => {
                 value="5"
               ></CustomRadio>
             </div>
-            <ButtonSave disabled={isSubmitting} type="submit">
-              Save
-            </ButtonSave>
+            <ButtonSave type="submit">Save</ButtonSave>
           </FormStyled>
         )}
       </Formik>

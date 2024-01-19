@@ -11,17 +11,16 @@ const initialState = {
   token: '',
 
   user: {
-    result: {
-      name: null,
-      email: null,
-      height: 160,
-      currentWeight: 60,
-      desiredWeight: 55,
-      birthday: '08.01.1987',
-      blood: 1,
-      sex: 'male',
-      levelActivity: 2,
-    },
+    name: '',
+    email: '',
+    height: '',
+    currentWeight: '',
+    desiredWeight: '',
+    birthday: '',
+    blood: '',
+    sex: '',
+    levelActivity: '',
+    bmr: '',
   },
   isLoggedIn: false,
 };
