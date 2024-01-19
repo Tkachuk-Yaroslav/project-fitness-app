@@ -58,7 +58,7 @@ const ExerciseItem = ({ exercise, openModal }) => {
         <H3>{capitalizeFirstLetter(exercise.name)}</H3>
       </IconTitleDiv>
 
-      <ListInfo as="div">
+      <ListInfo className="div">
         <p>
           {texts.list.burnedCalories}
           <SpanListInfo className="SpanListInfo">

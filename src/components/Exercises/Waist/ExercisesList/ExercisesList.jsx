@@ -60,6 +60,7 @@ const ExercisesList = ({ filter }) => {
           {allExercises.slice(0, 50).map((exercise, index) => {
             return (
               <ExerciseItem
+                className="ExerciseItemt"
                 key={index}
                 exercise={exercise}
                 openModal={openModal}

@@ -1,20 +1,28 @@
 import styled from 'styled-components';
 
 export const ContainerWaist = styled.div`
-  margin: 0 auto;
+  /* margin: 0 auto; */
 `;
 export const ContainerPage = styled.div`
   /* width: 335px;  */
-  display: flex;
-  align-items: center;
 
-  justify-content: center;
-  gap: 17px;
   @media screen and (min-width: 768px) {
     max-height: 726px;
   }
   @media screen and (min-width: 1440px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 343px; // ????
+    gap: 17px;
+    justify-content: center;
     max-height: 487px;
+    align-items: center;
+    /* max-height: 487px;
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+    gap: 17px; */
   }
 `;
 
@@ -28,7 +36,7 @@ export const ContainerWrapper = styled.div`
     /* margin: 0 auto; */
     grid-template-columns: 335px 335px;
     width: 702px;
-    max-height: 726px;
+    height: 750px;
     gap: 32px 16px;
     overflow-y: auto;
     overflow-x: hidden; /* Hide horizontal scrollbar */
@@ -61,7 +69,8 @@ export const ContainerWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     grid-template-columns: 405px 405px;
     width: 848px;
-    max-height: 487px;
+    /* max-height: 500px; */
+    height: 500px;
     overflow-y: auto;
     overflow-x: hidden; /* Hide horizontal scrollbar */
     margin: 0;
@@ -100,6 +109,6 @@ export const ImgWaist = styled.img`
     height: 902px; */
     /* margin-top: -100px; */
     display: block;
-    z-index: -2;
+    z-index: -100;
   }
 `;
