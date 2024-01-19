@@ -25,29 +25,32 @@
 import { Container } from 'components/styles/Container/Container';
 import { WelcomeCont } from './styled';
 import sprite from '../../images/sprite.svg';
+import { TrainingBgWrapperCont } from 'components/TrainingBgWrapper/TrainingBgWrapper.styled';
 
 const { useNavigate } = require('react-router-dom');
 
 const WelcomePage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
-    <Container>
-      <WelcomeCont>
-        <svg className="line-body">
-          <use className='line-sca' href={`${sprite}#icon-line`} />
-        </svg>
-        <h1>Transforming your body shape with Power Pulse</h1>
-        <div className="buttons">
-          <button className="signup" onClick={() => navigate('/signup')}>
-            Sign Up
-          </button>
-          <button className="signin" onClick={() => navigate('/signin')}>
-            Sign In
-          </button>
-        </div>
-      </WelcomeCont>
-    </Container>
+    <TrainingBgWrapperCont>
+      <Container>
+        <WelcomeCont>
+          <svg className="line-body">
+            <use className="line-sca" href={`${sprite}#icon-line`} />
+          </svg>
+          <h1>Transforming your body shape with Power Pulse</h1>
+          <div className="buttons">
+            <button className="signup" onClick={() => navigate('/signup')}>
+              Sign Up
+            </button>
+            <button className="signin" onClick={() => navigate('/signin')}>
+              Sign In
+            </button>
+          </div>
+        </WelcomeCont>
+      </Container>
+    </TrainingBgWrapperCont>
   );
-}
+};
 
-export default WelcomePage
+export default WelcomePage;

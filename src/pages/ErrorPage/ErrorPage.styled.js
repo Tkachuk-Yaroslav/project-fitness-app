@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import heroMobile1 from '../../images/hero-mobile-1x.jpg';
-import heroMobile2 from '../../images/hero-mobile-2x.jpg';
-import heroTablet1 from '../../images/hero-tablet-1x.jpg';
-import heroTablet2 from '../../images/hero-tablet-2x.jpg';
-import hero1 from '../../images/hero-1x.jpg';
-import hero2 from '../../images/hero-2x.jpg';
+// import heroMobile1 from '../../images/hero-mobile-1x.jpg';
+// import heroMobile2 from '../../images/hero-mobile-2x.jpg';
+// import heroTablet1 from '../../images/hero-tablet-1x.jpg';
+// import heroTablet2 from '../../images/hero-tablet-2x.jpg';
+// import hero1 from '../../images/hero-1x.jpg';
+// import hero2 from '../../images/hero-2x.jpg';
 
 export const ContainerError = styled.div`
   width: 100%;
@@ -123,33 +123,33 @@ export const GoHomeBtn = styled.button`
   }
 `;
 
-export const BgImgContainer = styled.div`
-  /* width: 135px; */
-  width: 100%;
-  background-image: url(${heroMobile1});
-  background-image: -webkit-image-set(
-    url(${heroMobile1}) 1x,
-    url(${heroMobile2}) 2x
-  );
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+// export const BgImgContainer = styled.div`
+//   /* width: 135px; */
+//   width: 100%;
+//   background-image: url(${heroMobile1});
+//   background-image: -webkit-image-set(
+//     url(${heroMobile1}) 1x,
+//     url(${heroMobile2}) 2x
+//   );
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
 
-  @media screen and (min-width: 375px) {
-    width: 135px;
-  }
+//   @media screen and (min-width: 375px) {
+//     width: 135px;
+//   }
 
-  @media screen and (min-width: 768px) {
-    width: 348px;
-    background-image: -webkit-image-set(
-      url(${heroTablet1}) 1x,
-      url(${heroTablet2}) 2x
-    );
-  }
+//   @media screen and (min-width: 768px) {
+//     width: 348px;
+//     background-image: -webkit-image-set(
+//       url(${heroTablet1}) 1x,
+//       url(${heroTablet2}) 2x
+//     );
+//   }
 
-  @media screen and (min-width: 1440px) {
-    width: 772px;
-    height: 800px;
-    background-image: -webkit-image-set(url(${hero1}) 1x, url(${hero2}) 2x);
-  }
-`;
+//   @media screen and (min-width: 1440px) {
+//     width: 772px;
+//     height: 800px;
+//     background-image: -webkit-image-set(url(${hero1}) 1x, url(${hero2}) 2x);
+//   }
+// `;
