@@ -25,7 +25,7 @@ function BodyParts() {
   return (
     <CardContainer>
     {listExercises.map(({ _id, filter, name, imgURL }) => (
-    <ExercisesSubcategoriesItem _id={_id} filter={filter} name={name} imgURL={imgURL}/>
+    <ExercisesSubcategoriesItem key={_id} filter={filter} name={name} imgURL={imgURL}/>
     ))}
       
     </CardContainer>
