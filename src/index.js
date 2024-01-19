@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { persistor, store } from './redux/store';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
-// import Loader from 'components/Loader';
+// import Loader from 'components/Loader/Loader';
 import { Toaster } from 'react-hot-toast';
 // import Error from 'components/Error';
 
