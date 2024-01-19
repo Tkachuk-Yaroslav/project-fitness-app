@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ExerciseItem from "../ExercisesItem/ExercisesItem";
+import ExerciseItem from "components/Exercises/Waist/ExercisesItem/ExercisesItem";
 
 import ModalWaist from "../../ModalWaist/ModalWaist";
 import Modal from "react-modal"; // Import Modal from react-modal
-import { Container } from "components/styles/Container/Container";
+// import { Container } from "components/styles/Container/Container";
 // import images from "../waist-1x.jpg";
-import waist1x from "../waist-1x.jpg";
-import waist2x from "../waist-2x.jpg";
+import waist1x from "../../../../images/waist-1x.jpg";
+import waist2x from "../../../../images/waist-2x.jpg";
 import {
   ContainerPage,
   ContainerWaist,
   ContainerWrapper,
   ImgWaist,
-} from "./ExercisesList.styled";
-import { getAllExercises } from "api/ApiExercises";
+} from "../ExercisesList/ExercisesList.styled";
+import { getAllExercises } from "../../../../api/ApiExercises";
 // Set the app element (root element of your application)
 
 // const filter = `Body parts`;

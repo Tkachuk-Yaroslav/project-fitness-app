@@ -22,6 +22,6 @@ export const getAllExercises = async (filter, category) => {
   const { data } = await axios(`exercises/exercises`, {
     params: { filter: `${filter}`, category: `${category}` },
   });
-  // console.log('getAllExercises =', data);
+  console.log("getAllExercises =", data);
   return data;
 };

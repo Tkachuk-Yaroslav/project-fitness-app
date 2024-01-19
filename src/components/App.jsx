@@ -98,7 +98,11 @@ export const App = () => {
             />
             <Route
               path="body_parts/:body_parts"
-              element={<ExercisesList filter="Body parts" />}
+              element={
+                <PrivateRoute>
+                  <ExercisesList filter="Body parts" />
+                </PrivateRoute>
+              }
             />
             <Route
               path="muscles"
@@ -110,7 +114,11 @@ export const App = () => {
             />
             <Route
               path="muscles/:muscles"
-              element={<ExercisesList filter="Muscles" />}
+              element={
+                <PrivateRoute>
+                  <ExercisesList filter="Muscles" />
+                </PrivateRoute>
+              }
             />
             <Route
               path="equipment"
@@ -122,19 +130,24 @@ export const App = () => {
             />
             <Route
               path="equipment/:equipmentId"
-              element={<ExercisesList filter="Equipment" />}
+              element={
+                <PrivateRoute>
+                  <ExercisesList filter="Equipment" />
+                </PrivateRoute>
+              }
             />
           </Route>
-          <Route
-            path="profile"
-            element={
-              <PrivateRoute>
-                <ProfilePage />
-              </PrivateRoute>
-            }
-          />
-          <Route path="*" element={<ErrorPage />} />
         </Route>
+        <Route
+          path="profile"
+          element={
+            <PrivateRoute>
+              <ProfilePage />
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<ErrorPage />} />
+        {/* </Route> */}
       </Routes>
     </>
   );

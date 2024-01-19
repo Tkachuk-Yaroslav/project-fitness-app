@@ -10,11 +10,11 @@ import {
   SpanIconRun,
   SpanListInfo,
   SvgIconRun,
-} from "../ExercisesItem/ExercisesItem.styled";
+  SvgExercise,
+} from "components/Exercises/Waist/ExercisesItem/ExercisesItem.styled";
 import sprite from "../sprite.svg";
-import { SvgExercise } from "../ExercisesItem/ExercisesItem.styled";
 
-import { Container } from "components/styles/Container/Container";
+// import { Container } from "components/styles/Container/Container";
 const texts = {
   cardLabel: "WORKOUT",
   btnLabel: "Start",
