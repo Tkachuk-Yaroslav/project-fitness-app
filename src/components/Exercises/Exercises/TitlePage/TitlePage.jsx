@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonBack, SvgExercise } from "./TitlePage.styled";
+import { ButtonBack, SvgExercise, TitleDiv } from "./TitlePage.styled";
 import { TitleH1Styled } from "components/TitlePage/TitlePage.styled";
 import { Link, useLocation, useParams } from "react-router-dom";
 import sprite from "../../Waist/sprite.svg";
@@ -24,28 +24,26 @@ const TitlePage = () => {
   return (
     <>
       {capitalizedBodyParts || capitalizedMuscles || capitalizedEquipmentId ? (
-        <div>
-          <Link className="css_GoBack" to={location.state.from}>
-            <ButtonBack type="button">
-              <span>
-                <SvgExercise>
-                  <use href={`${sprite}#icon-arrow-left-gray`}></use>
-                </SvgExercise>
-              </span>
-              Back
-            </ButtonBack>
-          </Link>
-        </div>
+        <Link className="css_GoBack" to={location.state.from}>
+          <ButtonBack type="button">
+            <span>
+              <SvgExercise>
+                <use href={`${sprite}#icon-arrow-left-gray`}></use>
+              </SvgExercise>
+            </span>
+            Back
+          </ButtonBack>
+        </Link>
       ) : null}
 
-      <div>
+      <TitleDiv>
         <TitleH1Styled>
           {capitalizedBodyParts ||
             capitalizedMuscles ||
             capitalizedEquipmentId ||
             "Exercises"}
         </TitleH1Styled>
-      </div>
+      </TitleDiv>
     </>
   );
 };

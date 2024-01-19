@@ -6,6 +6,8 @@ import styled from 'styled-components';
 // `;
 
 export const ButtonBack = styled.button`
+  position: absolute;
+  top: 71px;
   display: flex;
   font-size: 14px;
   font-weight: 400;
@@ -29,6 +31,7 @@ export const ButtonBack = styled.button`
     color: var(--white-color);
   }
   @media screen and (min-width: 768px) {
+    top: 116px;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -49,4 +52,8 @@ export const SvgExercise = styled.svg`
     font-weight: 400;
     line-height: 1.5; /* 150% */
   }
+`;
+
+export const TitleDiv = styled.div`
+  position: relative;
 `;

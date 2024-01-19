@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ContainerWaist = styled.div`
-  /* margin: 0 auto; */
+  margin-top: 48px;
 `;
 export const ContainerPage = styled.div`
   /* width: 335px;  */

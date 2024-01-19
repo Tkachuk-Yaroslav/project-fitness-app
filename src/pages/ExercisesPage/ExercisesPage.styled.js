@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom/dist"
-import styled from "styled-components"
+import { NavLink } from 'react-router-dom/dist';
+import styled from 'styled-components';
 
 export const CategoriesList = styled.ul`
   display: flex;
@@ -15,23 +15,24 @@ export const CategoriesList = styled.ul`
 `;
 
 export const ContainerWrapper = styled.div`
-display: flex;
+  display: flex;
   flex-direction: column;
   padding-top: 40px;
 
   @media screen and (min-width: 768px) {
+    margin-left: -288px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding-top: 72px;
   }
-`
+`;
 export const ListElement = styled.li`
-align-items: center;
-`
+  align-items: center;
+`;
 export const LinkStyled = styled(NavLink)`
-position: relative;
+  position: relative;
   display: block;
   color: rgba(239, 237, 232, 0.4);
 
@@ -50,4 +51,4 @@ position: relative;
       border-radius: 2px;
     }
   }
-`
+`;
