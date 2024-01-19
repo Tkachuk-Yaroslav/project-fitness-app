@@ -104,7 +104,8 @@ export const TextInfoUser = styled('p')({
   },
 });
 export const ButtonWrapper = styled('div')({
-  textAlign: 'end',
+  display: 'flex',
+  justifyContent: 'flex-end',
 });
 
 export const ButtonAddAvatar = styled('button')({

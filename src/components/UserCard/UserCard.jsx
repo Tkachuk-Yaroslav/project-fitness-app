@@ -14,10 +14,16 @@ import {
 } from './UserCard.styled';
 import sprite from '../../images/sprite.svg';
 import { LogoutBtn } from 'components/UserMenu/UserMenu.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutThunk } from '../../redux/auth/thunks';
 
-const UserCard = ({ user }) => {
-  const { name } = user;
-  console.log(user);
+const UserCard = () => {
+  const dispatch = useDispatch();
+  const handleLogOut = () => dispatch(logoutThunk());
+
+  const result = useSelector(state => state.auth.user);
+
+  // console.log(result);
 
   return (
     <div>
@@ -43,7 +49,7 @@ const UserCard = ({ user }) => {
           </ButtonAddAvatar>
         </WrapperAvatar>
         <div>
-          <Title2>{name ? name : ''}</Title2>
+          <Title2>{result.name}</Title2>
           <TextUser>User</TextUser>
         </div>
       </WrapperUser>
@@ -80,7 +86,11 @@ const UserCard = ({ user }) => {
         </TextInfoUser>
       </WrapperSVGText>
       <ButtonWrapper>
-        <LogoutBtn type="button">
+        <LogoutBtn
+          style={{ display: 'flex' }}
+          type="button"
+          onClick={handleLogOut}
+        >
           <span>Logout</span>
           <svg>
             <use href={`${sprite}#icon-log-out`}></use>
