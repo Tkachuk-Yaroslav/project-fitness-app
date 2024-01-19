@@ -22,7 +22,7 @@ const Header = () => {
           : { borderBottom: 'none' }
       }
     >
-      <LogoLink to="/">
+      <LogoLink to="/" aria-label="Power Pulse website logo">
         <Svg>
           <use href={`${sprite}#icon-logo`}></use>
         </Svg>
