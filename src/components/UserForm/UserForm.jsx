@@ -1,4 +1,4 @@
-import { Field, Formik } from 'formik';
+import { Formik } from 'formik';
 import {
   ButtonSave,
   FormStyled,
@@ -11,7 +11,7 @@ import CustomInput from './CustomInput';
 import CustomRadio from './CustomRadio';
 import { CustomLabelStyled, WrapperInput } from './CustomInput.styled';
 import { useSelector } from 'react-redux';
-import Calendar from 'components/Calendar/Calendar';
+// import Calendar from 'components/Calendar/Calendar';
 
 const onSubmit = async (values, actions) => {
   console.log('values', values);
