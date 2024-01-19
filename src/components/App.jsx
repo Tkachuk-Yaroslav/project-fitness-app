@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router';
+import { Route, Routes, Navigate } from 'react-router';
 import Layout from './Layout/Layout';
 import DiaryPage from 'pages/DiaryPage/DiaryPage';
 import ProductsPage from 'pages/ProductsPage/ProductsPage';
@@ -85,6 +85,7 @@ export const App = () => {
                 </PrivateRoute>
               }
             >
+              <Route index element={<Navigate to="body_parts" replace />} />
               <Route
                 path="body_parts"
                 element={
