@@ -47,6 +47,7 @@ const UserMenu = () => {
           }
           onClick={() => handleActivePage('diary')}
           to="/diary"
+          aria-label="Click to go to the Diary page"
         >
           Diary
         </StyledNavLink>
@@ -58,6 +59,7 @@ const UserMenu = () => {
           }
           onClick={() => handleActivePage('products')}
           to="/products"
+          aria-label="Click to go to the Products page"
         >
           Products
         </StyledNavLink>
@@ -69,19 +71,24 @@ const UserMenu = () => {
           }
           onClick={() => handleActivePage('exercises')}
           to="/exercises"
+          aria-label="Click to go to the Exercises page"
         >
           Exercises
         </StyledNavLink>
       </Nav>
       <UserData>
-        <NavLink to={'/profile'}>
+        <NavLink to={'/profile'} aria-label="Click to go to the Profile page">
           <ProfileSvg>
             <use href={`${sprite}#icon-settings`}></use>
           </ProfileSvg>
         </NavLink>
         <AvatarHeader>{user.avatarURL ? avatarUser : avatarLogo}</AvatarHeader>
         {/* <LogoutBtn type="button" onClick={handleLogOut}> */}
-        <LogoutBtn type="button" onClick={handleLogOut}>
+        <LogoutBtn
+          type="button"
+          onClick={handleLogOut}
+          aria-label="LOGOUT button. Click to exit"
+        >
           <span>Logout</span>
           <svg>
             <use href={`${sprite}#icon-log-out`}></use>
