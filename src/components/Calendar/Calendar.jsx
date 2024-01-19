@@ -25,7 +25,7 @@ const Calendar = ({ name = '' }) => {
 
         <DatePicker
           {...field}
-          selected={value}
+          selected={Date.parse(value)}
           onChange={handleDateChange}
           customInput={<InputField style={{ cursor: 'pointer' }} />}
           dateFormat={'dd/MM/yyyy'}
