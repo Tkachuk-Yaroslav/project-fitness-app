@@ -4,20 +4,20 @@ export const AuthCont = styled('div')(() => {
   return {
     marginTop: '66px',
     h1: {
-      fontWeight: '700',
+      fontFamily: 'RobotoBold',
       fontSize: '24px',
       lineHeight: 1.17,
       marginBottom: '14px',
     },
     '.main-descr': {
-      fontWeight: '400',
+      fontFamily: 'RobotoRegular',
       fontSize: '14px',
       lineHeight: 1.29,
       marginBottom: '28px',
       opacity: '0.3',
     },
     input: {
-      fontWeight: '400',
+      fontFamily: 'RobotoRegular',
       fontSize: '14px',
       lineHeight: 1.29,
       width: '100%',
@@ -26,7 +26,7 @@ export const AuthCont = styled('div')(() => {
       borderRadius: '12px',
       backgroundColor: 'transparent',
       color: 'var(--white-color)',
-      textIndent: '14px',
+      textIndent: '12px',
       outline: 'none',
       paddingTop: '2px',
       transition: 'border-color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
@@ -53,7 +53,7 @@ export const AuthCont = styled('div')(() => {
       marginTop: '4px',
     },
     '.notify-descr': {
-      fontWeight: '400',
+      fontFamily: 'RobotoRegular',
       fontSize: '12px',
       letterSpacing: '0.01em',
     },

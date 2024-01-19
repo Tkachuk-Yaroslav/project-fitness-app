@@ -17,7 +17,7 @@ export const Nav = styled.nav`
   align-items: center;
   gap: 8px;
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1439px) {
     display: none;
   }
 `;

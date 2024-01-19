@@ -1,8 +1,8 @@
 import { getExercisesMuscles } from 'api/ApiExercises';
 
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom/dist';
-import { CardCategory, CardContainer, CardImg, CardName, CardText, CardsItems } from './Muscles.styled';
+import {  CardContainer } from './Muscles.styled';
+import ExercisesSubcategoriesItem from 'components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 
 function Muscles() {
   const [MusclesExercises, setExercises] = useState([])
@@ -10,7 +10,7 @@ function Muscles() {
       const fetchExercisesMuscles = async () => {
         try {
           const data = await getExercisesMuscles()
-          setExercises(data)
+          setExercises(data.result)
           
         } catch (error) {
           console.log(error)
@@ -23,17 +23,7 @@ function Muscles() {
   
       <CardContainer>
       {MusclesExercises.map(({ _id, filter, name, imgURL }) => (
-      <NavLink>
-        <ul>
-          <CardsItems key={_id}>
-            <CardImg src={imgURL} alt="exercises" />
-            <CardText>
-            <CardName>{name.charAt(0).toUpperCase() + name.slice(1)}</CardName>
-              <CardCategory>{filter}</CardCategory>
-            </CardText>
-          </CardsItems>
-        </ul>
-      </NavLink>))}
+      <ExercisesSubcategoriesItem _id={_id} filter={filter} name={name} imgURL={imgURL}/>))}
       
     </CardContainer>
     
