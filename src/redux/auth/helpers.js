@@ -5,8 +5,8 @@ export const handleAuth = (state, { payload }) => {
 };
 
 export const handleRefreshFul = (state, { payload }) => {
-  console.log(payload.result, 'uidcbubcd');
-  state.user = { ...state.user, ...payload };
+  console.log(payload, 'uidcbubcd');
+  state.user = { ...payload };
   state.isLoggedIn = true;
 };
 
