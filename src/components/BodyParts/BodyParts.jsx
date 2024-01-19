@@ -1,15 +1,18 @@
 import { getExercisesBodyParts } from "api/ApiExercises";
 import { useEffect, useState } from "react";
-import { CardCategory, CardContainer, CardImg, CardName, CardText, CardsItems } from "./BodyParts.styled";
-import { NavLink } from "react-router-dom/dist";
+import { CardContainer} from "./BodyParts.styled";
+import ExercisesSubcategoriesItem from "components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem";
+import { useSelector } from "react-redux";
 
 function BodyParts() {
+  const state = useSelector(state => state)
+  console.log('state', state)
          const [listExercises, setExercises] = useState([])
             useEffect(() => {
                 const fetchExercisesBodyParts = async () => {
                   try {
                     const data = await getExercisesBodyParts()
-                    setExercises(data)
+                    setExercises(data.result)
                     
                   } catch (error) {
                     console.log(error)
@@ -22,17 +25,8 @@ function BodyParts() {
   return (
     <CardContainer>
     {listExercises.map(({ _id, filter, name, imgURL }) => (
-      <NavLink>
-        <ul>
-          <CardsItems key={_id}>
-            <CardImg src={imgURL} alt="exercises" />
-            <CardText>
-            <CardName>{name.charAt(0).toUpperCase() + name.slice(1)}</CardName>
-              <CardCategory>{filter}</CardCategory>
-            </CardText>
-          </CardsItems>
-        </ul>
-      </NavLink>))}
+    <ExercisesSubcategoriesItem _id={_id} filter={filter} name={name} imgURL={imgURL}/>
+    ))}
       
     </CardContainer>
   )
