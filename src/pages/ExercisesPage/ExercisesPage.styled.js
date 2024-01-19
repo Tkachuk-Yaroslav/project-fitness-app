@@ -20,7 +20,6 @@ export const ContainerWrapper = styled.div`
   padding-top: 40px;
 
   @media screen and (min-width: 768px) {
-    margin-left: -288px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

@@ -1,10 +1,10 @@
 import React from "react";
-import { ButtonBack, SvgExercise, TitleDiv } from "./TitlePage.styled";
+import { TitleDiv } from "./TitlePage.styled";
 import { TitleH1Styled } from "components/TitlePage/TitlePage.styled";
-import { Link, useLocation, useParams } from "react-router-dom";
-import sprite from "../../Waist/sprite.svg";
+import { useParams } from "react-router-dom";
+
 const TitlePage = () => {
-  const location = useLocation();
+  // const location = useLocation();
   const { body_parts } = useParams();
   console.log("paramsbody_parts=", body_parts);
   const { equipmentId } = useParams();
@@ -23,19 +23,6 @@ const TitlePage = () => {
 
   return (
     <>
-      {capitalizedBodyParts || capitalizedMuscles || capitalizedEquipmentId ? (
-        <Link className="css_GoBack" to={location.state.from}>
-          <ButtonBack type="button">
-            <span>
-              <SvgExercise>
-                <use href={`${sprite}#icon-arrow-left-gray`}></use>
-              </SvgExercise>
-            </span>
-            Back
-          </ButtonBack>
-        </Link>
-      ) : null}
-
       <TitleDiv>
         <TitleH1Styled>
           {capitalizedBodyParts ||

@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import ExerciseItem from "components/Exercises/Waist/ExercisesItem/ExercisesItem";
 
 import ModalWaist from "../../ModalWaist/ModalWaist";
 import Modal from "react-modal"; // Import Modal from react-modal
-// import { Container } from "components/styles/Container/Container";
-// import images from "../waist-1x.jpg";
+
 import waist1x from "../../../../images/waist-1x.jpg";
 import waist2x from "../../../../images/waist-2x.jpg";
 import {
+  ButtonBack,
   ContainerPage,
   ContainerWaist,
   ContainerWrapper,
   ImgWaist,
 } from "../ExercisesList/ExercisesList.styled";
 import { getAllExercises } from "../../../../api/ApiExercises";
-// Set the app element (root element of your application)
+import { SvgExercise } from "../ExercisesItem/ExercisesItem.styled";
 
-// const filter = `Body parts`;
-// const filter = `Equipment`;
-// const filter = `Body parts`;
+import sprite from "../../../../images/sprite.svg";
 
 Modal.setAppElement("#root");
 
@@ -48,6 +46,23 @@ const ExercisesList = ({ filter }) => {
     }
   };
 
+  const location = useLocation();
+
+  console.log("paramsbody_parts=", body_parts);
+
+  console.log("paramsequipmentId=", equipmentId);
+
+  console.log("paramsmuscles=", muscles);
+  const capitalizedBodyParts = body_parts
+    ? body_parts.slice(0, 1).toUpperCase() + body_parts.slice(1)
+    : "";
+  const capitalizedEquipmentId = equipmentId
+    ? equipmentId.slice(0, 1).toUpperCase() + equipmentId.slice(1)
+    : "";
+  const capitalizedMuscles = muscles
+    ? muscles.slice(0, 1).toUpperCase() + muscles.slice(1)
+    : "";
+
   useEffect(() => {
     fetchAllExercises();
     // eslint-disable-next-line
@@ -66,13 +81,25 @@ const ExercisesList = ({ filter }) => {
                 openModal={openModal}
               />
             );
-            // }
-            // return null;
           })}
+
+          {capitalizedBodyParts ||
+          capitalizedMuscles ||
+          capitalizedEquipmentId ? (
+            <Link className="css_GoBack" to={location.state.from}>
+              <ButtonBack type="button">
+                <span>
+                  <SvgExercise>
+                    <use href={`${sprite}#icon-arrow-left-gray`}></use>
+                  </SvgExercise>
+                </span>
+                Back
+              </ButtonBack>
+            </Link>
+          ) : null}
 
           <ModalWaist isOpen={modalIsOpen} closeModal={closeModal} />
         </ContainerWrapper>
-        {/* <ImgWaist src={images} alt="image" /> */}
         <ImgWaist srcSet={`${waist1x} 1x, ${waist2x} 2x`} alt="image" />
       </ContainerPage>
     </ContainerWaist>

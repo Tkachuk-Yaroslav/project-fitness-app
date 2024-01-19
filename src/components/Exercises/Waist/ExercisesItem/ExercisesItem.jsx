@@ -12,9 +12,8 @@ import {
   SvgIconRun,
   SvgExercise,
 } from "components/Exercises/Waist/ExercisesItem/ExercisesItem.styled";
-import sprite from "../sprite.svg";
+import sprite from "../../../../images/sprite.svg";
 
-// import { Container } from "components/styles/Container/Container";
 const texts = {
   cardLabel: "WORKOUT",
   btnLabel: "Start",
@@ -31,7 +30,6 @@ const capitalizeFirstLetter = (string) => {
 
 const ExerciseItem = ({ exercise, openModal }) => {
   return (
-    // <Container>
     <ContainerWrapper className="ContainerWrapperItem">
       <NavDiv className="NavDiv">
         <CardLabel className="CardLabel ">{texts.cardLabel}</CardLabel>
@@ -77,7 +75,6 @@ const ExerciseItem = ({ exercise, openModal }) => {
         </p>
       </ListInfo>
     </ContainerWrapper>
-    // </Container>
   );
 };
 
