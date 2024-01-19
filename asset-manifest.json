@@ -1,28 +1,29 @@
 {
   "files": {
     "main.css": "/project-fitness-app/static/css/main.21576fdd.css",
-    "main.js": "/project-fitness-app/static/js/main.9d978110.js",
-    "static/js/661.ae31527a.chunk.js": "/project-fitness-app/static/js/661.ae31527a.chunk.js",
-    "static/js/138.3cd17f4a.chunk.js": "/project-fitness-app/static/js/138.3cd17f4a.chunk.js",
-    "static/js/63.4c145c8a.chunk.js": "/project-fitness-app/static/js/63.4c145c8a.chunk.js",
+    "main.js": "/project-fitness-app/static/js/main.ec8ac5d5.js",
+    "static/js/661.60f8fce2.chunk.js": "/project-fitness-app/static/js/661.60f8fce2.chunk.js",
+    "static/js/138.cc4afd28.chunk.js": "/project-fitness-app/static/js/138.cc4afd28.chunk.js",
+    "static/js/63.8d2f5dbb.chunk.js": "/project-fitness-app/static/js/63.8d2f5dbb.chunk.js",
+    "static/media/training-bg-tab-desk-2x.png": "/project-fitness-app/static/media/training-bg-tab-desk-2x.8623a1fa2a2fbe2e58ef.png",
+    "static/media/training-bg-mob-2x.png": "/project-fitness-app/static/media/training-bg-mob-2x.1ae52cb9d3848ee48f38.png",
+    "static/media/training-bg-mob-dark-2x.png": "/project-fitness-app/static/media/training-bg-mob-dark-2x.ba46f84e6ed4979b34f9.png",
+    "static/media/training-bg-tab-desk.png": "/project-fitness-app/static/media/training-bg-tab-desk.b8d14238f966d5b04404.png",
+    "static/media/training-bg-mob.png": "/project-fitness-app/static/media/training-bg-mob.c50c398dd76964dbc360.png",
+    "static/media/training-bg-mob-dark.png": "/project-fitness-app/static/media/training-bg-mob-dark.5dcced133b9b69160a47.png",
     "static/media/Roboto-Medium.ttf": "/project-fitness-app/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/project-fitness-app/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Bold.ttf": "/project-fitness-app/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
     "static/media/sprite.svg": "/project-fitness-app/static/media/sprite.8a997191d1e42ac50d568a7ee783fb27.svg",
-    "static/media/hero-2x.jpg": "/project-fitness-app/static/media/hero-2x.0c21d751decf12fd2ebd.jpg",
-    "static/media/hero-tablet-2x.jpg": "/project-fitness-app/static/media/hero-tablet-2x.fdc54f336c5b444ca190.jpg",
-    "static/media/hero-1x.jpg": "/project-fitness-app/static/media/hero-1x.c9acaca7a7639e509259.jpg",
-    "static/media/hero-mobile-2x.jpg": "/project-fitness-app/static/media/hero-mobile-2x.4f023a9f634a4b18300f.jpg",
-    "static/media/hero-tablet-1x.jpg": "/project-fitness-app/static/media/hero-tablet-1x.3f8d16726976f0b86306.jpg",
     "index.html": "/project-fitness-app/index.html",
     "main.21576fdd.css.map": "/project-fitness-app/static/css/main.21576fdd.css.map",
-    "main.9d978110.js.map": "/project-fitness-app/static/js/main.9d978110.js.map",
-    "661.ae31527a.chunk.js.map": "/project-fitness-app/static/js/661.ae31527a.chunk.js.map",
-    "138.3cd17f4a.chunk.js.map": "/project-fitness-app/static/js/138.3cd17f4a.chunk.js.map",
-    "63.4c145c8a.chunk.js.map": "/project-fitness-app/static/js/63.4c145c8a.chunk.js.map"
+    "main.ec8ac5d5.js.map": "/project-fitness-app/static/js/main.ec8ac5d5.js.map",
+    "661.60f8fce2.chunk.js.map": "/project-fitness-app/static/js/661.60f8fce2.chunk.js.map",
+    "138.cc4afd28.chunk.js.map": "/project-fitness-app/static/js/138.cc4afd28.chunk.js.map",
+    "63.8d2f5dbb.chunk.js.map": "/project-fitness-app/static/js/63.8d2f5dbb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.21576fdd.css",
-    "static/js/main.9d978110.js"
+    "static/js/main.ec8ac5d5.js"
   ]
 }
