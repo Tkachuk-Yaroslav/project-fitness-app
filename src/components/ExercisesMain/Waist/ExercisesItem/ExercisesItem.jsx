@@ -9,6 +9,7 @@ import {
   NavDiv,
   SpanIconRun,
   SpanListInfo,
+  SpanListInfoTarget,
   SvgIconRun,
   SvgExercise,
 } from "components/ExercisesMain/Waist/ExercisesItem/ExercisesItem.styled";
@@ -71,7 +72,9 @@ const ExerciseItem = ({ exercise, openModal }) => {
         </p>
         <p>
           {texts.list.target}
-          <SpanListInfo>{capitalizeFirstLetter(exercise.target)}</SpanListInfo>
+          <SpanListInfoTarget>
+            {capitalizeFirstLetter(exercise.target)}
+          </SpanListInfoTarget>
         </p>
       </ListInfo>
     </ContainerWrapper>
