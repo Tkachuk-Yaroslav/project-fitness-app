@@ -1,4 +1,4 @@
-import React from 'react';
+// import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../images/sprite.svg';
 import {
@@ -13,8 +13,20 @@ import {
   BgImgContainer,
 } from './ErrorPage.styled';
 import { TrainingBgWrapperCont } from 'components/TrainingBgWrapper/TrainingBgWrapper.styled';
+// import { useDispatch } from 'react-redux';
+// import { setErrorPage } from '../../redux/error/slice';
 
 const ErrorPage = () => {
+  //РОЗКОМЕНТУВАТИ
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(setErrorPage(true));
+  //   return () => {
+  //     dispatch(setErrorPage(false));
+  //   };
+  // }, [dispatch]);
+
   return (
     <TrainingBgWrapperCont className="page404">
       <ContainerError>
