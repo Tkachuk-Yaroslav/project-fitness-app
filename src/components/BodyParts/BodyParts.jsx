@@ -1,5 +1,5 @@
 import { getExercisesBodyParts } from "api/ApiExercises";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CardContainer } from "./BodyParts.styled";
 import ExercisesSubcategoriesItem from "components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem";
 import { useSelector } from "react-redux";
@@ -11,6 +11,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../ExercisesMain/Exercises/Swiper/swiper.css";
+
 function BodyParts() {
   const state = useSelector((state) => state);
   console.log("state", state);
@@ -27,11 +28,13 @@ function BodyParts() {
     fetchExercisesBodyParts();
   }, []);
   console.log(listExercises);
+
   return (
     <CardContainer>
       <Swiper
         spaceBetween="20px"
         pagination={true}
+        autoplay={false}
         // autoplay={{
         //   delay: 2500,
         //   disableOnInteraction: false,
@@ -42,7 +45,7 @@ function BodyParts() {
         modules={[Pagination]}
       >
         <SwiperSlide>
-          Slide 1{" "}
+          {/* Slide 1{" "} */}
           {listExercises.map(({ _id, filter, name, imgURL }) => (
             <ExercisesSubcategoriesItem
               key={_id}
@@ -51,21 +54,12 @@ function BodyParts() {
               name={name}
               imgURL={imgURL}
             />
-          ))}{" "}
+          ))}
         </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
+        {/* <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide> */}
       </Swiper>
-      {/* {listExercises.map(({ _id, filter, name, imgURL }) => (
-        <ExercisesSubcategoriesItem
-          key={_id}
-          _id={_id}
-          filter={filter}
-          name={name}
-          imgURL={imgURL}
-        />
-      ))}  */}
     </CardContainer>
   );
 }
