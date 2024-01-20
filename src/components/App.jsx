@@ -15,7 +15,7 @@ import PrivateRoute from "guards/PrivateRoute";
 import PublicRoute from "guards/PublicRoute";
 import { selectorAppState } from "../redux/appState/selectors";
 import Loader from "../components/Loader/Loader";
-import ExercisesList from "./Exercises/Waist/ExercisesList/ExercisesList";
+import ExercisesList from "./ExercisesMain/Waist/ExercisesList/ExercisesList";
 
 const WelcomePage = lazy(() => import("pages/WelcomePage/WelcomePage"));
 const SignInPage = lazy(() => import("pages/SignInPage/SignInPage"));
@@ -137,17 +137,16 @@ export const App = () => {
               }
             />
           </Route>
+          <Route
+            path="profile"
+            element={
+              <PrivateRoute>
+                <ProfilePage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
-        <Route
-          path="profile"
-          element={
-            <PrivateRoute>
-              <ProfilePage />
-            </PrivateRoute>
-          }
-        />
-        <Route path="*" element={<ErrorPage />} />
-        {/* </Route> */}
       </Routes>
     </>
   );

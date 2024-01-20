@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   CardCategory,
   CardImg,
@@ -11,7 +11,7 @@ function ExercisesSubcategoriesItem({ filter, name, imgURL }) {
   const location = useLocation();
   return (
     <>
-      <Link to={name} state={{ from: location }}>
+      <NavLink to={name} state={{ from: location }}>
         <ul>
           <CardsItems>
             <CardImg src={imgURL} alt="exercises" />
@@ -23,7 +23,7 @@ function ExercisesSubcategoriesItem({ filter, name, imgURL }) {
             </CardText>
           </CardsItems>
         </ul>
-      </Link>
+      </NavLink>
     </>
   );
 }

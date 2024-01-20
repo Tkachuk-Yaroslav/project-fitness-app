@@ -11,7 +11,7 @@ import {
   SpanListInfo,
   SvgIconRun,
   SvgExercise,
-} from "components/Exercises/Waist/ExercisesItem/ExercisesItem.styled";
+} from "components/ExercisesMain/Waist/ExercisesItem/ExercisesItem.styled";
 import sprite from "../../../../images/sprite.svg";
 
 const texts = {

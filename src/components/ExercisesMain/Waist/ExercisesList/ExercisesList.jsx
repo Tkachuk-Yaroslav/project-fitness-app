@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import ExerciseItem from "components/Exercises/Waist/ExercisesItem/ExercisesItem";
+import ExerciseItem from "components/ExercisesMain/Waist/ExercisesItem/ExercisesItem";
 
 import ModalWaist from "../../ModalWaist/ModalWaist";
 import Modal from "react-modal"; // Import Modal from react-modal
