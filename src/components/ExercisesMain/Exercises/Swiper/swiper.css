@@ -1,0 +1,101 @@
+
+:root {
+ /* #000000; */
+    --swiper-theme-color: rgba(155, 181, 55, 1);
+    --swiper-pagination-bullet-inactive-color: #000;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--swiper-pagination-bullet-inactive-color);
+   
+}
+.swiper-pagination-bullet-active {
+    background: var(--swiper-theme-color);}
+
+
+
+.swiper {
+    /* width: 530px; */
+    width: 496px;
+    /* height: 402px; */
+    height: 302px;
+    margin-left: 0;
+    z-index: 0;
+    filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.3)); /* тень на слайдер */
+   
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+
+    /* Center slide text vertically */
+     display: flex;
+    /* justify-content: center;  */
+    /* align-items: center; */
+    /* display: grid; */
+   
+    gap:8px;
+     /* background-color:#000000 ; */
+    /* overflow: hidden; */
+}
+
+.swiper-slide img {
+    display: block;
+     
+    object-fit: cover;
+    border-radius: 15px;  
+        /* width: auto; */
+            /* height: 200%; */
+            /* margin: -60px 0 0 -240px; */
+    
+}
+
+.img-shef{
+    width: 80px;
+    height: 280px;
+    
+    border-radius: 15px;
+}
+
+.img-food{
+height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 52px;
+    margin-bottom: 20px;
+    
+}
+
+.img-tasty{
+    height: 200%;
+    min-height: 280px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 15px;
+    object-position: 43% -142px;
+
+}
+
+
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal{
+left:-60px;
+
+top: 280px;
+
+}
+.swiper-pagination-bullet {
+    background: black;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: var(--swiper-theme-color);
+    /* Set the color for the active bullet */
+}
