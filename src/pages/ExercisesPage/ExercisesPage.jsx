@@ -12,7 +12,6 @@ function Exercises() {
   return (
     <Container>
       <ContainerWrapper>
-        {/* <TitlePage>Exercises</TitlePage> */}
         <TitlePage />
         <CategoriesList>
           <ListElement>
