@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { signIn, signUp, refresh, logOut, setToken } from 'api/auth';
+import { signIn, signUp, refresh, logOut, setToken, setUserProfile } from 'api/auth';
 
 export const registrationThunk = createAsyncThunk(
   'auth/registration',
@@ -51,3 +51,15 @@ export const logoutThunk = createAsyncThunk(
     }
   }
 );
+
+export const setProfileSettingsThunk = createAsyncThunk(
+  'auth/settings',
+  async (payload, {rejectWithValue}) => {
+    try {
+      const data = await setUserProfile(payload)
+      return data
+    } catch(error) {
+      return rejectWithValue(error)
+    }
+  }
+)
