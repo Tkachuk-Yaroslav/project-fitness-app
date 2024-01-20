@@ -123,6 +123,12 @@ export const GoHomeBtn = styled.button`
   }
 `;
 
+export const BgImgContainer = styled.div`
+  width: 100%;
+  background-image: to bottom,
+    linear-gradient(rgba(4, 4, 4, 1), rgba(46, 47, 66, 0.7));
+`;
+
 // export const BgImgContainer = styled.div`
 //   /* width: 135px; */
 //   width: 100%;

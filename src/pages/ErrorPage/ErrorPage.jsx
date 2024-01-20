@@ -10,7 +10,7 @@ import {
   Page404Container,
   Svg,
   LogoLink,
-  // BgImgContainer,
+  BgImgContainer,
 } from './ErrorPage.styled';
 import { TrainingBgWrapperCont } from 'components/TrainingBgWrapper/TrainingBgWrapper.styled';
 
@@ -37,7 +37,7 @@ const ErrorPage = () => {
               <Link to="/">Go Home</Link>
             </GoHomeBtn>
           </Text404Container>
-          {/* <BgImgContainer></BgImgContainer> */}
+          <BgImgContainer></BgImgContainer>
         </Page404Container>
       </ContainerError>
     </TrainingBgWrapperCont>
