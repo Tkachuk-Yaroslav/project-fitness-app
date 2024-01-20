@@ -25,10 +25,14 @@ const UserMenu = () => {
     avatarURL: false,
   };
 
-  const [isActivePage, setIsActivePage] = useState('diary');
+  const [isActivePage, setIsActivePage] = useState('unknown');
 
   const handleActivePage = name => {
     setIsActivePage(name);
+  };
+
+  const handleProfileClick = () => {
+    setIsActivePage('unknown');
   };
 
   const avatarLogo = (
@@ -77,7 +81,11 @@ const UserMenu = () => {
         </StyledNavLink>
       </Nav>
       <UserData>
-        <NavLink to={'/profile'} aria-label="Click to go to the Profile page">
+        <NavLink
+          to={'/profile'}
+          aria-label="Click to go to the Profile page"
+          onClick={handleProfileClick}
+        >
           <ProfileSvg>
             <use href={`${sprite}#icon-settings`}></use>
           </ProfileSvg>
