@@ -1,6 +1,7 @@
 import { getAllExercises } from 'api/productsListApi';
 import ProductsListItem from 'components/ProductsListItem/ProductsListItem';
 import React, { useEffect, useState } from 'react';
+import { ProductsListWrap } from './ProductsList.styled';
 
 const ProductsList = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +17,7 @@ const ProductsList = () => {
     fetchAllProducts();
   }, []);
   return (
-    <>
+    <ProductsListWrap>
       {products.map(
         ({ _id, groupBloodNotAllowed, weight, calories, category, title }) => (
           <ProductsListItem
@@ -29,7 +30,7 @@ const ProductsList = () => {
           />
         )
       )}
-    </>
+    </ProductsListWrap>
   );
 };
 

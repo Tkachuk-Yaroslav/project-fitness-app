@@ -14,18 +14,25 @@ import {
   ProductsCardInfoValue,
 } from './ProductsListItem.styled';
 
-const ProductsListItem = () => {
-  const el = {};
+const ProductsListItem = ({
+  title,
+  calories,
+  category,
+  weight,
+  groupBloodNotAllowed,
+}) => {
+  const firstValue = Boolean(groupBloodNotAllowed['1']);
+
   return (
     <ProductsCard>
       <ProductsCardStatus>
         <ProductsCardDiet>
-          <ProductsCardDietText>diet</ProductsCardDietText>
+          <ProductsCardDietText>{category}</ProductsCardDietText>
         </ProductsCardDiet>
         <ProductsCardStatusCount>
           <StyleSheetManager>
-            <ProductsCardStatusCountTrue isRecommended={true}>
-              {'2' === '2' ? 'Recommended' : 'Not recommended'}
+            <ProductsCardStatusCountTrue $recommended={firstValue}>
+              {firstValue ? 'Recommended' : 'Not recommended'}
             </ProductsCardStatusCountTrue>
           </StyleSheetManager>
 
@@ -39,20 +46,17 @@ const ProductsListItem = () => {
           </ProductsCardStatusAdd>
         </ProductsCardStatusCount>
       </ProductsCardStatus>
-      <ProductsCardTitle>{el.title ? el.title : 'title'}</ProductsCardTitle>
+      <ProductsCardTitle>{title ? title : 'title'}</ProductsCardTitle>
 
       <ProductsCardInfoList>
         <ProductsCardInfoItem>
-          Calories:{'qwe '}
-          <ProductsCardInfoValue>{el.calories || '999'}</ProductsCardInfoValue>
+          <ProductsCardInfoValue>Calories:{calories}</ProductsCardInfoValue>
         </ProductsCardInfoItem>
         <ProductsCardInfoItem>
-          Category:{' '}
-          <ProductsCardInfoValue>{el.category || '999'}</ProductsCardInfoValue>
+          <ProductsCardInfoValue>Category:{category}</ProductsCardInfoValue>
         </ProductsCardInfoItem>
         <ProductsCardInfoItem>
-          Weight:{' '}
-          <ProductsCardInfoValue>{el.weight || '300'}</ProductsCardInfoValue>
+          <ProductsCardInfoValue>Weight:{weight}</ProductsCardInfoValue>
         </ProductsCardInfoItem>
       </ProductsCardInfoList>
     </ProductsCard>

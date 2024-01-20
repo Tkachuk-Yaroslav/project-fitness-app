@@ -11,11 +11,9 @@ export const ProductsCard = styled.li`
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: rgba(239, 237, 232, 0.05);
-  box-sizing: border-box;
 
   @media screen and (min-width: 768px) {
-    width: calc((100% - 16px) / 2);
-    overflow: hidden;
+    max-width: 335px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -65,7 +63,7 @@ export const ProductsCardStatusCountTrue = styled.p`
     width: 14px;
     height: 14px;
     border-radius: 10px;
-    background: ${props => (props.isRecommended ? '#419b09' : '#e6533c')};
+    background: ${props => (props.$recommended ? '#419b09' : '#e6533c')};
     margin-right: 8px;
   }
 `;
