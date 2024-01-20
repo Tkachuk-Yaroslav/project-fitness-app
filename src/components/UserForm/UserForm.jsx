@@ -20,7 +20,8 @@ const onSubmit = async (values, actions) => {
 };
 const UserForm = () => {
   const { user } = useSelector(state => state.auth);
-  // console.log(user, 'USERForm');
+  // const user = useSelector(state => state.auth.user);
+  // console.log(user, 'USERForm КОНСОЛЬ ДЛЯ ПЕРЕВІРКИ ЖИВОЇ СТОРІНКИ');
   const {
     name,
     email,
