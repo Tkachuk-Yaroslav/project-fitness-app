@@ -9,6 +9,7 @@ import waist1x from "../../../../images/waist-1x.jpg";
 import waist2x from "../../../../images/waist-2x.jpg";
 import {
   ButtonBack,
+  CartaDiv,
   ContainerPage,
   ContainerWaist,
   ContainerWrapper,
@@ -72,33 +73,35 @@ const ExercisesList = ({ filter }) => {
     <ContainerWaist className="ContainerWaist">
       <ContainerPage className="containerPage">
         <ContainerWrapper className="ContainerWrapperList">
-          {allExercises.slice(0, 50).map((exercise, index) => {
-            return (
-              <ExerciseItem
-                className="ExerciseItemt"
-                key={index}
-                exercise={exercise}
-                openModal={openModal}
-              />
-            );
-          })}
+          <CartaDiv className="CartaDiv">
+            {allExercises.slice(0, 50).map((exercise, index) => {
+              return (
+                <ExerciseItem
+                  className="ExerciseItemt"
+                  key={index}
+                  exercise={exercise}
+                  openModal={openModal}
+                />
+              );
+            })}
 
-          {capitalizedBodyParts ||
-          capitalizedMuscles ||
-          capitalizedEquipmentId ? (
-            <Link className="css_GoBack" to={location.state.from}>
-              <ButtonBack type="button">
-                <span>
-                  <SvgExercise>
-                    <use href={`${sprite}#icon-arrow-left-gray`}></use>
-                  </SvgExercise>
-                </span>
-                Back
-              </ButtonBack>
-            </Link>
-          ) : null}
+            {capitalizedBodyParts ||
+            capitalizedMuscles ||
+            capitalizedEquipmentId ? (
+              <Link className="css_GoBack" to={location.state.from}>
+                <ButtonBack type="button">
+                  <span>
+                    <SvgExercise>
+                      <use href={`${sprite}#icon-arrow-left-gray`}></use>
+                    </SvgExercise>
+                  </span>
+                  Back
+                </ButtonBack>
+              </Link>
+            ) : null}
 
-          <ModalWaist isOpen={modalIsOpen} closeModal={closeModal} />
+            <ModalWaist isOpen={modalIsOpen} closeModal={closeModal} />
+          </CartaDiv>
         </ContainerWrapper>
         <ImgWaist srcSet={`${waist1x} 1x, ${waist2x} 2x`} alt="image" />
       </ContainerPage>
