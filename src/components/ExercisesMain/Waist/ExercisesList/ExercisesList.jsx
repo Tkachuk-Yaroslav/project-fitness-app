@@ -12,6 +12,7 @@ import {
   ContainerWaist,
   ContainerWrapper,
   ImgWaist,
+  NoExercisesTitle,
 } from "../ExercisesList/ExercisesList.styled";
 import { getAllExercises } from "../../../../api/ApiExercises";
 import { SvgExercise } from "../ExercisesItem/ExercisesItem.styled";
@@ -73,7 +74,7 @@ const ExercisesList = ({ filter }) => {
         <ContainerWrapper className="ContainerWrapperList">
           <CartaDiv className="CartaDiv">
             {allExercises.map((exercise, index) =>
-              allExercises.length > 0 ? (
+              allExercises.length ? (
                 <ExerciseItem
                   className="ExerciseItemt"
                   key={index}
@@ -81,7 +82,10 @@ const ExercisesList = ({ filter }) => {
                   openModal={openModal}
                 />
               ) : (
-                <p key={index}>Выберете другую позицию</p>
+                <NoExercisesTitle>
+                  There is not exercises downloaded else, plaese try choose this
+                  categorie later!!!
+                </NoExercisesTitle>
               )
             )}
             {capitalizedBodyParts ||

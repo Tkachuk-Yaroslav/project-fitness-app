@@ -158,6 +158,14 @@ export const ButtonBack = styled.button`
   }
 `;
 
+export const NoExercisesTitle = styled.h2`
+  color: #efede8;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.16;
+  margin-bottom: 20px;
+`;
+
 export const SvgExercise = styled.svg`
   width: 16px;
   height: 16px;
