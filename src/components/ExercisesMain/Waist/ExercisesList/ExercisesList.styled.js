@@ -18,16 +18,16 @@ export const ContainerPage = styled.div`
 `;
 
 export const ContainerWrapper = styled.div`
-  display: grid;
-  margin: 0 auto;
+  /* display: grid; */
+  /* margin: 0 auto; */
   width: 335px;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  /* grid-template-columns: 1fr;
+  gap: 20px; */
   @media screen and (min-width: 768px) {
-    grid-template-columns: 335px 335px;
+    /* grid-template-columns: 335px 335px; */
     width: 702px;
     height: 760px;
-    gap: 32px 16px;
+    /* gap: 32px 16px; */
     overflow-y: auto;
     overflow-x: hidden; /* Hide horizontal scrollbar */
 
@@ -91,6 +91,22 @@ export const ContainerWrapper = styled.div`
   }
 `;
 
+export const CartaDiv = styled.div`
+  display: grid;
+  margin: 0 auto;
+  width: 335px;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 335px 335px;
+    justify-content: space-around;
+    gap: 32px 16px;
+  }
+  @media screen and (min-width: 1440px) {
+    grid-template-columns: 405px 405px;
+  }
+`;
 export const ImgWaist = styled.img`
   display: none;
   @media screen and (min-width: 1440px) {
@@ -140,6 +156,14 @@ export const ButtonBack = styled.button`
     top: -114px;
     left: 0px;
   }
+`;
+
+export const NoExercisesTitle = styled.h2`
+  color: #efede8;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.16;
+  margin-bottom: 20px;
 `;
 
 export const SvgExercise = styled.svg`

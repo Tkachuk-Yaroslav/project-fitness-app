@@ -128,6 +128,7 @@ const H3 = styled.h3`
 
   @media screen and (min-width: 1440px) {
     width: 333px;
+    /* width: 263px; */
   }
 `;
 const ListInfo = styled.li`
@@ -147,6 +148,15 @@ const SpanListInfo = styled.span`
   color: var(--white-color);
 `;
 
+const SpanListInfoTarget = styled.span`
+  margin-left: 4px;
+  color: var(--white-color);
+  @media screen and (min-width: 1440px) {
+    width: 100px;
+    height: 18px;
+  }
+`;
+
 export {
   ButtonStart,
   SvgExercise,
@@ -155,6 +165,7 @@ export {
   ListInfo,
   H3,
   SpanListInfo,
+  SpanListInfoTarget,
   ContainerWrapper,
   CardLabel,
   NavDiv,
