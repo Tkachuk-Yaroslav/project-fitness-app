@@ -26,6 +26,7 @@ export const ContainerError = styled.div`
 `;
 
 export const Page404Container = styled.div`
+  position: fixed;
   width: 100%;
   display: flex;
   margin-top: -61px;
@@ -121,6 +122,15 @@ export const GoHomeBtn = styled.button`
     font-size: 20px;
     line-height: 1.2;
   }
+`;
+
+export const BgImgContainer = styled.div`
+  width: 100%;
+  background-image: linear-gradient(
+    180deg,
+    rgba(4, 4, 4, 1) 5%,
+    rgba(255, 255, 255, 0) 30%
+  );
 `;
 
 // export const BgImgContainer = styled.div`
