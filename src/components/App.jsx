@@ -80,7 +80,6 @@ export const App = () => {
             }
           />
 
-          {isLoading && <Loader />}
           <Route
             path="exercises"
             element={
