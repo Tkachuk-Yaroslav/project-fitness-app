@@ -16,6 +16,7 @@ import { refreshThunk, setProfileSettingsThunk } from '../../redux/auth/thunks';
 import { useState } from 'react';
 
 const UserForm = () => {
+
 	const dispatch = useDispatch();
 	const { user } = useSelector((state) => state.auth);
 	const [userData, setUser] = useState({
