@@ -1,4 +1,7 @@
 import React from 'react';
+import 'overlayscrollbars/overlayscrollbars.css';
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+import './scrollbarStyled.css'
 import {
   ExercisesSection,
   ExercisesTitle,
@@ -21,7 +24,14 @@ const DayExercises = () => {
             </svg>
           </ExercisesLink>
         </ProductsContainer>
+        <OverlayScrollbarsComponent defer>
+
         <DayExercisesItem />
+        <DayExercisesItem />
+        <DayExercisesItem />
+        <DayExercisesItem />
+        <DayExercisesItem />
+        </OverlayScrollbarsComponent>
       </ExercisesSection>
     </>
   );
