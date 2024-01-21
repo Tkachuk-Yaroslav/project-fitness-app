@@ -1,5 +1,4 @@
 import React from 'react';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -9,13 +8,14 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
+import { debounce } from 'lodash';
 
 import { getAllCategories } from 'api/productsListApi';
 import { FiltersWrap } from './Filters.styled';
 
 const recommendationOptions = ['All', 'Recommended', 'Not recommended'];
 
-const CustomSelect = ({ label, id, value, onChange, options }) => (
+const CustomSelect = ({ value, onChange, options }) => (
   <FormControl
     sx={{
       '.MuiInputLabel-root': {
@@ -45,12 +45,8 @@ const CustomSelect = ({ label, id, value, onChange, options }) => (
       },
     }}
   >
-    <InputLabel id={`${id}-label`}>{label}</InputLabel>
     <Select
-      labelId={`${id}-label`}
-      id={id}
       value={value}
-      label={label}
       onChange={onChange}
       IconComponent={KeyboardArrowDownIcon}
       MenuProps={{
@@ -83,8 +79,17 @@ const CustomSelect = ({ label, id, value, onChange, options }) => (
         },
       }}
     >
-      {options.map(item => (
-        <MenuItem key={item} value={item}>
+      {options?.map(item => (
+        <MenuItem
+          key={item}
+          sx={{
+            fontSize: '16px',
+            fontWeight: '400',
+            lineHeight: '24px',
+            textTransform: 'capitalize',
+          }}
+          value={item}
+        >
           {item}
         </MenuItem>
       ))}
@@ -92,16 +97,15 @@ const CustomSelect = ({ label, id, value, onChange, options }) => (
   </FormControl>
 );
 
-const Filters = () => {
-  const [category, setCategory] = React.useState('');
-  const [recommendation, setRecommendation] = React.useState('All');
-  const [inputValue, setInputValue] = React.useState('');
+const Filters = ({ filters, onChangeFilters }) => {
+  const [query, setQuery] = React.useState(filters.query);
   const [categories, setCategories] = React.useState([]);
+
   React.useEffect(() => {
     const fetchAllProducts = async () => {
       try {
         const data = await getAllCategories();
-        setCategories(data.result);
+        setCategories(data);
       } catch (error) {
         console.log(error);
       }
@@ -109,20 +113,41 @@ const Filters = () => {
     fetchAllProducts();
   }, []);
 
+  const debouncedSearch = React.useCallback(
+    debounce(value => {
+      onChangeFilters(prevFilters => ({
+        ...prevFilters,
+        query: value,
+      }));
+    }, 500),
+    []
+  );
+
+  const handleSearchChange = event => {
+    setQuery(event.target.value);
+    debouncedSearch(event.target.value);
+  };
+
   const handleCategoryChange = event => {
-    setCategory(event.target.value);
+    onChangeFilters(prevFilters => ({
+      ...prevFilters,
+      category: event.target.value,
+    }));
   };
 
   const handleRecommendationChange = event => {
-    setRecommendation(event.target.value);
+    onChangeFilters(prevFilters => ({
+      ...prevFilters,
+      allowed: event.target.value,
+    }));
   };
 
-  const handleInputChange = event => {
-    setInputValue(event.target.value);
-  };
-
-  const handleClearInput = () => {
-    setInputValue('');
+  const clearFilters = () => {
+    onChangeFilters({
+      text: '',
+      category: [],
+      allowed: '',
+    });
   };
 
   return (
@@ -130,9 +155,13 @@ const Filters = () => {
       <TextField
         placeholder="Search"
         variant="outlined"
-        value={inputValue}
-        onChange={handleInputChange}
+        value={query}
+        onChange={handleSearchChange}
         sx={{
+          width: '335px',
+          '@media (min-width: 768px)': {
+            width: '235px',
+          },
           '.MuiInputLabel-root': {
             color: 'rgba(255, 255, 255, 0.8)',
             '&.Mui-focused': {
@@ -161,10 +190,10 @@ const Filters = () => {
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              {inputValue && (
+              {filters.query && (
                 <IconButton
                   edge="end"
-                  onClick={handleClearInput}
+                  onClick={clearFilters}
                   sx={{ color: '#E6533C' }}
                 >
                   <ClearIcon />
@@ -177,21 +206,17 @@ const Filters = () => {
           ),
           style: {
             height: 52,
-            width: 236,
           },
         }}
       />
 
       <CustomSelect
-        label="Category"
-        id="category-select"
-        value={category}
+        value={filters.category}
         onChange={handleCategoryChange}
         options={categories}
       />
       <CustomSelect
-        id="recommendation-select"
-        value={recommendation}
+        value={filters.allowed}
         onChange={handleRecommendationChange}
         options={recommendationOptions}
       />

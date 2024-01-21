@@ -1,21 +1,7 @@
-import { getAllProducts } from 'api/productsListApi';
 import ProductsListItem from 'components/ProductsListItem/ProductsListItem';
-import React, { useEffect, useState } from 'react';
 import { ProductsListWrap } from './ProductsList.styled';
 
-const ProductsList = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    const fetchAllProducts = async () => {
-      try {
-        const data = await getAllProducts();
-        setProducts(data.result);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchAllProducts();
-  }, []);
+const ProductsList = ({ products }) => {
   return (
     <ProductsListWrap>
       {products.map(
