@@ -28,7 +28,6 @@ const capitalizeFirstLetter = (string) => {
   const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
   return newString;
 };
-
 const ExerciseItem = ({ exercise, openModal }) => {
   return (
     <ContainerWrapper className="ContainerWrapperItem">
@@ -37,7 +36,8 @@ const ExerciseItem = ({ exercise, openModal }) => {
         <ButtonStart
           className="ButtonStart"
           type="button"
-          onClick={openModal}
+          // onClick={openModal}
+          onClick={() => openModal(exercise._id)}
           aria-label="Open BasicModalWindow"
         >
           {texts.btnLabel}

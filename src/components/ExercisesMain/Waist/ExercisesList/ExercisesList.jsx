@@ -24,14 +24,16 @@ const ExercisesList = ({ filter }) => {
   const { body_parts, muscles, equipmentId } = useParams();
   const [allExercises, setExercises] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalId, setModalId] = useState(null);
 
-  const openModal = () => {
+  const openModal = (id) => {
     setModalIsOpen(true);
+    setModalId(id);
   };
 
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
+  // const closeModal = () => {
+  //   setModalIsOpen(false);
+  // };
 
   const fetchAllExercises = async () => {
     try {
@@ -102,7 +104,15 @@ const ExercisesList = ({ filter }) => {
                 </ButtonBack>
               </Link>
             ) : null}
-            <ModalWaist isOpen={modalIsOpen} closeModal={closeModal} />
+            <ModalWaist
+              filter={filter}
+              isOpen={modalIsOpen}
+              // closeModal={closeModal}
+              closeModal={() => {
+                setModalIsOpen(false);
+              }}
+              id={modalId}
+            />
           </CartaDiv>
         </ContainerWrapper>
         <ImgWaist srcSet={`${waist1x} 1x, ${waist2x} 2x`} alt="image" />
