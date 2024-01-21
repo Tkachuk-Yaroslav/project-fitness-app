@@ -4,6 +4,7 @@ import {
   logoutThunk,
   loginThunk,
   registrationThunk,
+  setProfileSettingsThunk,
 } from './thunks';
 import { handleRefreshFul, handleRefreshRej, handleAuth } from './helpers';
 
@@ -38,7 +39,21 @@ export const authSlice = createSlice({
         state.user = initialState.user;
         state.token = null;
         state.isLoggedIn = false;
-      });
+      })
+      .addCase(setProfileSettingsThunk.fulfilled, (state, payload) => {
+        const {name, height, currentWeight, desiredWeight, birthday, blood, sex, bmr} = payload
+        state.user = {
+          ...state.user,
+          name, 
+          height, 
+          currentWeight, 
+          desiredWeight, 
+          birthday, 
+          blood, 
+          sex, 
+          bmr
+        }
+      })
   },
 });
 

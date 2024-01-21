@@ -26,6 +26,7 @@ export const ContainerError = styled.div`
 `;
 
 export const Page404Container = styled.div`
+  position: fixed;
   width: 100%;
   display: flex;
   margin-top: -61px;
@@ -121,6 +122,10 @@ export const GoHomeBtn = styled.button`
     font-size: 20px;
     line-height: 1.2;
   }
+`;
+
+export const BgImgContainer = styled.div`
+  width: 100%;
 `;
 
 // export const BgImgContainer = styled.div`
