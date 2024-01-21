@@ -33,3 +33,8 @@ export async function logOut() {
   await axios.post(`users/logout`);
   deleteToken();
 }
+
+export async function setUserProfile(body){
+  const {data} = await axios.post('users/settings', body)
+  return data
+}

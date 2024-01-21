@@ -10,8 +10,10 @@ import {
   DashboardTextContainer,
 } from './DayDashboard.styled';
 import sprite from '../../images/sprite.svg';
+import { useSelector } from 'react-redux';
 
 const DayDashboard = () => {
+  const { user } = useSelector(state => state.auth)
   return (
     <div>
       <DashboardSection>
@@ -23,7 +25,7 @@ const DayDashboard = () => {
               </svg>
               Daily calorie intake
             </DashboardTitle>
-            <DashboardData>2200</DashboardData>
+            <DashboardData>{user.bmr}</DashboardData>
           </DashboardItems>
           <DashboardItems index={1}>
             <DashboardTitle>
