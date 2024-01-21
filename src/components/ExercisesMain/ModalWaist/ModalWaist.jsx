@@ -29,7 +29,7 @@ const ModalWaist = ({ filter, isOpen, closeModal }) => {
     // eslint-disable-next-line
   }, []);
 
-  console.log("lengthExercises=", allExercises);
+  console.log("Exercises=", allExercises);
 
   return (
     <Modal style={ModalStyles} isOpen={isOpen} onRequestClose={closeModal}>
@@ -44,9 +44,9 @@ const ModalWaist = ({ filter, isOpen, closeModal }) => {
             <img width={100} src={exercise.gifUrl} alt={exercise.name} />
             <p>Name:{exercise.name}</p>
             <p>BurnedCalories:{exercise.burnedCalories}</p>
-            <p>Equipment{exercise.equipment}</p>
+            <p>Equipment:{exercise.equipment}</p>
             <p>Target:{exercise.target}</p>
-            <p>BodyPart{exercise.bodyPart}</p>
+            <p>BodyPart:{exercise.bodyPart}</p>
             <p>Time:{exercise.time}</p>
           </div>
         ))}
