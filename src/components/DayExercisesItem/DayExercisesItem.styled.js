@@ -26,7 +26,7 @@ export const ProductsList = styled.ul`
 export const ProductsItem = styled.li`
   && > p {
     width: ${props => {
-            if (props.index === 0 || props.index === 1 || props.index === 2) return '298px';
+            if (props.$index === 0 || props.$index === 1 || props.$index === 2) return '298px';
 
       if (props.$index === 3) return '80px';
       if (props.$index === 4) return '80px';
