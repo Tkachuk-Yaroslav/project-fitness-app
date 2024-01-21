@@ -88,7 +88,7 @@ const UserForm = () => {
 								type='number'
 							/>
 							<ErrorMessage name='desiredWeight' />
-							<Calendar name='birthday' onChange={setFieldValue} />
+							<Calendar name='birthday' />
 							<ErrorMessage name='birthday' />
 						</WrapperInput>
 						<WrapperRadio>

@@ -11,7 +11,9 @@ const Calendar = ({ name }) => {
 	const [field, , { setValue }] = useField(name);
 	useEffect(() => {
 		handleDateChange(new Date(field.value));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
 	const handleDateChange = async (date) => {
 		setSelectedDate(date);
 		setValue(date);
