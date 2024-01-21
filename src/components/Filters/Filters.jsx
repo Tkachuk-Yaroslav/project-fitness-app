@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -98,10 +98,10 @@ const CustomSelect = ({ value, onChange, options }) => (
 );
 
 const Filters = ({ filters, onChangeFilters }) => {
-  const [query, setQuery] = React.useState(filters.query);
-  const [categories, setCategories] = React.useState([]);
+  const [query, setQuery] = useState(filters.query);
+  const [categories, setCategories] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchAllProducts = async () => {
       try {
         const data = await getAllCategories();
@@ -113,7 +113,8 @@ const Filters = ({ filters, onChangeFilters }) => {
     fetchAllProducts();
   }, []);
 
-  const debouncedSearch = React.useCallback(
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedSearch = useCallback(
     debounce(value => {
       onChangeFilters(prevFilters => ({
         ...prevFilters,
@@ -143,11 +144,11 @@ const Filters = ({ filters, onChangeFilters }) => {
   };
 
   const clearFilters = () => {
-    onChangeFilters({
-      text: '',
-      category: [],
-      allowed: '',
-    });
+    setQuery('');
+    onChangeFilters(prevFilters => ({
+      ...prevFilters,
+      query: '',
+    }));
   };
 
   return (

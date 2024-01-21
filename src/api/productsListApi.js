@@ -25,6 +25,5 @@ export const getProducts = async (allowed, category, query) => {
 
 export const getAllCategories = async () => {
   const { data } = await axios.get('categories');
-  console.log(data, 'PRODUCTS DATA');
   return data;
 };
