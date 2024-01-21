@@ -102,7 +102,11 @@ const ExercisesList = ({ filter }) => {
                 </ButtonBack>
               </Link>
             ) : null}
-            <ModalWaist isOpen={modalIsOpen} closeModal={closeModal} />
+            <ModalWaist
+              filter={filter}
+              isOpen={modalIsOpen}
+              closeModal={closeModal}
+            />
           </CartaDiv>
         </ContainerWrapper>
         <ImgWaist srcSet={`${waist1x} 1x, ${waist2x} 2x`} alt="image" />

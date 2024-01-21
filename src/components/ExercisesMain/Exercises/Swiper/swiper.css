@@ -1,102 +1,149 @@
-
 :root {
- /* #000000; */
-    --swiper-theme-color: rgba(155, 181, 55, 1);
-    --swiper-pagination-bullet-inactive-color: #000;
-    --swiper-pagination-bullet-inactive-opacity: 1;
-    
+     --swiper-theme-color: var(--orange-color);
+ --swiper-pagination-bullet-inactive-color: rgba(239, 237, 232, 0.10);
+    --swiper-pagination-bullet-inactive-opacity: 1; 
 }
 
 .swiper-pagination-bullet {
     background-color: var(--swiper-pagination-bullet-inactive-color);
-   
-}
+} 
+
 .swiper-pagination-bullet-active {
-    background: var(--swiper-theme-color);}
-
-
+    background: var(--swiper-theme-color);
+} 
 
 .swiper {
-    /* width: 530px; */
     width: 400px;
-    /* height: 402px; */
-    height: 100%; /* ????2320px */
+    height: 100%;
     margin-left: 0;
     z-index: 0;
-    filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.3)); /* тень на слайдер */
-   
+    filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.3));
 }
 
-.swiper-slide { display: flex;
-    text-align: center;
-    /* font-size: 18px; */
-    flex-direction: column;
-    /* background: #fff; */
+@media screen and (min-width: 768px) {
+    .swiper {
+        width: 704px;
+    }
+}
 
-    /* Center slide text vertically */
-    
-    /* justify-content: center;  */
-    /* align-items: center; */
-    /* display: grid; */
-   
-    gap:20px;
-     /* background-color:#000000 ; */
-    /* overflow: hidden; */
+@media screen and (min-width: 1440px) {
+    .swiper {
+        width: 1248px;
+    }
+}
+
+.swiper-slide {
+    display: grid;
+    grid-template-columns: 335px;
+    grid-template-rows: 206px;
+    gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .swiper-slide {
+        grid-template-columns: repeat(3, 224px);
+        grid-template-rows: repeat(3, 206);
+        gap: 32px 16px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .swiper-slide {
+        grid-template-columns: repeat(5, 237px);
+        grid-template-rows: repeat(2, 206);
+    }
 }
 
 .swiper-slide img {
     display: block;
-     
     object-fit: cover;
-    border-radius: 15px;  
-        /* width: auto; */
-            /* height: 200%; */
-            /* margin: -60px 0 0 -240px; */
-    
-}
-
-.img-shef{
-    width: 80px;
-    height: 280px;
-    
     border-radius: 15px;
 }
 
-.img-food{
-height: 150px;
+.img-shef {
+    width: 80px;
+    height: 280px;
+    border-radius: 15px;
+}
+
+.img-food {
+    height: 150px;
     width: 150px;
     margin: 0 auto;
     margin-top: 52px;
     margin-bottom: 20px;
-    
 }
 
-.img-tasty{
+.img-tasty {
     height: 200%;
     min-height: 280px;
     object-fit: cover;
     overflow: hidden;
     border-radius: 15px;
     object-position: 43% -142px;
-
 }
 
+.swiper-slide,
+.swiper-slide-active {
+    padding-bottom: 55px;
+}
 
+@media screen and (min-width: 768px) {
+
+    .swiper-slide,
+    .swiper-slide-active {
+        /* padding-bottom: 55px; */
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+    .swiper-slide,
+    .swiper-slide-active {
+        /* width: 1248px; */
+    }
+}
 
 .swiper-pagination-fraction,
 .swiper-pagination-custom,
 .swiper-horizontal>.swiper-pagination-bullets,
-.swiper-pagination-bullets.swiper-pagination-horizontal{
-left:-60px;
-
-top: 280px;
-
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    left: -30px;
+    top: 2040px;
+    z-index: 1000;
 }
+
+@media screen and (min-width: 768px) {
+
+    .swiper-pagination-fraction,
+    .swiper-pagination-custom,
+    .swiper-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        left: 0px;
+        top: 700px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+    .swiper-pagination-fraction,
+    .swiper-pagination-custom,
+    .swiper-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        left: 0px;
+        top: 460px;
+    }
+}
+
 .swiper-pagination-bullet {
-    background: black;
+    /* background: rgba(239, 237, 232, 0.10); */
+    width: 14px;
+    height: 14px;
 }
 
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background: var(--swiper-theme-color);
     /* Set the color for the active bullet */
+    width: 14px;
+    height: 14px;
 }

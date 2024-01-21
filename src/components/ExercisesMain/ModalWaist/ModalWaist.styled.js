@@ -34,4 +34,7 @@ const ModalStyles = {
   },
 };
 
-export { ButtonCloseModal, ModalStyles };
+const ModalWrapp = styled.div`
+  color: black;
+`;
+export { ButtonCloseModal, ModalStyles, ModalWrapp };
