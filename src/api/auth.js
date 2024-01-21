@@ -34,7 +34,14 @@ export async function logOut() {
   deleteToken();
 }
 
-export async function setUserProfile(body){
-  const {data} = await axios.post('users/settings', body)
-  return data
+export async function setUserProfile(body) {
+  const { data } = await axios.post('users/settings', body);
+  return data;
+}
+
+export async function updateAvatar(formData) {
+  const { data } = axios.patch('users/avatars', formData, {
+    headers: { 'content-type': 'multipart/form-data' },
+  });
+  return data;
 }
