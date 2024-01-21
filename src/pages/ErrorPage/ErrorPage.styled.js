@@ -126,11 +126,6 @@ export const GoHomeBtn = styled.button`
 
 export const BgImgContainer = styled.div`
   width: 100%;
-  background-image: linear-gradient(
-    180deg,
-    rgba(4, 4, 4, 1) 5%,
-    rgba(255, 255, 255, 0) 30%
-  );
 `;
 
 // export const BgImgContainer = styled.div`
