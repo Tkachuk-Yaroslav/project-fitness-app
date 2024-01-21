@@ -10,16 +10,28 @@ import userFormSchema from './schemas/userFormSchema';
 import CustomInput from './CustomInput';
 import CustomRadio from './CustomRadio';
 import { CustomLabelStyled, WrapperInput } from './CustomInput.styled';
-import { useSelector } from 'react-redux';
-// import Calendar from 'components/Calendar/Calendar';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { refreshThunk, setProfileSettingsThunk } from '../../redux/auth/thunks';
+import Calendar from 'components/Calendar/Calendar';
 
-const onSubmit = async (values, actions) => {
-  console.log('values', values);
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  actions.resetForm();
-};
+
 const UserForm = () => {
   const { user } = useSelector(state => state.auth);
+  const dispatch = useDispatch()
+  const [userData, setUser] = useState({
+    ...user,
+    blood: String(user.blood),
+    levelActivity: String(user.levelActivity),
+  });
+  const onSubmit = async (values, actions) => {
+    console.log('values', values);
+    const { email, ...rest } = values;
+    const { payload } = await dispatch(setProfileSettingsThunk(rest));
+    dispatch(refreshThunk());
+    setUser(payload);
+  };
+  
   // const user = useSelector(state => state.auth.user);
   // console.log(user, 'USERForm КОНСОЛЬ ДЛЯ ПЕРЕВІРКИ ЖИВОЇ СТОРІНКИ');
   const {
@@ -32,7 +44,7 @@ const UserForm = () => {
     blood,
     sex,
     levelActivity,
-  } = user;
+  } = userData;
 
   return (
     <WrapperUserForm>
@@ -81,7 +93,7 @@ const UserForm = () => {
                 name="desiredWeight"
                 type="number"
               />
-              {/* <Calendar name="birthday" /> */}
+              <Calendar name="birthday" />
             </WrapperInput>
             <WrapperRadio>
               <div id="radio-blood">

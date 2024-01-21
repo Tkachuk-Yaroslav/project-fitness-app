@@ -5,20 +5,32 @@ import DayExercises from 'components/DayExercises/DayExercises';
 import { DiaryContainer, DiaryInfoContainer } from './DiaryPage.styled';
 import { Container } from 'components/styles/Container/Container';
 import Calendar from 'components/Calendar/Calendar';
+import { Formik } from 'formik';
 
 const DiaryPage = () => {
-  return (
-    <Container>
-      <Calendar />
-      <DiaryContainer>
-        <DayDashboard />
-        <DiaryInfoContainer>
-          <DayProducts />
-          <DayExercises />
-        </DiaryInfoContainer>
-      </DiaryContainer>
-    </Container>
-  );
+	return (
+		<Container>
+			<Formik
+				initialValues={{
+					day: new Date(),
+				}}
+			>
+				{() => (
+					<form>
+						<Calendar name='day' />
+					</form>
+				)}
+			</Formik>
+
+			<DiaryContainer>
+				<DayDashboard />
+				<DiaryInfoContainer>
+					<DayProducts />
+					<DayExercises />
+				</DiaryInfoContainer>
+			</DiaryContainer>
+		</Container>
+	);
 };
 
 export default DiaryPage;

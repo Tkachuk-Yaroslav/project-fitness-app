@@ -8,7 +8,7 @@ import { headerReducer } from './error/slice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'user'],
 };
 
 const authPersistedReducer = persistReducer(authPersistConfig, authReducer);
