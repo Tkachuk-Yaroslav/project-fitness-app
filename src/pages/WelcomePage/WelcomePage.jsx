@@ -26,11 +26,12 @@ import { Container } from 'components/styles/Container/Container';
 import { WelcomeCont } from './styled';
 import sprite from '../../images/sprite.svg';
 import { TrainingBgWrapperCont } from 'components/TrainingBgWrapper/TrainingBgWrapper.styled';
+import StatisticsInfo from 'components/StatisticsInfo/StatisticsInfo';
 
 const { useNavigate } = require('react-router-dom');
 
 const WelcomePage = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate();;
   return (
     <TrainingBgWrapperCont>
       <Container>
@@ -47,6 +48,7 @@ const WelcomePage = () => {
               Sign In
             </button>
           </div>
+          <StatisticsInfo />
         </WelcomeCont>
       </Container>
     </TrainingBgWrapperCont>
