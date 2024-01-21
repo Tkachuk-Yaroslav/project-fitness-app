@@ -79,6 +79,8 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+
+          {isLoading && <Loader />}
           <Route
             path="exercises"
             element={
