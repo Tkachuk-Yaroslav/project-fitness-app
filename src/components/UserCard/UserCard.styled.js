@@ -22,6 +22,20 @@ export const WrapperAvatar = styled('label')({
     width: 150,
     height: 150,
   },
+
+  '&>form>input': {
+    width: 90,
+    height: 90,
+    borderRadius: '50%',
+    position: 'absolute',
+    top: '-1px',
+    left: '-1px',
+    border: '1px solid var(--orange-color)',
+    '@media screen and (min-width: 768px)': {
+      width: 150,
+      height: 150,
+    },
+  },
 });
 
 export const Title2 = styled('h2')({
@@ -114,7 +128,8 @@ export const ButtonAddAvatar = styled('label')({
   bottom: '-17%',
   left: '34px',
   '@media screen and (min-width: 768px)': {
-    bottom: '-15%',
+    bottom: '-21px',
+    left: 57,
     svg: {
       width: 32,
       height: 32,

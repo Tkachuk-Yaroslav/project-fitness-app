@@ -16,8 +16,8 @@ import sprite from '../../images/sprite.svg';
 import { LogoutBtn } from 'components/UserMenu/UserMenu.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutThunk } from '../../redux/auth/thunks';
-import Avatar from 'react-avatar-edit';
 import { useEffect, useState } from 'react';
+// import { updateAvatar } from 'api/auth';
 
 const UserCard = () => {
   const [file, setFile] = useState(null);
@@ -31,7 +31,13 @@ const UserCard = () => {
     console.log(formData);
     // Send the formData to the server using fetch or axios
     // ...
-  }, [file, image]);
+    // try {
+    //   dispatch(updateAvatar(file));
+    //   console.log(file);
+    // } catch (error) {
+    //   console.error(error.message);
+    // }
+  }, [file, image, dispatch]);
 
   // Define the function that handles the file input event
   const handleFileInput = event => {
@@ -50,7 +56,6 @@ const UserCard = () => {
   };
   // Define the function that handles the form submit event
   const handleSubmit = event => {
-    // Prevent the default behavior of the form
     event.preventDefault();
     // Use the props or the state variables as needed
     // ...
@@ -65,20 +70,7 @@ const UserCard = () => {
         <WrapperAvatar>
           <form onSubmit={handleSubmit}>
             {image ? (
-              <input
-                type="image"
-                src={image}
-                alt="Submit image"
-                style={{
-                  width: 90,
-                  height: 90,
-                  borderRadius: '50%',
-                  position: 'absolute',
-                  top: '-1px',
-                  left: '-1px',
-                  border: '1px solid var(--orange-color)',
-                }}
-              />
+              <input type="image" src={image} alt="Submit image" style={{}} />
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
