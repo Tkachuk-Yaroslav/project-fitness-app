@@ -14,7 +14,7 @@ import {
   SvgExercise,
 } from "components/ExercisesMain/Waist/ExercisesItem/ExercisesItem.styled";
 import sprite from "../../../../images/sprite.svg";
-
+// let idnumer = exercise.name;
 const texts = {
   cardLabel: "WORKOUT",
   btnLabel: "Start",
@@ -28,8 +28,9 @@ const capitalizeFirstLetter = (string) => {
   const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
   return newString;
 };
-
+// console.log("id=", exercise._id);
 const ExerciseItem = ({ exercise, openModal }) => {
+  // const idnumer = exercise._id;
   return (
     <ContainerWrapper className="ContainerWrapperItem">
       <NavDiv className="NavDiv">
@@ -37,7 +38,8 @@ const ExerciseItem = ({ exercise, openModal }) => {
         <ButtonStart
           className="ButtonStart"
           type="button"
-          onClick={openModal}
+          // onClick={openModal}
+          onClick={() => openModal(exercise._id)}
           aria-label="Open BasicModalWindow"
         >
           {texts.btnLabel}
