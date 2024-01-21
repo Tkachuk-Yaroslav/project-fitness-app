@@ -61,7 +61,7 @@ const UserCard = () => {
             </svg>
             <TextItemUser>Daily calorie intake</TextItemUser>
           </WrapperSVGText>
-          <Title2 className="number">0</Title2>
+          <Title2 className="number">{result.bmr}</Title2>
         </UserCardItemStyled>
         <UserCardItemStyled>
           <WrapperSVGText>

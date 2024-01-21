@@ -5,11 +5,26 @@ import DayExercises from 'components/DayExercises/DayExercises';
 import { DiaryContainer, DiaryInfoContainer } from './DiaryPage.styled';
 import { Container } from 'components/styles/Container/Container';
 import Calendar from 'components/Calendar/Calendar';
+import { Formik } from 'formik';
+import WithDataRedirect from 'HOC/HocRedirect';
 
 const DiaryPage = () => {
   return (
     <Container>
-      <Calendar />
+      <Formik
+      
+      initialValues={{
+        day: new Date()
+      }}
+      >
+
+        {()=>(
+          <form>
+            <Calendar name="day"/>
+          </form>
+        )}
+      </Formik>
+      
       <DiaryContainer>
         <DayDashboard />
         <DiaryInfoContainer>
@@ -20,5 +35,5 @@ const DiaryPage = () => {
     </Container>
   );
 };
-
-export default DiaryPage;
+const WrapedDiaryPage = WithDataRedirect(DiaryPage)
+export default WrapedDiaryPage;
