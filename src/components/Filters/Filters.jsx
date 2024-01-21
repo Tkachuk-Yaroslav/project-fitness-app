@@ -10,35 +10,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 
-const foodCategories = [
-  'alcoholic drinks',
-  'berries',
-  'cereals',
-  'dairy',
-  'dried fruits',
-  'eggs',
-  'fish',
-  'flour',
-  'fruits',
-  'meat',
-  'mushrooms',
-  'nuts',
-  'oils and fats',
-  'poppy',
-  'sausage',
-  'seeds',
-  'sesame',
-  'soft drinks',
-  'vegetables and herbs',
-];
+import { getAllCategories } from 'api/productsListApi';
+import { FiltersWrap } from './Filters.styled';
 
 const recommendationOptions = ['All', 'Recommended', 'Not recommended'];
 
 const CustomSelect = ({ label, id, value, onChange, options }) => (
   <FormControl
     sx={{
-      m: 1,
-      minWidth: 164,
       '.MuiInputLabel-root': {
         color: 'rgba(255, 255, 255, 0.8)',
         '&.Mui-focused': {
@@ -85,7 +64,7 @@ const CustomSelect = ({ label, id, value, onChange, options }) => (
         },
         PaperProps: {
           style: {
-            maxHeight: 248,
+            maxHeight: 276,
             maxWidth: 164,
             marginTop: 2,
             borderRadius: 12,
@@ -95,6 +74,7 @@ const CustomSelect = ({ label, id, value, onChange, options }) => (
         },
       }}
       sx={{
+        width: 194,
         height: 52,
         '&:hover': {
           '& .MuiOutlinedInput-notchedOutline': {
@@ -116,6 +96,18 @@ const Filters = () => {
   const [category, setCategory] = React.useState('');
   const [recommendation, setRecommendation] = React.useState('All');
   const [inputValue, setInputValue] = React.useState('');
+  const [categories, setCategories] = React.useState([]);
+  React.useEffect(() => {
+    const fetchAllProducts = async () => {
+      try {
+        const data = await getAllCategories();
+        setCategories(data.result);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchAllProducts();
+  }, []);
 
   const handleCategoryChange = event => {
     setCategory(event.target.value);
@@ -134,15 +126,13 @@ const Filters = () => {
   };
 
   return (
-    <>
+    <FiltersWrap>
       <TextField
         placeholder="Search"
         variant="outlined"
         value={inputValue}
         onChange={handleInputChange}
         sx={{
-          m: 1,
-          width: 208,
           '.MuiInputLabel-root': {
             color: 'rgba(255, 255, 255, 0.8)',
             '&.Mui-focused': {
@@ -169,11 +159,6 @@ const Filters = () => {
         }}
         size="small"
         InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          ),
           endAdornment: (
             <InputAdornment position="end">
               {inputValue && (
@@ -192,6 +177,7 @@ const Filters = () => {
           ),
           style: {
             height: 52,
+            width: 236,
           },
         }}
       />
@@ -201,7 +187,7 @@ const Filters = () => {
         id="category-select"
         value={category}
         onChange={handleCategoryChange}
-        options={foodCategories}
+        options={categories}
       />
       <CustomSelect
         id="recommendation-select"
@@ -209,7 +195,7 @@ const Filters = () => {
         onChange={handleRecommendationChange}
         options={recommendationOptions}
       />
-    </>
+    </FiltersWrap>
   );
 };
 

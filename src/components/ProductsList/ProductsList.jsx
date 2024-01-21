@@ -1,4 +1,4 @@
-import { getAllExercises } from 'api/productsListApi';
+import { getAllProducts } from 'api/productsListApi';
 import ProductsListItem from 'components/ProductsListItem/ProductsListItem';
 import React, { useEffect, useState } from 'react';
 import { ProductsListWrap } from './ProductsList.styled';
@@ -8,7 +8,7 @@ const ProductsList = () => {
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
-        const data = await getAllExercises();
+        const data = await getAllProducts();
         setProducts(data.result);
       } catch (error) {
         console.log(error);

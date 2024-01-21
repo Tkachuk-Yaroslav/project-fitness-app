@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 
-const Select = styled.select`
-  width: 192px;
-  height: 52px;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid;
+const FiltersWrap = styled.div`
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
 `;
 
-const SelectWrapper = styled.div`
-  gap: 10px;
-`;
-
-export { Select, SelectWrapper };
+export { FiltersWrap };

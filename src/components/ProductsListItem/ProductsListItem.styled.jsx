@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ProductsCard = styled.li`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 98%;
   height: 141px;
   padding: 16px;
   justify-content: center;
@@ -63,7 +63,7 @@ export const ProductsCardStatusCountTrue = styled.p`
     width: 14px;
     height: 14px;
     border-radius: 10px;
-    background: ${props => (props.$recommended ? '#419b09' : '#e6533c')};
+    background: ${props => (props.$recommended ? '#419b09' : '#E9101D')};
     margin-right: 8px;
   }
 `;

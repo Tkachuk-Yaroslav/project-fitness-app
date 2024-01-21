@@ -6,7 +6,6 @@ import React from 'react';
 const ProductsPage = () => {
   return (
     <Container>
-      <div>ProductsPage</div>
       <Filters />
       <ProductsList />
     </Container>

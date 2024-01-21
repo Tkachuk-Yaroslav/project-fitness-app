@@ -15,7 +15,7 @@ export const ProductsListWrap = styled.ul`
   }
 
   @media screen and (min-width: 1440px) {
-    max-width: 870px;
+    max-width: 850px;
   }
 
   &::-webkit-scrollbar {
