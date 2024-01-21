@@ -41,6 +41,7 @@ const ModalWaist = ({ filter, isOpen, closeModal }) => {
         <p>Текст модального окна</p>
         {allExercises.map((exercise, index) => (
           <div className="ExerciseItemt" key={index}>
+            <p>ID={exercise._id}</p>
             <img width={100} src={exercise.gifUrl} alt={exercise.name} />
             <p>Name:{exercise.name}</p>
             <p>BurnedCalories:{exercise.burnedCalories}</p>
