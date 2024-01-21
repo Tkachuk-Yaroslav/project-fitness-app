@@ -178,6 +178,7 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
                 <p>Target:{exercise.target}</p>
                 <p>BodyPart:{exercise.bodyPart}</p>
                 <p>Time:{exercise.time}</p>
+                <button type="submit"> Add to diary</button>
               </div>
             )
         )}
