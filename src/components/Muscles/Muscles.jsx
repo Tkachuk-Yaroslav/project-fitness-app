@@ -1,11 +1,14 @@
-import { getExercisesMuscles } from "api/ApiExercises";
+import { getExercisesMuscles } from 'api/ApiExercises';
 
-import React, { useEffect, useState } from "react";
-import { CardContainer } from "./Muscles.styled";
-import ExercisesSubcategoriesItem from "components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem";
+import React, { useEffect, useState } from 'react';
+import { CardContainer } from './Muscles.styled';
+import ExercisesSubcategoriesItem from 'components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
+import { Pagination } from 'components/pagination/Pagination';
 
 function Muscles() {
+  const [currentPage, setCurrentPage] = useState(1);
   const [MusclesExercises, setExercises] = useState([]);
+
   useEffect(() => {
     const fetchExercisesMuscles = async () => {
       try {
@@ -17,18 +20,50 @@ function Muscles() {
     };
     fetchExercisesMuscles();
   }, []);
+
+  function perPage() {
+    let exePerPage;
+    if (window.matchMedia('(min-width: 1440px)').matches) {
+      exePerPage = 10;
+    } else {
+      exePerPage = 9;
+    }
+
+    return exePerPage;
+  }
+
+  const lastExerciseIdx = currentPage * perPage();
+  const firstExerciseIdx = lastExerciseIdx - perPage();
+  const allExercises = MusclesExercises.length;
+
+  const currentExercise = MusclesExercises.slice(
+    firstExerciseIdx,
+    lastExerciseIdx
+  );
+
+  const changePage = pageNumber => setCurrentPage(pageNumber);
+
   return (
+    <>
     <CardContainer>
-      {MusclesExercises.map(({ _id, filter, name, imgURL }) => (
+      {currentExercise.map(({ _id, filter, name, imgURL }) => (
         <ExercisesSubcategoriesItem
           key={_id}
-          _id={_id}
           filter={filter}
           name={name}
           imgURL={imgURL}
         />
       ))}
-    </CardContainer>
+      </CardContainer>
+      <div>
+        <Pagination
+          perPage={perPage()}
+          changePage={changePage}
+          allExercises={allExercises}
+          currentPage={currentPage}
+        />
+      </div>
+    </>
   );
 }
 

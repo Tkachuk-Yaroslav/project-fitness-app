@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { loginThunk } from '../../redux/auth/thunks';
 import { TrainingBgWrapperCont } from 'components/TrainingBgWrapper/TrainingBgWrapper.styled';
+import StatisticsInfo from 'components/StatisticsInfo/StatisticsInfo';
 
 const SignInPage = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const SignInPage = () => {
     <TrainingBgWrapperCont className="pageSign">
       <Container>
         <FormLogin login={login} />
+        <StatisticsInfo />
       </Container>
     </TrainingBgWrapperCont>
   );

@@ -9,7 +9,6 @@ import imagePathDesktopAndTablet2x from '../../images/training-bg-tab-desk-2x.pn
 
 export const TrainingBgWrapperCont = styled.div`
   overflow: hidden;
-  position: relative;
   &::before {
     content: '';
     position: fixed;
