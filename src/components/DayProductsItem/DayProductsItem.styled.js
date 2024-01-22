@@ -37,18 +37,18 @@ export const ProductsList = styled.ul`
 export const ProductsItem = styled.li`
   && > p {
     width: ${props => {
-      if (props.index === 3) return '80px';
-      if (props.index === 4) return '80px';
-      if (props.index === 5) return '76px';
+      if (props.$index === 3) return '80px';
+      if (props.$index === 4) return '80px';
+      if (props.$index === 5) return '76px';
     }};
   }
   @media screen and (min-width: 768px) {
     && > p {
       width: ${props => {
-        if (props.index === 0) return '204px'; // Ширина для першого елемента
-        if (props.index === 1) return '128px'; // Ширина для другого елемента
-        if (props.index === 2 || props.index === 3) return '90px'; // Ширина для третього елемента
-        if (props.index === 4) return '80px';
+        if (props.$index === 0) return '204px'; // Ширина для першого елемента
+        if (props.$index === 1) return '128px'; // Ширина для другого елемента
+        if (props.$index === 2 || props.index === 3) return '90px'; // Ширина для третього елемента
+        if (props.$index === 4) return '80px';
         // Додайте інші ширини, якщо потрібно
         //   return '100px'; // Ширина за замовчуванням
       }};
@@ -58,10 +58,10 @@ export const ProductsItem = styled.li`
   @media screen and (min-width: 1440px) {
     && > p {
       width: ${props => {
-        if (props.index === 0) return '212px';
-        if (props.index === 1) return '166px';
-        if (props.index === 2 || props.index === 3) return '105px';
-        if (props.index === 4) return '110px';
+        if (props.$index === 0) return '212px';
+        if (props.$index === 1) return '166px';
+        if (props.$index === 2 || props.index === 3) return '105px';
+        if (props.$index === 4) return '110px';
       }};
       /* Інші стилі для <p>, якщо потрібно */
     }
@@ -98,7 +98,7 @@ export const ProductsData = styled.p`
   }  */
 `;
 
-export const IndicatorIcon = styled.div`
+export const IndicatorIcon = styled.span`
   width: 14px;
   height: 14px;
   border-radius: 50%;
