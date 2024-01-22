@@ -2,25 +2,21 @@ import { useEffect, useState } from 'react';
 import { CardContainer } from './BodyParts.styled';
 import ExercisesSubcategoriesItem from 'components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 
-import { getExercisesBodyParts } from 'api/ApiExercises';
 import { Pagination } from 'components/pagination/Pagination';
+import { useDispatch, useSelector } from 'react-redux';
+import Loader from 'components/Loader/Loader';
+import { fetchBodyParts } from '../../redux/exercises/thunks';
 
 function BodyParts() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [listExercises, setExercises] = useState([]);
+  const { bodyParts, isLoading } = useSelector((state) => state.exercises);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchExercisesBodyParts = async () => {
-      try {
-        const data = await getExercisesBodyParts();
-        setExercises(data.result);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchExercisesBodyParts();
-  }, []);
-  
+    dispatch(fetchBodyParts());
+  }, [dispatch]);
+
+   
   function perPage() {
     let exePerPage;
     if (window.matchMedia('(min-width: 1440px)').matches) {
@@ -34,9 +30,9 @@ function BodyParts() {
 
   const lastExerciseIdx = currentPage * perPage();
   const firstExerciseIdx = lastExerciseIdx - perPage();
-  const allExercises = listExercises.length;
+  const allExercises = bodyParts.length;
 
-  const currentExercise = listExercises.slice(
+  const currentExercise = bodyParts.slice(
     firstExerciseIdx,
     lastExerciseIdx
   );
@@ -45,6 +41,7 @@ function BodyParts() {
 
   return (
     <>
+    {isLoading && <Loader />}
       <CardContainer>
         {currentExercise.map(({ _id, filter, name, imgURL }) => (
           <ExercisesSubcategoriesItem
@@ -56,6 +53,7 @@ function BodyParts() {
         ))}
       </CardContainer>
       <div>
+      {isLoading && <Loader />}
         {allExercises !== perPage() && (
           <Pagination
             perPage={perPage()}

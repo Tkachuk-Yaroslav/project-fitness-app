@@ -1,25 +1,19 @@
-import { getExercisesMuscles } from 'api/ApiExercises';
-
 import React, { useEffect, useState } from 'react';
 import { CardContainer } from './Muscles.styled';
 import ExercisesSubcategoriesItem from 'components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 import { Pagination } from 'components/pagination/Pagination';
+import { fetchMuscles } from '../../redux/exercises/thunks';
+import { useDispatch, useSelector } from 'react-redux';
+import Loader from 'components/Loader/Loader';
 
 function Muscles() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [MusclesExercises, setExercises] = useState([]);
+  const { muscles, isLoading } = useSelector(state => state.exercises);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchExercisesMuscles = async () => {
-      try {
-        const data = await getExercisesMuscles();
-        setExercises(data.result);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchExercisesMuscles();
-  }, []);
+    dispatch(fetchMuscles());
+  }, [dispatch]);
 
   function perPage() {
     let exePerPage;
@@ -34,26 +28,24 @@ function Muscles() {
 
   const lastExerciseIdx = currentPage * perPage();
   const firstExerciseIdx = lastExerciseIdx - perPage();
-  const allExercises = MusclesExercises.length;
+  const allExercises = muscles.length;
 
-  const currentExercise = MusclesExercises.slice(
-    firstExerciseIdx,
-    lastExerciseIdx
-  );
+  const currentExercise = muscles.slice(firstExerciseIdx, lastExerciseIdx);
 
   const changePage = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <>
-    <CardContainer>
-      {currentExercise.map(({ _id, filter, name, imgURL }) => (
-        <ExercisesSubcategoriesItem
-          key={_id}
-          filter={filter}
-          name={name}
-          imgURL={imgURL}
-        />
-      ))}
+      {isLoading && <Loader />}
+      <CardContainer>
+        {currentExercise.map(({ _id, filter, name, imgURL }) => (
+          <ExercisesSubcategoriesItem
+            key={_id}
+            filter={filter}
+            name={name}
+            imgURL={imgURL}
+          />
+        ))}
       </CardContainer>
       <div>
         <Pagination
