@@ -11,18 +11,19 @@ import {
 } from './UserMenu.styled';
 import { NavLink } from 'react-router-dom';
 import sprite from '../../images/sprite.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logoutThunk } from '../../redux/auth/thunks';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
 
   const handleLogOut = () => dispatch(logoutThunk());
+  const avatarUser = useSelector(state => state.auth.user.avatarURL);
   // заглушки для бека
-  const avatarUser = null;
+  // const avatarUser = null;
 
   const user = {
-    avatarURL: false,
+    avatarURL: avatarUser,
   };
 
   const [isActivePage, setIsActivePage] = useState('unknown');
@@ -90,7 +91,9 @@ const UserMenu = () => {
             <use href={`${sprite}#icon-settings`}></use>
           </ProfileSvg>
         </NavLink>
-        <AvatarHeader>{user.avatarURL ? avatarUser : avatarLogo}</AvatarHeader>
+        <AvatarHeader>
+          <img src={user.avatarURL ? avatarUser : avatarLogo} alt="" />
+        </AvatarHeader>
         {/* <LogoutBtn type="button" onClick={handleLogOut}> */}
         <LogoutBtn
           type="button"
