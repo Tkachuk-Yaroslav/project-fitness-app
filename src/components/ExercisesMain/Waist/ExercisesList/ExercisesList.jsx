@@ -82,12 +82,12 @@ const ExercisesList = ({ filter }) => {
                 openModal={openModal}
               />
             ))}
-            {!allExercises.length && (
+            {/* {!allExercises.length && (
               <NoExercisesTitle>
                 There are no exercises downloaded yet. Please try choosing this
                 category later!
-              </NoExercisesTitle>
-            )}
+              </NoExercisesTitle> */}
+            {/* )} */}
             {(capitalizedBodyParts ||
               capitalizedMuscles ||
               capitalizedEquipmentId) && (
