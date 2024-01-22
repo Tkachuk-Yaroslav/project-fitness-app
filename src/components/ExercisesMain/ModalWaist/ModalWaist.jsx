@@ -4,7 +4,7 @@ import { ButtonCloseModal, ExerciseContent, Gif, ModalStyles, ModalWrapp } from 
 import { useParams } from "react-router-dom";
 import { getAllExercises } from "api/ApiExercises";
 import ModalWaistList from "./ModalWaistList";
-import sprite from "./sprite.svg";
+import sprite from "../../../images/sprite.svg";
 import CountdownTimer from "./CountdownTimer";
 
 const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
@@ -33,9 +33,9 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
       <ModalWrapp>
         <ButtonCloseModal onClick={closeModal}>
           <svg>
-            <use href={`${sprite}#icon-cross`} />
+            <use href={`${sprite}#icon-x`} />
           </svg>
-          x
+          
         </ButtonCloseModal>
 
         {allExercises.map(
