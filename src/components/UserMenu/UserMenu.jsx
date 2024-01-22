@@ -92,7 +92,8 @@ const UserMenu = () => {
           </ProfileSvg>
         </NavLink>
         <AvatarHeader>
-          <img src={user.avatarURL ? avatarUser : avatarLogo} alt="" />
+          {user.avatarURL ? <img src={user.avatarURL} alt="" /> : avatarLogo}
+          {/* <img src={user.avatarURL ? avatarUser : avatarLogo} alt="" /> */}
         </AvatarHeader>
         {/* <LogoutBtn type="button" onClick={handleLogOut}> */}
         <LogoutBtn
