@@ -21,7 +21,7 @@ export const TimerTitle = styled.h1`
 
 export const Clock = styled.div`
   display: flex;
-  color: var(--color-text);
+  color: white;
   font-size: 16px;
   line-height: 24px;
 `;
@@ -29,22 +29,22 @@ export const Clock = styled.div`
 export const StartBtn = styled.svg`
   width: 14px;
   height: 14px;
-  stroke: var(--color-text);
-  fill: var(--color-text);
+  stroke: white;
+  fill: white;
 `;
 
 export const PauseBtn = styled.svg`
   width: 14px;
   height: 14px;
-  stroke: var(--color-text);
-  fill: var(--color-text);
+  stroke: white;
+  fill: white;
 `;
 
 export const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-main-one);
+  background-color: black;
   width: 32px;
   height: 32px;
   cursor: pointer;
@@ -59,6 +59,6 @@ export const BurnedCalories = styled.p`
   line-height: 18px;
   margin-top: 8px;
   > span {
-    color: var(--color-main-one);
+    color: black;
   }
 `;
