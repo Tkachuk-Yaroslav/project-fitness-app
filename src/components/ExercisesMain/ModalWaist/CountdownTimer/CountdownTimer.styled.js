@@ -44,7 +44,7 @@ export const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: #e6533c;
   width: 32px;
   height: 32px;
   cursor: pointer;
@@ -59,6 +59,6 @@ export const BurnedCalories = styled.p`
   line-height: 18px;
   margin-top: 8px;
   > span {
-    color: black;
+    color: white;
   }
 `;
