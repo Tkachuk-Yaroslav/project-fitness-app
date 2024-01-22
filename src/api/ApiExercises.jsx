@@ -4,8 +4,7 @@ axios.defaults.baseURL = "https://project-fitness-app-back.onrender.com/api/";
 
 export const getExercisesBodyParts = async () => {
   const { data } = await axios.get(`exercises/filters?filter=Body parts`);
-  console.log(data);
-  return data;
+   return data;
 };
 
 export const getExercisesMuscles = async () => {

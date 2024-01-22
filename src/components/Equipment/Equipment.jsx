@@ -1,26 +1,19 @@
-import { getExercisesEquipment } from 'api/ApiExercises';
 import React, { useEffect, useState } from 'react';
-
 import { CardContainer } from './Equipment.styled';
 import ExercisesSubcategoriesItem from 'components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 import { Pagination } from 'components/pagination/Pagination';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchEquipment } from '../../redux/exercises/thunks';
+import Loader from 'components/Loader/Loader';
 
 function Equipment() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [ExercisesEquipment, setExercisesEquipment] = useState([]);
+  const { equipment, isLoading } = useSelector(state => state.exercises);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchExercisesEquipment = async () => {
-      try {
-        const data = await getExercisesEquipment();
-        setExercisesEquipment(data.result);
-        console.log('data', data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchExercisesEquipment();
-  }, []);
+    dispatch(fetchEquipment());
+  }, [dispatch]);
 
   function perPage() {
     let exePerPage;
@@ -35,28 +28,26 @@ function Equipment() {
 
   const lastExerciseIdx = currentPage * perPage();
   const firstExerciseIdx = lastExerciseIdx - perPage();
-  const allExercises = ExercisesEquipment.length;
+  const allExercises = equipment.length;
 
-  const currentExercise = ExercisesEquipment.slice(
-    firstExerciseIdx,
-    lastExerciseIdx
-  );
+  const currentExercise = equipment.slice(firstExerciseIdx, lastExerciseIdx);
 
   const changePage = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <>
-    <CardContainer>
-      {currentExercise.map(({ _id, filter, name, imgURL }) => (
-        <ExercisesSubcategoriesItem
-          key={_id}
-          filter={filter}
-          name={name}
-          imgURL={imgURL}
-        />
-      ))}
-    </CardContainer>
-    <div>
+      {isLoading && <Loader />}
+      <CardContainer>
+        {currentExercise.map(({ _id, filter, name, imgURL }) => (
+          <ExercisesSubcategoriesItem
+            key={_id}
+            filter={filter}
+            name={name}
+            imgURL={imgURL}
+          />
+        ))}
+      </CardContainer>
+      <div>
         {allExercises !== perPage() && (
           <Pagination
             perPage={perPage()}
