@@ -15,15 +15,15 @@ const DayProductsItem = () => {
   return (
     <ProductsContainer>
       <ProductsList>
-        <ProductsItem index={0}>
+        <ProductsItem $index={0}>
           <ProductsTitle>Title</ProductsTitle>
           <ProductsData>Bread Hercules grain</ProductsData>
         </ProductsItem>
-        <ProductsItem index={1}>
+        <ProductsItem $index={1}>
           <ProductsTitle>Category</ProductsTitle>
           <ProductsData>Flour</ProductsData>
         </ProductsItem>
-        <ProductsItem index={2}>
+        <ProductsItem $index={2}>
           <ProductsTitle>Calories</ProductsTitle>
           <ProductsData>289</ProductsData>
         </ProductsItem>
@@ -31,7 +31,7 @@ const DayProductsItem = () => {
           <ProductsTitle>Weight</ProductsTitle>
           <ProductsData>100</ProductsData>
         </ProductsItem>
-        <ProductsItem index={4}>
+        <ProductsItem $index={4}>
           <ProductsTitle>Recommend</ProductsTitle>
           <ProductsData>
             <IndicatorIcon />
