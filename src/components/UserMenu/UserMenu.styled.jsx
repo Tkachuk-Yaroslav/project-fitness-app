@@ -75,6 +75,10 @@ export const AvatarHeader = styled.div`
     width: 46px;
     height: 46px;
   }
+
+  & > img {
+    border-radius: 50%;
+  }
 `;
 
 export const SvgLogoUserHeader = styled.svg`
