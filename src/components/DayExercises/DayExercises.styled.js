@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+// import styled from 'styled-components';
+import { createGlobalStyle, styled } from 'styled-components';
+
 
 export const ExercisesSection = styled.section`
   width: 335px;
@@ -7,15 +9,15 @@ export const ExercisesSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: 22px;
-  padding: 16px;
+  padding: 16px 4px 16px 16px;
   /* margin-bottom: 40px; */
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: rgba(239, 237, 232, 0.05);
   overflow: auto;
-  &::-webkit-scrollbar {
+  /* &::-webkit-scrollbar {
     width: 0;
-  }
+  } */
   @media screen and (min-width: 768px) {
     width: 704px;
     height: 234px;
@@ -47,8 +49,17 @@ export const ExercisesLink = styled(Link)`
   font-size: 14px;
   font-weight: 500;
   line-height: calc(18 / 14);
+  margin-right: 12px;
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: calc(24 / 16);
   }
 `;
+
+export const StyledScrollbar = createGlobalStyle`
+.os-scrollbar {
+    --os-track-border-radius: 0;
+    --os-handle-bg: rgba(239, 237, 232, 0.10);
+    --os-handle-bg-hover: #EF8964;
+    --os-handle-bg-active: #E6533C;
+}`
