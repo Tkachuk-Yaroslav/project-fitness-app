@@ -39,9 +39,7 @@ export async function setUserProfile(body) {
   return data;
 }
 
-export async function updateAvatar(formData) {
-  const { data } = axios.patch('users/avatars', formData, {
-    headers: { 'content-type': 'multipart/form-data' },
-  });
+export const avatar = async date => {
+  const { data } = await axios.patch('users/avatars', date);
   return data;
-}
+};

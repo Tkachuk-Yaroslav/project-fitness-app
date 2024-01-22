@@ -15,25 +15,22 @@ import { useState } from 'react';
 import { refreshThunk, setProfileSettingsThunk } from '../../redux/auth/thunks';
 import Calendar from 'components/Calendar/Calendar';
 
-
 const UserForm = () => {
   const { user } = useSelector(state => state.auth);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [userData, setUser] = useState({
     ...user,
     blood: String(user.blood),
     levelActivity: String(user.levelActivity),
   });
+
   const onSubmit = async (values, actions) => {
-    console.log('values', values);
     const { email, ...rest } = values;
     const { payload } = await dispatch(setProfileSettingsThunk(rest));
     dispatch(refreshThunk());
     setUser(payload);
   };
-  
-  // const user = useSelector(state => state.auth.user);
-  // console.log(user, 'USERForm КОНСОЛЬ ДЛЯ ПЕРЕВІРКИ ЖИВОЇ СТОРІНКИ');
+
   const {
     name,
     email,
@@ -68,7 +65,7 @@ const UserForm = () => {
             <CustomInput label="Name" name="name" type="text" />
             <CustomInput
               className="disabled"
-              // disabled
+              disabled
               label="Email"
               name="email"
               type="email"

@@ -15,62 +15,40 @@ import {
 import sprite from '../../images/sprite.svg';
 import { LogoutBtn } from 'components/UserMenu/UserMenu.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutThunk } from '../../redux/auth/thunks';
-import { useEffect, useState } from 'react';
-// import { updateAvatar } from 'api/auth';
+import { logoutThunk, updateAvatarThunk } from '../../redux/auth/thunks';
+import { useState } from 'react';
 
 const UserCard = () => {
-  const [file, setFile] = useState(null);
-  const [image, setImage] = useState(null);
   const dispatch = useDispatch();
+  const result = useSelector(state => state.auth.user);
+  const [avatar, setAvatar] = useState(result.avatarURL);
 
-  useEffect(() => {
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('image', image);
-    console.log(formData);
-    // Send the formData to the server using fetch or axios
-    // ...
-    // try {
-    //   dispatch(updateAvatar(file));
-    //   console.log(file);
-    // } catch (error) {
-    //   console.error(error.message);
-    // }
-  }, [file, image, dispatch]);
-
-  // Define the function that handles the file input event
   const handleFileInput = event => {
-    // Get the file from the event target
     const file = event.target.files[0];
-    // Create a new FileReader object
-    const reader = new FileReader();
-    // Set the onload event handler of the reader
-    reader.onload = () => {
-      // Set the state with the file and the image URL
-      setFile(file);
-      setImage(reader.result);
-    };
-    // Read the file as a data URL
-    reader.readAsDataURL(file);
-  };
-  // Define the function that handles the form submit event
-  const handleSubmit = event => {
-    event.preventDefault();
-    // Use the props or the state variables as needed
-    // ...
+    setAvatar(file);
+    if (file) {
+      const blob = new Blob([file]);
+      const objectURL = URL.createObjectURL(blob);
+      setAvatar(objectURL);
+    }
+    try {
+      dispatch(updateAvatarThunk(file));
+    } catch (error) {
+      console.error('Error loading the file', error);
+    }
   };
 
   const handleLogOut = () => dispatch(logoutThunk());
-  const result = useSelector(state => state.auth.user);
 
   return (
     <div>
       <WrapperUser>
         <WrapperAvatar>
-          <form onSubmit={handleSubmit}>
-            {image ? (
-              <input type="image" src={image} alt="Submit image" style={{}} />
+          <form
+          // onSubmit={handleSubmit}
+          >
+            {avatar ? (
+              <input type="image" src={avatar} alt="Submit image" />
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -98,8 +76,6 @@ const UserCard = () => {
                 style={{ display: 'none' }}
               />
             </ButtonAddAvatar>
-            {/* Use an img element to display the image preview */}
-            {/* <img src={image} alt="Preview" /> */}
           </form>
         </WrapperAvatar>
 
