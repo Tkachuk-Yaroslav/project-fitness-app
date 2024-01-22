@@ -79,7 +79,6 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-
           <Route
             path="exercises"
             element={
