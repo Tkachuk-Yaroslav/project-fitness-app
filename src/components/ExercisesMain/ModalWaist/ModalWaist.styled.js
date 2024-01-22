@@ -9,7 +9,6 @@ const ButtonCloseModal = styled.button`
   right: 24px;
   width: 24px;
   height: 24px;
-<<<<<<< HEAD
   line-height: 0;
   cursor: pointer;
   background-color: black;
@@ -20,18 +19,6 @@ const ButtonCloseModal = styled.button`
   & > svg path {
     fill: currentColor;
   }
-=======
-  border-radius: 50%;
-  line-height: 0;
-  cursor: pointer;
-  background-color: orange;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  align-items: center;
-  justify-content: center;
-  transition-property: background-color, border-color;
-  /* transition-duration: var(--transition-duration);
-  transition-timing-function: var(--transition-timing-function); */
->>>>>>> main
 `;
 
 const ModalStyles = {
@@ -39,7 +26,6 @@ const ModalStyles = {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
   },
   content: {
-<<<<<<< HEAD
     minWidth: '694px',
     top: '50%',
     left: '50%',
@@ -69,14 +55,3 @@ const ModalWrapp = styled.div`
   
 `;
 export { ButtonCloseModal, ModalStyles, ModalWrapp, ExerciseContent, Gif };
-=======
-    width: '440px',
-    height: '632px',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
-
-export { ButtonCloseModal, ModalStyles };
->>>>>>> main
