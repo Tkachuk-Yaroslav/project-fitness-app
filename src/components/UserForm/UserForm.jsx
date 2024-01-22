@@ -60,7 +60,7 @@ const UserForm = () => {
         validationSchema={userFormSchema}
         onSubmit={onSubmit}
       >
-        {() => (
+        {({ values }) => (
           <FormStyled autoComplete="off">
             <CustomInput label="Name" name="name" type="text" />
             <CustomInput
@@ -180,7 +180,24 @@ const UserForm = () => {
                 value="5"
               ></CustomRadio>
             </div>
-            <ButtonSave type="submit">Save</ButtonSave>
+            <ButtonSave
+              disabled={
+                JSON.stringify({
+                  name,
+                  email,
+                  height,
+                  currentWeight,
+                  desiredWeight,
+                  birthday: new Date(birthday),
+                  blood: String(blood),
+                  sex,
+                  levelActivity: String(levelActivity),
+                }) === JSON.stringify(values)
+              }
+              type="submit"
+            >
+              Save
+            </ButtonSave>
           </FormStyled>
         )}
       </Formik>

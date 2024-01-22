@@ -27,10 +27,14 @@ export const ButtonSave = styled('button')({
   padding: '12px 40px',
   borderRadius: 12,
   background: ' var(--orange-color)',
-  color: ' rgba(239, 237, 232, 0.60)',
+  color: 'inherit',
+  // color: ' rgba(239, 237, 232, 0.60)',
   fontSize: 16,
   fontWeight: 500,
   lineHeight: 1.125,
+  '&[disabled]': {
+    color: ' rgba(239, 237, 232, 0.60)',
+  },
   '@media screen and (min-width:768px)': {
     width: 144,
     height: 56,
