@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { getAllExercises } from "api/ApiExercises";
 import ModalWaistList from "./ModalWaistList";
 import sprite from "./sprite.svg";
-
+import CountdownTimer from "./CountdownTimer";
 
 const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
   const { body_parts, muscles, equipmentId } = useParams();
@@ -51,6 +51,7 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
                     equipment={exercise.equipment}
                   />
                 </ExerciseContent>
+                <CountdownTimer key={exercise._id} timer={3} handleTime={() => {}} dynamicBurnCal={0} />
               </div>
             )
         )}
