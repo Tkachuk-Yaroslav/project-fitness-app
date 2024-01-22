@@ -1,5 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { signIn, signUp, refresh, logOut, setToken, setUserProfile } from 'api/auth';
+import {
+  signIn,
+  signUp,
+  refresh,
+  logOut,
+  setToken,
+  setUserProfile,
+  avatar,
+} from 'api/auth';
 
 export const registrationThunk = createAsyncThunk(
   'auth/registration',
@@ -52,16 +60,31 @@ export const logoutThunk = createAsyncThunk(
   }
 );
 
-
 export const setProfileSettingsThunk = createAsyncThunk(
   'auth/settings',
-  async (payload, {rejectWithValue}) => {
+  async (payload, { rejectWithValue }) => {
     try {
-      const data = await setUserProfile(payload)
-      return data
-    } catch(error) {
-      return rejectWithValue(error)
+      const data = await setUserProfile(payload);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
     }
   }
-)
+);
 
+export const updateAvatarThunk = createAsyncThunk(
+  'auth/avatar',
+  async (file, { rejectWithValue }) => {
+    try {
+      const formData = new FormData();
+      formData.append('avatar', file);
+
+      const res = await avatar(formData, {
+        headers: { 'content-type': 'multipart/form-data' },
+      });
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

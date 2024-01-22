@@ -8,7 +8,7 @@ export const WrapperUser = styled('div')({
   margin: '40px 0',
   textAlign: 'center',
 });
-export const WrapperAvatar = styled('div')({
+export const WrapperAvatar = styled('label')({
   position: 'relative',
 
   display: 'flex',
@@ -21,6 +21,20 @@ export const WrapperAvatar = styled('div')({
   '@media screen and (min-width: 768px)': {
     width: 150,
     height: 150,
+  },
+
+  '&>form>input': {
+    width: 90,
+    height: 90,
+    borderRadius: '50%',
+    position: 'absolute',
+    top: '-1px',
+    left: '-1px',
+    border: '1px solid var(--orange-color)',
+    '@media screen and (min-width: 768px)': {
+      width: 150,
+      height: 150,
+    },
   },
 });
 
@@ -108,13 +122,14 @@ export const ButtonWrapper = styled('div')({
   justifyContent: 'flex-end',
 });
 
-export const ButtonAddAvatar = styled('button')({
+export const ButtonAddAvatar = styled('label')({
   backgroundColor: 'transparent',
   position: 'absolute',
-  bottom: '-20%',
+  bottom: '-17%',
+  left: '34px',
   '@media screen and (min-width: 768px)': {
-    bottom: '-15%',
-
+    bottom: '-21px',
+    left: 57,
     svg: {
       width: 32,
       height: 32,

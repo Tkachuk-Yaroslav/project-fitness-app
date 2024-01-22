@@ -5,6 +5,7 @@ import {
   loginThunk,
   registrationThunk,
   setProfileSettingsThunk,
+  updateAvatarThunk,
 } from './thunks';
 import { handleRefreshFul, handleRefreshRej, handleAuth } from './helpers';
 
@@ -41,19 +42,31 @@ export const authSlice = createSlice({
         state.isLoggedIn = false;
       })
       .addCase(setProfileSettingsThunk.fulfilled, (state, payload) => {
-        const {name, height, currentWeight, desiredWeight, birthday, blood, sex, bmr} = payload
+        const {
+          name,
+          height,
+          currentWeight,
+          desiredWeight,
+          birthday,
+          blood,
+          sex,
+          bmr,
+        } = payload;
         state.user = {
           ...state.user,
-          name, 
-          height, 
-          currentWeight, 
-          desiredWeight, 
-          birthday, 
-          blood, 
-          sex, 
-          bmr
-        }
+          name,
+          height,
+          currentWeight,
+          desiredWeight,
+          birthday,
+          blood,
+          sex,
+          bmr,
+        };
       })
+      .addCase(updateAvatarThunk.fulfilled, (state, { payload }) => {
+        state.user.avatarURL = payload;
+      });
   },
 });
 
