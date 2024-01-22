@@ -3,8 +3,18 @@ import { Link } from 'react-router-dom';
 import { registerSchema } from '../../../schemas/RegisterSchema/index';
 import { AuthCont } from '../../styled';
 import sprite from '../../../images/sprite.svg';
+import { useState } from 'react';
 
 const FormRegistration = ({ registration }) => {
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword(show => !show);
+
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
+
   const onSubmit = async ({ name, email, password }, actions) => {
     registration({
       name: name,
@@ -12,7 +22,6 @@ const FormRegistration = ({ registration }) => {
       password: password,
     });
     await new Promise(resolve => setTimeout(resolve, 1000));
-    // actions.resetForm();
   };
 
   const formik = useFormik({
@@ -46,29 +55,35 @@ const FormRegistration = ({ registration }) => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 className={
-                  formik.errors.name && formik.touched.name
+                  formik.errors.name &&
+                  formik.touched.name &&
+                  formik.values.name.length > 0
                     ? 'input-error'
-                    : formik.touched.name
+                    : formik.touched.name && formik.values.name.length > 0
                     ? 'input-success'
                     : ''
                 }
               />
-              {!formik.errors.name && formik.touched.name && (
-                <div className="notify-cont">
-                  <svg width="16" height="16" viewBox="0 0 16 16">
-                    <use href={`${sprite}#icon-checkbox-circle-fill`} />
-                  </svg>
-                  <p className="notify-descr success">Success name</p>
-                </div>
-              )}
-              {formik.errors.name && formik.touched.name && (
-                <div className="notify-cont">
-                  <svg width="16" height="16" viewBox="0 0 16 16">
-                    <use href={`${sprite}#icon-red`} />
-                  </svg>
-                  <p className="notify-descr error">{formik.errors.name}</p>
-                </div>
-              )}
+              {!formik.errors.name &&
+                formik.touched.name &&
+                formik.values.name.length > 0 && (
+                  <div className="notify-cont">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                      <use href={`${sprite}#icon-checkbox-circle-fill`} />
+                    </svg>
+                    <p className="notify-descr success">Success name</p>
+                  </div>
+                )}
+              {formik.errors.name &&
+                formik.touched.name &&
+                formik.values.name.length > 0 && (
+                  <div className="notify-cont">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                      <use href={`${sprite}#icon-red`} />
+                    </svg>
+                    <p className="notify-descr error">{formik.errors.name}</p>
+                  </div>
+                )}
             </div>
             <div>
               <input
@@ -80,66 +95,101 @@ const FormRegistration = ({ registration }) => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 className={
-                  formik.errors.email && formik.touched.email
+                  formik.errors.email &&
+                  formik.touched.email &&
+                  formik.values.email.length > 0
                     ? 'input-error'
-                    : formik.touched.email
+                    : formik.touched.email && formik.values.email.length > 0
                     ? 'input-success'
                     : ''
                 }
               />
-              {!formik.errors.email && formik.touched.email && (
-                <div className="notify-cont">
-                  <svg width="16" height="16" viewBox="0 0 16 16">
-                    <use href={`${sprite}#icon-checkbox-circle-fill`} />
-                  </svg>
-                  <p className="notify-descr success">Success email</p>
-                </div>
-              )}
-              {formik.errors.email && formik.touched.email && (
-                <div className="notify-cont">
-                  <svg width="16" height="16" viewBox="0 0 16 16">
-                    <use href={`${sprite}#icon-red`} />
-                  </svg>
-                  <p className="notify-descr error">{formik.errors.email}</p>
-                </div>
-              )}
+              {!formik.errors.email &&
+                formik.touched.email &&
+                formik.values.email.length > 0 && (
+                  <div className="notify-cont">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                      <use href={`${sprite}#icon-checkbox-circle-fill`} />
+                    </svg>
+                    <p className="notify-descr success">Success email</p>
+                  </div>
+                )}
+              {formik.errors.email &&
+                formik.touched.email &&
+                formik.values.email.length > 0 && (
+                  <div className="notify-cont">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                      <use href={`${sprite}#icon-red`} />
+                    </svg>
+                    <p className="notify-descr error">{formik.errors.email}</p>
+                  </div>
+                )}
             </div>
-            <div>
+            <div className="eye-cont">
               <input
                 autoComplete="off"
                 name="password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 placeholder="Password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 className={
-                  formik.errors.password && formik.touched.password
+                  formik.errors.password &&
+                  formik.touched.password &&
+                  formik.values.password.length > 0
                     ? 'input-error'
-                    : formik.touched.password
+                    : formik.touched.password &&
+                      formik.values.password.length > 0
                     ? 'input-success'
                     : ''
                 }
               />
-              {!formik.errors.password && formik.touched.password && (
-                <div className="notify-cont">
-                  <svg width="16" height="16" viewBox="0 0 16 16">
-                    <use href={`${sprite}#icon-checkbox-circle-fill`} />
-                  </svg>
-                  <p className="notify-descr success">Success password</p>
-                </div>
-              )}
-              {formik.errors.password && formik.touched.password && (
-                <div className="notify-cont">
-                  <svg width="16" height="16" viewBox="0 0 16 16">
-                    <use href={`${sprite}#icon-red`} />
-                  </svg>
-                  <p className="notify-descr error">{formik.errors.password}</p>
-                </div>
-              )}
+              <button
+                className="eye-btn"
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+              >
+                <svg className="eye">
+                  <use
+                    href={
+                      showPassword
+                        ? `${sprite}#icon-eye-off`
+                        : `${sprite}#icon-eye`
+                    }
+                  />
+                </svg>
+              </button>
+              {!formik.errors.password &&
+                formik.touched.password &&
+                formik.values.password.length > 0 && (
+                  <div className="notify-cont">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                      <use href={`${sprite}#icon-checkbox-circle-fill`} />
+                    </svg>
+                    <p className="notify-descr success">Success password</p>
+                  </div>
+                )}
+              {formik.errors.password &&
+                formik.touched.password &&
+                formik.values.password.length > 0 && (
+                  <div className="notify-cont">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                      <use href={`${sprite}#icon-red`} />
+                    </svg>
+                    <p className="notify-descr error">
+                      {formik.errors.password}
+                    </p>
+                  </div>
+                )}
             </div>
           </div>
-          <button type="submit" disabled={formik.isSubmitting}>
+          <button
+            type="submit"
+            className="submit"
+            disabled={formik.isSubmitting}
+          >
             Sign Up
           </button>
           <div className="navigate-cont">
