@@ -21,19 +21,21 @@ const DayDashboard = () => {
 	const [dashboardData, setDashboardData] = useState(null);
 	const dailyPhysicalActivity = 110;
 	const caloriesRemaining = user.bmr - (dashboardData && dashboardData.consumedCalories);
-	const sportsRemaining = dailyPhysicalActivity - (dashboardData && dashboardData.consumedBurned);
+	const sportsRemaining = Math.round(dailyPhysicalActivity - (dashboardData && dashboardData.consumedBurned / 60));
 
 	// user.bmr - (dashboardData && dashboardData.consumedCalories)
 	// (dashboardData && dashboardData.consumedBurned)
 	const params = {
-		date: '2024-01-17T13:57:32.000Z',
+		// date: '2024-01-17T13:57:32.000Z',
+    		date: "23/01/2024"
 	};
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response = await axios.get(apiUrl, { params });
-				setDashboardData(response.data);
+				setDashboardData(response.data)
+        // console.log(response.data);
 			} catch (error) {
 				console.error('error:', error);
 			}
