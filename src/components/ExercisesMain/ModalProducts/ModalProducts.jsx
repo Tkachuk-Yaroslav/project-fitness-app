@@ -22,38 +22,33 @@ const ModalProducts = ({ id, title, calories, onClick }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(true);
 
-//   const currentDate = `${String(new Date().getDate()).padStart(2, '0')}/${String(
-//   new Date().getMonth() + 1
-// ).padStart(2, '0')}/${new Date().getFullYear()}`;
   const initialValues = {
     productId: id,
-    title: title,
     date: format(new Date(), 'dd/MM/yyyy'),
-    weight: '',
+    amount: '',
   };
 
-  const handleAddToDiaryClick = (values) => {
-    const { productId, weight,title } = values;
-    const calculatedCalories = calculateCalories(weight);
+  const handleAddToDiaryClick = values => {
+    const { productId, amount } = values;
+    const calculatedCalories = calculateCalories(amount);
 
     if (typeof onClick === 'function') {
       onClick({
         productId,
-        title,
-        weight,
+        amount,
         calories: calculatedCalories,
       });
     }
   };
 
   const schema = Yup.object().shape({
-    weight: Yup.number()
+    amount: Yup.number()
       .max(700, 'Weight should not exceed 700 grams')
       .required('Weight is required')
       .positive('Weight must be above zero'),
   });
 
-  const calculateCalories = (amount) => {
+  const calculateCalories = amount => {
     const calculated = (calories * amount) / 100;
     return parseFloat(calculated);
   };
@@ -62,7 +57,7 @@ const ModalProducts = ({ id, title, calories, onClick }) => {
     const amount = event.target.value;
     const calories = calculateCalories(amount);
     setCalculatedCalories(calories);
-    setFieldValue('weight', Number(amount));
+    setFieldValue('amount', Number(amount));
     setFieldValue('calories', calories);
   };
 
@@ -70,27 +65,26 @@ const ModalProducts = ({ id, title, calories, onClick }) => {
     actions.resetForm();
     setIsModalOpen(false);
     handleAddToDiaryClick(values);
-    console.log('string', values)
+    console.log('string', values);
     addProduct(values)
-    .then((response) => {
-      console.log("Product added successfully:", response);
-    })
-    .catch((error) => {
-      console.error("Error adding product:", error);
-    });
+      .then(response => {
+        console.log('Product added successfully:', response);
+      })
+      .catch(error => {
+        console.error('Error adding product:', error);
+      });
   };
 
   const handleCloseClick = () => {
     setIsModalOpen(false);
   };
 
-  const handleOverlayClick = (e) => {
+  const handleOverlayClick = e => {
     if (e.target.classList.contains('overlay')) {
       setIsModalOpen(false);
     }
   };
 
- 
   useEffect(() => {
     const body = document.body;
 
@@ -132,30 +126,33 @@ const ModalProducts = ({ id, title, calories, onClick }) => {
                     </div>
 
                     <div>
-                      <WeightInputLabel htmlFor="weight">
+                      <WeightInputLabel htmlFor="amount">
                         <WeightInput
-                          name="weight"
+                          name="amount"
                           type="text"
-                          onChange={(e) => handleWeightChange(e, setFieldValue)}
-                          onKeyPress={(e) => {
+                          onChange={e => handleWeightChange(e, setFieldValue)}
+                          onKeyPress={e => {
                             const onlyDigits = /^[0-9\b]+$/;
                             if (!onlyDigits.test(e.key)) {
                               e.preventDefault();
                             }
                           }}
-                          value={values.weight}
+                          value={values.amount}
                           border={
-                            errors.weight && touched.weight && '1px solid #D80027'
+                            errors.amount &&
+                            touched.amount &&
+                            '1px solid #D80027'
                           }
                         />
                         <FieldLabel>grams</FieldLabel>
                       </WeightInputLabel>
-                      <ErrorMessageStyled name="weight" component="p" />
+                      <ErrorMessageStyled name="amount" component="p" />
                     </div>
                   </InputsContainer>
 
                   <Calories>
-                    Calories: <CaloriesValue>{calculatedCalories}</CaloriesValue>
+                    Calories:
+                    <CaloriesValue>{calculatedCalories}</CaloriesValue>
                   </Calories>
 
                   <ButtonsContainer>
