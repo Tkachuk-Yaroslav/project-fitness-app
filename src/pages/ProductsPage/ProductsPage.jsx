@@ -40,8 +40,8 @@ const ProductsPage = () => {
 
   return (
     <Container>
+      {isLoading && <Loader />}
       <PageBgWrapperCont>
-        {isLoading && <Loader />}
         <Filters filters={filters} onChangeFilters={handleChangeFilters} />
         <ProductsList products={products} />
       </PageBgWrapperCont>
