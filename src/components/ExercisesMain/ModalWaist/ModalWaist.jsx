@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import 'overlayscrollbars/overlayscrollbars.css';
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import {
   ButtonCloseModal,
   ExerciseContent,
@@ -22,6 +21,7 @@ import './stylesModal.css';
 const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
   const { body_parts, muscles, equipmentId } = useParams();
   const [allExercises, setExercises] = useState([]);
+  const [selectedExercise, setSelectedExercise] = useState(null);
 
   const fetchAllExercises = async () => {
     try {
@@ -40,6 +40,19 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
     // eslint-disable-next-line
   }, []);
 
+  const handleSubmit = () => {
+    const data = {
+      productId: selectedExercise._id,
+      date: new Date(),
+      time: selectedExercise.time,
+      calories: selectedExercise.calories,
+    };
+
+    console.log(data, 'Обєкт пост запитом на бек');
+
+    // відправка даних
+  };
+
   return (
     <Modal style={ModalStyles} isOpen={isOpen} onRequestClose={closeModal}>
       <ModalWrapp>
@@ -52,17 +65,11 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
         {allExercises.map(
           (exercise, index) =>
             exercise._id === id && (
-              <div className="ExerciseItemt" key={index}>
-                {/* <ExerciseContent>
-                  <Gif src={exercise.gifUrl} alt={exercise.name} />
-                  <ModalWaistList
-                    name={exercise.name}
-                    bodypart={exercise.bodyPart}
-                    target={exercise.target}
-                    equipment={exercise.e
-                      quipment}
-                  /> */}
-
+              <div
+                className="ExerciseItemt"
+                key={index}
+                onClick={() => setSelectedExercise(exercise)}
+              >
                 <ExerciseContent>
                   <Gif src={exercise.gifUrl} alt={exercise.name} />
                   <ContentWrap>
@@ -78,7 +85,9 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
                       dynamicBurnCal={`${exercise.burnedCalories}`}
                     />
                   </ContentWrap>
-                  <AddBtn>Add to diary</AddBtn>
+                  <AddBtn type="button" onClick={handleSubmit}>
+                    Add to diary
+                  </AddBtn>
                 </ExerciseContent>
               </div>
             )
