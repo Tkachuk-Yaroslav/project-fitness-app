@@ -5,7 +5,7 @@ export const ProductsListWrap = styled.ul`
   flex-direction: column;
   row-gap: 20px;
   overflow-y: auto;
-  max-height: 80vh;
+  max-height: 65vh;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;

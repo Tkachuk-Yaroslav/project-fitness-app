@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Loader from 'components/Loader/Loader';
 import Filters from 'components/Filters/Filters';
 import ProductsList from 'components/ProductsList/ProductsList';
+import { PageBgWrapperCont } from 'components/PageBgWrapperCont/PageBgWrapperCont.styled';
 import { Container } from 'components/styles/Container/Container';
 import { getProducts } from 'api/productsListApi';
 
@@ -39,9 +40,11 @@ const ProductsPage = () => {
 
   return (
     <Container>
-      {isLoading && <Loader />}
-      <Filters filters={filters} onChangeFilters={handleChangeFilters} />
-      <ProductsList products={products} />
+      <PageBgWrapperCont>
+        {isLoading && <Loader />}
+        <Filters filters={filters} onChangeFilters={handleChangeFilters} />
+        <ProductsList products={products} />
+      </PageBgWrapperCont>
     </Container>
   );
 };
