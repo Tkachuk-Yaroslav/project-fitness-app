@@ -13,12 +13,12 @@ export const PageBgWrapperCont = styled.div`
     z-index: -10;
     background: no-repeat;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     &::before {
       width: 670px;
       height: 1005px;
       background-image: url(${imagePathDesktopAndTablet});
-      transform: translate(-650px, 85px);
+      transform: translate(-30vw, 85px);
     }
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -30,17 +30,7 @@ export const PageBgWrapperCont = styled.div`
       }
     }
   }
-  @media screen and (min-width: 1440px) {
-    &::before {
-      transform: translate(-30vw, 85px);
-    }
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      &::before {
-      }
-    }
-  }
+
   @media screen and (min-width: 2560px) {
     &::before {
       transform: translate(-43vw, 85px);
