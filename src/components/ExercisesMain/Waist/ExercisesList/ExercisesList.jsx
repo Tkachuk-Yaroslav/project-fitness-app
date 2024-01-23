@@ -12,6 +12,7 @@ import {
   ContainerWaist,
   ContainerWrapper,
   ImgWaist,
+
   // eslint-disable-next-line
   NoExercisesTitle,
 } from '../ExercisesList/ExercisesList.styled';
