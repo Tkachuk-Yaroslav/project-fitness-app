@@ -90,7 +90,7 @@ const UserForm = () => {
                 name="desiredWeight"
                 type="number"
               />
-              <Calendar name="birthday" />
+              <Calendar name="birthday" style={{}} />
             </WrapperInput>
             <WrapperRadio>
               <div id="radio-blood">

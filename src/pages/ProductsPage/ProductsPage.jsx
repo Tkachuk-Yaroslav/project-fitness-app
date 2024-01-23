@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Loader from 'components/Loader/Loader';
 import Filters from 'components/Filters/Filters';
 import ProductsList from 'components/ProductsList/ProductsList';
 import { Container } from 'components/styles/Container/Container';
@@ -10,15 +11,17 @@ const ProductsPage = () => {
     category: '',
     allowed: '',
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChangeFilters = newFilters => {
     setFilters(newFilters);
   };
 
-  const [products, setProducts] = React.useState([]);
+  const [products, setProducts] = useState([]);
   React.useEffect(() => {
     const fetchProducts = async () => {
       try {
+        setIsLoading(true);
         const data = await getProducts(
           filters.allowed,
           filters.category,
@@ -27,6 +30,8 @@ const ProductsPage = () => {
         setProducts(data.result);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchProducts();
@@ -34,6 +39,7 @@ const ProductsPage = () => {
 
   return (
     <Container>
+      {isLoading && <Loader />}
       <Filters filters={filters} onChangeFilters={handleChangeFilters} />
       <ProductsList products={products} />
     </Container>

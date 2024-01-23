@@ -7,5 +7,16 @@
   @media screen and (min-width: 768px) {
     width: 694px;
     height: 550px;
+    padding: 48px 32px !important;
   }
+}
+
+.fElkev{
+    @media screen and (min-width: 768px) {
+        right: 316px
+      }
+    
+}
+.ReactModal__Body--open {
+    overflow: hidden;
 }
