@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchBodyParts, fetchEquipment, fetchMuscles, setExerciseThunk } from './thunks';
+import {
+  // fetchBodyParts,
+  // fetchEquipment,
+  // fetchMuscles,
+  setExerciseThunk,
+} from './thunks';
 
 const initialState = {
   exercises: [],
@@ -8,24 +13,23 @@ const initialState = {
   error: null,
 };
 
-const handlePending = state => {
-  state.isLoading = true;
-};
+// const handlePending = state => {
+//   state.isLoading = true;
+// };
 
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
+// const handleRejected = (state, action) => {
+//   state.isLoading = false;
+//   state.error = action.payload;
+// };
 
 export const diarySlice = createSlice({
   name: 'diary',
   initialState,
 
-  extraReducers: builder => builder
-  .addCase(setExerciseThunk.fulfilled, (state, {payload})=>{
-    state.exercises = [...state.exercises, payload.info]
-  })
-
+  extraReducers: builder =>
+    builder.addCase(setExerciseThunk.fulfilled, (state, { payload }) => {
+      state.exercises = [...state.exercises, payload.info];
+    }),
 });
 
 export const diaryReducer = diarySlice.reducer;
