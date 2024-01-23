@@ -40,6 +40,19 @@ export const AuthCont = styled('div')(() => {
       gap: '18px',
       marginBottom: '28px',
     },
+    '.eye-cont': {
+      position: 'relative',
+    },
+    '.eye-btn': {
+      position: 'absolute',
+      right: '10px',
+      top: '12px',
+      background: 'none',
+    },
+    '.eye': {
+      width: '20px',
+      height: '20px',
+    },
     '.input-error': {
       borderColor: 'var(--error-color)',
     },
@@ -63,7 +76,7 @@ export const AuthCont = styled('div')(() => {
     '.success': {
       color: 'var(--success-color)',
     },
-    button: {
+    '.submit-btn': {
       fontSize: '16px',
       lineHeight: 1.12,
       padding: '12px 40px',
@@ -114,7 +127,16 @@ export const AuthCont = styled('div')(() => {
         gap: '20px',
         marginBottom: '64px',
       },
-      button: {
+      '.eye-cont': {
+        // display: 'flex',
+        // alignItems: 'center',
+        width: 'fit-content',
+      },
+      '.eye-btn': {
+        top: '15px',
+        // transform: 'translateX(-345px)',
+      },
+      '.submit': {
         fontSize: '20px',
         lineHeight: 1.2,
         padding: '16px 60px',
@@ -125,6 +147,9 @@ export const AuthCont = styled('div')(() => {
     },
     '@media screen and (min-width: 1440px)': {
       marginTop: '116px',
+      // '.eye-btn': {
+      //   transform: 'translateX(-885px)',
+      // },
     },
   };
 });

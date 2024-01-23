@@ -26,7 +26,7 @@ export const CustomInputStyled = styled('input')({
     color: 'rgba(239, 237, 232, 0.60)',
   },
   '&.input-form': {
-    width: 160,
+    maxWidth: 160,
   },
   '&:focus': {
     border: '1px solid var(--orange-color)',
@@ -34,9 +34,9 @@ export const CustomInputStyled = styled('input')({
   '&&.input-error': {
     border: '1px solid var(--error-color)',
   },
-  // '&.input-success': {
-  //   border: '1px solid var(--success-color)',
-  // },
+  '&&.input-success': {
+    border: '1px solid var(--success-color)',
+  },
 });
 
 export const WrapperInput = styled('div')({
@@ -45,7 +45,14 @@ export const WrapperInput = styled('div')({
   gap: 14,
   justifyContent: 'space-around',
 });
-export const WrapperError = styled('div')({
+
+export const WrapperInfo = styled('div')({
   width: 160,
-  color: 'var(--error-color)',
+
+  '&.error': {
+    color: 'var(--error-color)',
+  },
+  '&.success': {
+    color: 'var(--success-color)',
+  },
 });
