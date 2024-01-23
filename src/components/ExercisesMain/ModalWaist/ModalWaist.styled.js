@@ -49,16 +49,15 @@ const ModalStyles = {
 
 
 const ExerciseContent = styled.div`
-  display: flex;
-  flex-direction: column; /* Колонка в мобильной версии */
-  align-items: center;
-  text-align: center; /* Центрирование текста */
- 
-
-  @media screen and (min-width: 768px) {
-    flex-direction: row;
-    text-align: left;
-  }
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 24px;
+@media screen and (min-width: 768px) {
+  min-height: 422px;
+  justify-content: space-between;
+}
 `;
 const ExerciseWrapper = styled.div`
   display: flex;
@@ -98,9 +97,9 @@ const Button = styled.button`
   font-weight: 500;
   line-height: 1.12;
   text-align: left;
-  background-color: var(--color-main-one);
+  background-color: #e6533c;
   border-radius: 12px;
-  border: 1px solid var(--color-main-one);
+  border: 1px solid #e6533c;
   cursor: pointer;
   align-self: flex-start;
   transition: border 0.3s var(--timing-function);

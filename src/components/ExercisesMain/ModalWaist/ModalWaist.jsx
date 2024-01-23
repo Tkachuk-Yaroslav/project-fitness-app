@@ -59,7 +59,6 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
                 />
                 </ExerciseWrapper>
                 <ExerciseContent>
-                  
                   <ModalWaistList
                     name={exercise.name}
                     bodypart={exercise.bodyPart}

@@ -59,6 +59,6 @@ export const BurnedCalories = styled.p`
   line-height: 18px;
   margin-top: 8px;
   > span {
-    color: white;
+    color: #e6533c;
   }
 `;
