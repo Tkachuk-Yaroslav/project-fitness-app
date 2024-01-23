@@ -92,12 +92,12 @@ const SvgIconClose = styled.svg`
 const Button = styled.button`
   display: block;
   padding: 12px 32px;
-  color: var(--color-text);
+  color: var(--white-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.12;
   text-align: left;
-  background-color: #e6533c;
+  background-color: var(--orange-color);
   border-radius: 12px;
   border: 1px solid #e6533c;
   cursor: pointer;
@@ -106,8 +106,8 @@ const Button = styled.button`
 
   &:hover,
   &:focus {
-    background-color: var(--color-main-two);
-    border: 1px solid var(--color-main-two);
+    background-color: var(--light-orange-color);
+    border: 1px solid var(--light-orange-color);
   }
 
   @media screen and (min-width: 768px) {
