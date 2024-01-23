@@ -38,12 +38,12 @@ const ModalStyles = {
     backgroundColor: 'black',
     border: '1px solid #efede833',
     borderRadius: '12px',
-    maxWidth: '100%', // Ширина контента на мобильных устройствах
-    maxHeight: '100%', // Высота контента на мобильных устройствах
-    margin: 0, // Убираем внешний отступ
-    padding: '20px', // Добавляем внутренний отступ
+    maxWidth: '100%',
+    maxHeight: '100%',
+    margin: 0,
+    padding: '20px',
     display: 'flex',
-    flexDirection: 'column', // Используйте 'column' для направления колонки
+    flexDirection: 'column',
   },
 };
 

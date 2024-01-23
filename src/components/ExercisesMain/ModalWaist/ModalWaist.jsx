@@ -8,6 +8,7 @@ import {
   Gif,
   ModalStyles,
   ModalWrapp,
+  SvgIconClose,
 } from "./ModalWaist.styled";
 import { useParams } from "react-router-dom";
 import { getAllExercises } from "api/ApiExercises";
@@ -41,9 +42,9 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
     <Modal style={ModalStyles} isOpen={isOpen} onRequestClose={closeModal}>
       <ModalWrapp>
         <ButtonCloseModal onClick={closeModal}>
-          <svg>
+          <SvgIconClose>
             <use href={`${sprite}#icon-x`} />
-          </svg>
+          </SvgIconClose>
         </ButtonCloseModal>
 
         {allExercises.map(
