@@ -92,7 +92,7 @@ const ExercisesList = ({ filter }) => {
             {(capitalizedBodyParts ||
               capitalizedMuscles ||
               capitalizedEquipmentId) && (
-              <Link className="css_GoBack" to={location.state.from}>
+              <Link className="css_GoBack" to={location?.state?.from ?? `/`}>
                 <ButtonBack type="button">
                   <span>
                     <SvgExercise>

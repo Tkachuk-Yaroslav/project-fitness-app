@@ -44,11 +44,11 @@ const ExerciseContent = styled.div`
   align-items: center;
   position: relative;
   gap: 14px;
+
   @media screen and (min-width: 768px) {
     flex-direction: row;
     align-items: normal;
-  }
-`;
+  }`;
 
 const Gif = styled.img`
   object-fit: cover;
@@ -63,6 +63,7 @@ const ContentWrap = styled.div`
   display: flex;
   flex-direction: column-reverse;
   gap: 40px;
+
   @media screen and (min-width: 768px) {
     flex-direction: column;
     gap: 110px;
@@ -88,6 +89,7 @@ const AddBtn = styled.button`
   font-weight: 500;
   line-height: calc(18 / 16);
   color: #efede8;
+
   @media screen and (min-width: 768px) {
     bottom: 0px;
     left: 478px;

@@ -313,7 +313,7 @@ import { createGlobalStyle, styled } from 'styled-components';
 
 export const IconSvg = styled.svg`
   position: absolute;
-  top: 14px;
+  top: 36px;
   right: 14px;
 `;
 
