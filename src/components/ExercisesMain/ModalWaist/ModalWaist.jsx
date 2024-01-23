@@ -1,3 +1,4 @@
+<<<<<<< Modal-Andrey
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import {
@@ -16,6 +17,22 @@ import ModalWaistList from "./ModalWaistList";
 import sprite from "../../../images/sprite.svg";
 import CountdownTimer from "./CountdownTimer/CountdownTimer";
 
+=======
+import React, { useEffect, useState } from 'react';
+import Modal from 'react-modal';
+import {
+  ButtonCloseModal,
+  ExerciseContent,
+  Gif,
+  ModalStyles,
+  ModalWrapp,
+} from './ModalWaist.styled';
+import { useParams } from 'react-router-dom';
+import { getAllExercises } from 'api/ApiExercises';
+import ModalWaistList from './ModalWaistList';
+import sprite from '../../../images/sprite.svg';
+import CountdownTimer from './CountdownTimer';
+>>>>>>> main
 
 const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
   const { body_parts, muscles, equipmentId } = useParams();
@@ -44,7 +61,11 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
         <ButtonCloseModal onClick={closeModal}>
           <SvgIconClose>
             <use href={`${sprite}#icon-x`} />
+<<<<<<< Modal-Andrey
           </SvgIconClose>
+=======
+          </svg>
+>>>>>>> main
         </ButtonCloseModal>
 
         {allExercises.map(
@@ -70,8 +91,17 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
                    Add to diary
                   </Button>
                 </ExerciseContent>
+<<<<<<< Modal-Andrey
 
                 
+=======
+                <CountdownTimer
+                  customKey={exercise._id}
+                  timer={3}
+                  handleTime={() => {}}
+                  dynamicBurnCal={0}
+                />
+>>>>>>> main
               </div>
             )
         )}

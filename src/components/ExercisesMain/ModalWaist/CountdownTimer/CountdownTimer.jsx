@@ -11,11 +11,16 @@ import {
   BurnedCalories,
 } from "./CountdownTimer.styled";
 
-const CountdownTimer = ({ key = 1, timer = 3, handleTime, dynamicBurnCal }) => {
+const CountdownTimer = ({
+  customKey = 1,
+  timer = 3,
+  handleTime,
+  dynamicBurnCal,
+}) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [burnedCalories, setBurnedCalories] = useState(dynamicBurnCal);
 
-  const formatNumber = (number) => (number < 10 ? `0${number}` : number);
+  const formatNumber = number => (number < 10 ? `0${number}` : number);
 
   const children = ({ remainingTime }) => {
     const minutes = Math.floor(remainingTime / 60);
@@ -32,14 +37,14 @@ const CountdownTimer = ({ key = 1, timer = 3, handleTime, dynamicBurnCal }) => {
   };
 
   const togglePlayPause = () => {
-    setIsPlaying((prev) => !prev);
+    setIsPlaying(prev => !prev);
   };
 
   return (
     <TimerWrapper>
       <TimerTitle>Time</TimerTitle>
       <CountdownCircleTimer
-        key={key}
+        key={customKey}
         size="124"
         isPlaying={isPlaying}
         duration={timer * 60}
@@ -47,7 +52,7 @@ const CountdownTimer = ({ key = 1, timer = 3, handleTime, dynamicBurnCal }) => {
         strokeWidth={4}
         strokeDashoffset={true}
         trailColor="#262625"
-        onUpdate={(remainingTime) => {
+        onUpdate={remainingTime => {
           handleTime(remainingTime);
           // Обновление значения сожженных калорий при обновлении таймера
           const percentage = (timer * 60 - remainingTime) / (timer * 60);
