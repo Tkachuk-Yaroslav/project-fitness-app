@@ -44,9 +44,7 @@ const UserCard = () => {
     <div>
       <WrapperUser>
         <WrapperAvatar>
-          <form
-          // onSubmit={handleSubmit}
-          >
+          <form>
             {avatar ? (
               <input type="image" src={avatar} alt="Submit image" />
             ) : (
@@ -101,7 +99,7 @@ const UserCard = () => {
             </svg>
             <TextItemUser>Daily physical activity</TextItemUser>
           </WrapperSVGText>
-          <Title2 className="number">0 min</Title2>
+          <Title2 className="number">{result ? '110 min' : '0 min'}</Title2>
         </UserCardItemStyled>
       </UserCardListStyled>
       <WrapperSVGText>
