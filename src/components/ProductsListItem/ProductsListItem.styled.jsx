@@ -33,11 +33,7 @@ export const ProductsCardDiet = styled.span`
   padding: 5px 7.5px;
   border-radius: 4px;
   background: rgba(239, 237, 232, 0.05);
-  max-width: 100%;
-
-  @media screen and (max-width: 768px) {
-    max-width: 100px;
-  }
+  max-width: 100px;
 `;
 export const ProductsCardDietText = styled.p`
   color: var(--white-color);
@@ -89,31 +85,17 @@ export const ProductsCardStatusAdd = styled.button`
   &:focus {
     color: var(--white-color);
   }
-
-  &::after {
-    content: url(../../../../src/components/products/img/Icon.svg);
-    display: block;
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-    margin-top: -3px;
-    &:hover,
-    &:focus {
-      fill: var(--white-color);
-    }
-  }
 `;
 
 export const ProductsCardTitle = styled.h4`
   font-size: 24px;
   line-height: 1.3;
   color: var(--white-color);
-
-  margin-bottom: 8px;
+  text-transform: capitalize;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 250px;
+  max-width: 240px;
 `;
 
 export const ProductsCardInfoList = styled.ul`
