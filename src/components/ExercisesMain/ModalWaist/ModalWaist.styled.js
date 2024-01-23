@@ -3,13 +3,10 @@
 import styled from 'styled-components';
 
 const ButtonCloseModal = styled.button`
-  display: flex;
+  display: none;
   position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 24px;
-  height: 24px;
-  line-height: 0;
+  top: 10px;
+  right: 5px;
   cursor: pointer;
   background-color: black;
   align-items: center;
@@ -18,6 +15,10 @@ const ButtonCloseModal = styled.button`
   color: white;
   & > svg path {
     fill: currentColor;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
   }
 `;
 
@@ -36,8 +37,6 @@ const ModalStyles = {
   },
 };
 
-
-
 const ExerciseContent = styled.div`
   display: flex;
   align-items: start;
@@ -54,4 +53,17 @@ object-fit: cover;
 const ModalWrapp = styled.div`
   
 `;
-export { ButtonCloseModal, ModalStyles, ModalWrapp, ExerciseContent, Gif };
+
+const SvgIconClose = styled.svg`
+  width: 26px;
+  height: 26px;
+  stroke: #ffffff;
+`;
+export {
+  ButtonCloseModal,
+  ModalStyles,
+  ModalWrapp,
+  ExerciseContent,
+  Gif,
+  SvgIconClose,
+};

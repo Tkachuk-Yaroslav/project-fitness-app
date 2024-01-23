@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { ButtonCloseModal, ExerciseContent, Gif, ModalStyles, ModalWrapp } from "./ModalWaist.styled";
+import { ButtonCloseModal, ExerciseContent, Gif, ModalStyles, ModalWrapp, SvgIconClose } from "./ModalWaist.styled";
 import { useParams } from "react-router-dom";
 import { getAllExercises } from "api/ApiExercises";
 import ModalWaistList from "./ModalWaistList";
@@ -32,9 +32,9 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
     <Modal style={ModalStyles} isOpen={isOpen} onRequestClose={closeModal}>
       <ModalWrapp>
         <ButtonCloseModal onClick={closeModal}>
-          <svg>
+          <SvgIconClose>
             <use href={`${sprite}#icon-x`} />
-          </svg>
+          </SvgIconClose>
           
         </ButtonCloseModal>
 

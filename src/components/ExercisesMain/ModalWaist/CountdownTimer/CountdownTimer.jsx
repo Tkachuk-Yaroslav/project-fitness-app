@@ -11,7 +11,7 @@ import {
   BurnedCalories,
 } from './CountdownTimer.styled';
 
-const CountdownTimer = ({ key = 1, timer = 3, handleTime, dynamicBurnCal }) => {
+const CountdownTimer = ({ customKey = 1, timer = 3, handleTime, dynamicBurnCal }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const formatNumber = (number) => (number < 10 ? `0${number}` : number);
@@ -38,7 +38,7 @@ const CountdownTimer = ({ key = 1, timer = 3, handleTime, dynamicBurnCal }) => {
     <TimerWrapper>
       <TimerTitle>Time</TimerTitle>
       <CountdownCircleTimer
-        key={key}
+        key={customKey}
         size="124"
         isPlaying={isPlaying}
         duration={timer * 60}

@@ -12,7 +12,7 @@ import {
   ContainerWaist,
   ContainerWrapper,
   ImgWaist,
-  NoExercisesTitle,
+  // NoExercisesTitle,
 } from "../ExercisesList/ExercisesList.styled";
 import { getAllExercises } from "../../../../api/ApiExercises";
 import { SvgExercise } from "../ExercisesItem/ExercisesItem.styled";
