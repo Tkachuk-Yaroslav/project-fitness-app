@@ -68,14 +68,16 @@ const ModalProducts = ({ id, title, calories, onClick, onClickSuccess }) => {
     }
   };
 
-  // Добавлен useEffect для мониторинга открытия и закрытия модального окна
+  
   useEffect(() => {
     const body = document.body;
 
     if (isModalOpen) {
-      body.style.overflow = 'hidden'; // Запрет прокрутки фона при открытом модальном окне
+      setTimeout(() => {
+        body.style.overflow = 'hidden'; // Запрет прокрутки фона при открытом модальном окне
+      }, 0);
     } else {
-      body.style.overflow = ''; // Разрешение прокрутки фона при закрытом модальном окне
+      body.style.overflow = '';
     }
 
     return () => {
