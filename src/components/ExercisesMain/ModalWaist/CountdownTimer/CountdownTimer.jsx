@@ -18,6 +18,7 @@ const CountdownTimer = ({
   dynamicBurnCal,
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [burnedCalories, setBurnedCalories] = useState(dynamicBurnCal);
 
   const formatNumber = number => (number < 10 ? `0${number}` : number);
 
@@ -53,6 +54,10 @@ const CountdownTimer = ({
         trailColor="#262625"
         onUpdate={remainingTime => {
           handleTime(remainingTime);
+          // Обновление значения сожженных калорий при обновлении таймера
+          const percentage = (timer * 60 - remainingTime) / (timer * 60);
+          const updatedBurnedCalories = Math.round(dynamicBurnCal * percentage);
+          setBurnedCalories(updatedBurnedCalories);
         }}
         onComplete={() => ({ shouldRepeat: true })}
       >
@@ -70,7 +75,7 @@ const CountdownTimer = ({
         )}
       </IconWrapper>
       <BurnedCalories>
-        Burned calories:&nbsp;<span>{dynamicBurnCal}</span>
+        Burned calories:&nbsp;<span>{burnedCalories}</span>
       </BurnedCalories>
     </TimerWrapper>
   );

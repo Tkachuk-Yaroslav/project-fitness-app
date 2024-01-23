@@ -74,6 +74,34 @@ export const DashboardList = styled.ul`
 //     padding: 18px;
 //   };
 // `;
+// export const DashboardItems = styled.li`
+//   /* position: relative; */
+//   width: 165px;
+//   height: 96px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   border-radius: 12px;
+//   border: 1px solid rgba(239, 237, 232, 0.2);
+//   background-color: rgba(239, 237, 232, 0.05);
+//   padding: 14px;
+//   font-size: 12px;
+//   line-height: calc(16 / 12);
+//   && > h3 {
+//     color: ${props => {
+//       if (props.$index === 1) return 'rgba(239, 237, 232, 0.8)';
+//       return 'rgba(239, 237, 232, 0.4)';
+//     }};
+//   }
+
+//   @media screen and (min-width: 768px) {
+//     flex-basis: auto;
+//     width: 187px;
+//     height: 116px;
+//     padding: 18px;
+//   }
+// `;
+
 export const DashboardItems = styled.li`
   /* position: relative; */
   width: 165px;
@@ -82,11 +110,13 @@ export const DashboardItems = styled.li`
   flex-direction: column;
   justify-content: space-between;
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.2);
+  border: 1px solid ${props =>
+    props.$sportsRemaining < 0 ? '#3CBF61' : props.$caloriesRemaining < 0 ? '#E9101D' : 'rgba(239, 237, 232, 0.2)'};
   background-color: rgba(239, 237, 232, 0.05);
   padding: 14px;
   font-size: 12px;
   line-height: calc(16 / 12);
+
   && > h3 {
     color: ${props => {
       if (props.$index === 1) return 'rgba(239, 237, 232, 0.8)';
@@ -101,6 +131,7 @@ export const DashboardItems = styled.li`
     padding: 18px;
   }
 `;
+
 
 export const DashboardTitle = styled.h3`
   display: flex;

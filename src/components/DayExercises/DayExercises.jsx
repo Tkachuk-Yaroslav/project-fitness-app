@@ -25,7 +25,6 @@ const DayExercises = () => {
           </ExercisesLink>
         </ProductsContainer>
         <OverlayScrollbarsComponent defer>
-
         <DayExercisesItem />
         <DayExercisesItem />
         <DayExercisesItem />
