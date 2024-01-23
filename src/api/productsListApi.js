@@ -15,7 +15,7 @@ export const getProducts = async (allowed, category, query) => {
 
   const { data } = await axios.get('products/blood', {
     params: {
-      allowed: allowedValue,
+      allowed: allowedValue || 'all',
       category,
       query,
     },
