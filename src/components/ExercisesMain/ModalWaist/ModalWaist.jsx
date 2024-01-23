@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import {
+  Button,
   ButtonCloseModal,
   ExerciseContent,
+  ExerciseWrapper,
   Gif,
   ModalStyles,
   ModalWrapp,
@@ -12,6 +14,7 @@ import { getAllExercises } from "api/ApiExercises";
 import ModalWaistList from "./ModalWaistList";
 import sprite from "../../../images/sprite.svg";
 import CountdownTimer from "./CountdownTimer/CountdownTimer";
+
 
 const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
   const { body_parts, muscles, equipmentId } = useParams();
@@ -47,21 +50,28 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
           (exercise, index) =>
             exercise._id === id && (
               <div className="ExerciseItemt" key={index}>
+                <ExerciseWrapper>
+                <Gif src={exercise.gifUrl} alt={exercise.name} />
+                  <CountdownTimer
+                  timer={`${exercise.time}`}
+                  handleTime={() => {}}
+                  dynamicBurnCal={`${exercise.burnedCalories}`}
+                />
+                </ExerciseWrapper>
                 <ExerciseContent>
-                  <Gif src={exercise.gifUrl} alt={exercise.name} />
+                  
                   <ModalWaistList
                     name={exercise.name}
                     bodypart={exercise.bodyPart}
                     target={exercise.target}
                     equipment={exercise.equipment}
                   />
+                  <Button type="button">
+                   Add to diary
+                  </Button>
                 </ExerciseContent>
 
-                <CountdownTimer
-                  timer={`${exercise.time}`}
-                  handleTime={() => {}}
-                  dynamicBurnCal={`${exercise.burnedCalories}`}
-                />
+                
               </div>
             )
         )}

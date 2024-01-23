@@ -17,6 +17,11 @@ const ButtonCloseModal = styled.button`
     fill: currentColor;
   }
 
+  & > svg {
+    width: 20px;
+    height: 20px;
+  }
+
   @media screen and (min-width: 768px) {
     display: flex;
   }
@@ -27,38 +32,92 @@ const ModalStyles = {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
   },
   content: {
-    minWidth: '694px',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     backgroundColor: 'black',
     border: '1px solid #efede833',
     borderRadius: '12px',
+    maxWidth: '100%', // Ширина контента на мобильных устройствах
+    maxHeight: '100%', // Высота контента на мобильных устройствах
+    margin: 0, // Убираем внешний отступ
+    padding: '20px', // Добавляем внутренний отступ
+    display: 'flex',
+    flexDirection: 'column', // Используйте 'column' для направления колонки
   },
 };
 
+
 const ExerciseContent = styled.div`
   display: flex;
-  align-items: start;
-  margin-top: 40px;
-  margin-left: 25px;
+  flex-direction: column; /* Колонка в мобильной версии */
+  align-items: center;
+  text-align: center; /* Центрирование текста */
+ 
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    text-align: left;
+  }
+`;
+const ExerciseWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
 `;
 
 const Gif = styled.img`
-object-fit: cover;
+  object-fit: cover;
   width: 270px;
   height: 226px;
-  border-radius: 12px;`;
+  border-radius: 12px;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    height: auto;
+  }
+`;
 
 const ModalWrapp = styled.div`
-  
-`;
+display: flex;
+flex-wrap: wrap;`;
 
 const SvgIconClose = styled.svg`
   width: 26px;
   height: 26px;
   stroke: #ffffff;
 `;
+
+const Button = styled.button`
+  display: block;
+  padding: 12px 32px;
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.12;
+  text-align: left;
+  background-color: var(--color-main-one);
+  border-radius: 12px;
+  border: 1px solid var(--color-main-one);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: border 0.3s var(--timing-function);
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-main-two);
+    border: 1px solid var(--color-main-two);
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+    align-self: flex-end;
+  }
+`;
+
 export {
   ButtonCloseModal,
   ModalStyles,
@@ -66,4 +125,6 @@ export {
   ExerciseContent,
   Gif,
   SvgIconClose,
+  ExerciseWrapper,
+  Button,
 };
