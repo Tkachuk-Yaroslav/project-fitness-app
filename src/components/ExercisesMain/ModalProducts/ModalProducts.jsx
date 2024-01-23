@@ -16,17 +16,34 @@ import {
   WeightInputLabel,
   ErrorMessageStyled,
 } from './ModalProducts.styled';
-import { useDispatch } from 'react-redux';
+import { addProduct } from 'api/addProductApi';
 
-const ModalProducts = ({ id, title, calories, onClick, onClickSuccess }) => {
+const ModalProducts = ({ id, title, calories, onClick }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
-  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(true);
 
+//   const currentDate = `${String(new Date().getDate()).padStart(2, '0')}/${String(
+//   new Date().getMonth() + 1
+// ).padStart(2, '0')}/${new Date().getFullYear()}`;
   const initialValues = {
-    product_id: id,
-    date: format(new Date(), 'yyyy-MM-dd'),
+    productId: id,
+    title: title,
+    date: format(new Date(), 'dd/MM/yyyy'),
     weight: '',
+  };
+
+  const handleAddToDiaryClick = (values) => {
+    const { productId, weight,title } = values;
+    const calculatedCalories = calculateCalories(weight);
+
+    if (typeof onClick === 'function') {
+      onClick({
+        productId,
+        title,
+        weight,
+        calories: calculatedCalories,
+      });
+    }
   };
 
   const schema = Yup.object().shape({
@@ -50,38 +67,43 @@ const ModalProducts = ({ id, title, calories, onClick, onClickSuccess }) => {
   };
 
   const handleSubmit = (values, actions) => {
-    onClickSuccess();
     actions.resetForm();
     setIsModalOpen(false);
-    onClick();
+    handleAddToDiaryClick(values);
+    console.log('string', values)
+    addProduct(values)
+    .then((response) => {
+      console.log("Product added successfully:", response);
+    })
+    .catch((error) => {
+      console.error("Error adding product:", error);
+    });
   };
 
   const handleCloseClick = () => {
     setIsModalOpen(false);
-    onClick();
   };
 
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains('overlay')) {
       setIsModalOpen(false);
-      onClick();
     }
   };
 
-  
+ 
   useEffect(() => {
     const body = document.body;
 
     if (isModalOpen) {
       setTimeout(() => {
-        body.style.overflow = 'hidden'; // Запрет прокрутки фона при открытом модальном окне
+        body.style.overflow = 'hidden';
       }, 0);
     } else {
       body.style.overflow = '';
     }
 
     return () => {
-      body.style.overflow = ''; // Восстановление прокрутки фона при размонтировании компонента
+      body.style.overflow = '';
     };
   }, [isModalOpen]);
 
