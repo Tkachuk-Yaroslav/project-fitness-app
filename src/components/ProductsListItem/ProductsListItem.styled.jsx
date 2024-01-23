@@ -31,10 +31,13 @@ export const ProductsCardStatus = styled.label`
 export const ProductsCardDiet = styled.span`
   display: inline-flex;
   padding: 5px 7.5px;
-  justify-content: center;
-  align-items: center;
   border-radius: 4px;
   background: rgba(239, 237, 232, 0.05);
+  max-width: 100%;
+
+  @media screen and (max-width: 768px) {
+    max-width: 100px;
+  }
 `;
 export const ProductsCardDietText = styled.p`
   color: var(--white-color);
@@ -42,6 +45,9 @@ export const ProductsCardDietText = styled.p`
   font-weight: 700;
   line-height: normal;
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const ProductsCardStatusCount = styled.div`
@@ -99,37 +105,28 @@ export const ProductsCardStatusAdd = styled.button`
 `;
 
 export const ProductsCardTitle = styled.h4`
-  position: relative;
   font-size: 24px;
-  line-height: 1.333;
+  line-height: 1.3;
   color: var(--white-color);
 
   margin-bottom: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding-left: 40px;
-  max-width: 100%;
-  &::before {
-    content: url(../../../../src/components/products/img/run.svg);
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 0;
-    top: calc(50% - 12px);
-  }
+  max-width: 250px;
 `;
 
 export const ProductsCardInfoList = styled.ul`
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
-  gap: 16px;
+  width: 100%;
 `;
 
 export const ProductsCardInfoItem = styled.li`
-  width: 40%;
   display: flex;
   flex-direction: row;
+  max-width: 130px;
   gap: 4px;
   color: rgba(239, 237, 232, 0.4);
   font-size: 12px;
