@@ -76,7 +76,7 @@ export const AuthCont = styled('div')(() => {
     '.success': {
       color: 'var(--success-color)',
     },
-    '.submit': {
+    '.submit-btn': {
       fontSize: '16px',
       lineHeight: 1.12,
       padding: '12px 40px',
@@ -128,8 +128,8 @@ export const AuthCont = styled('div')(() => {
         marginBottom: '64px',
       },
       '.eye-cont': {
-        display: 'flex',
-        alignItems: 'center',
+        // display: 'flex',
+        // alignItems: 'center',
         width: 'fit-content',
       },
       '.eye-btn': {

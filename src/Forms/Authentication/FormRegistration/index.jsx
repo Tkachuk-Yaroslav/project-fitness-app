@@ -146,6 +146,7 @@ const FormRegistration = ({ registration }) => {
                 }
               />
               <button
+                type="button"
                 className="eye-btn"
                 aria-label="toggle password visibility"
                 onClick={handleClickShowPassword}
@@ -187,7 +188,7 @@ const FormRegistration = ({ registration }) => {
           </div>
           <button
             type="submit"
-            className="submit"
+            className="submit-btn"
             disabled={formik.isSubmitting}
           >
             Sign Up
