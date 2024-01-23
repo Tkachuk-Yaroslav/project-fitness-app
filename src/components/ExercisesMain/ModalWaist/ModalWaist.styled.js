@@ -6,7 +6,7 @@ const ButtonCloseModal = styled.button`
   display: flex;
   position: absolute;
   top: 14px;
-    right: 14px;
+  right: 14px;
   /* width: 24px; */
   /* height: 24px; */
   line-height: 0;
@@ -43,7 +43,11 @@ const ExerciseContent = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  gap:14px;
+  gap: 14px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: normal;
+  }
 `;
 
 const Gif = styled.img`
@@ -58,7 +62,11 @@ const ModalWrapp = styled.div``;
 const ContentWrap = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  gap:40px;
+  gap: 40px;
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
+    gap: 110px;
+  }
 `;
 
 const Svg = styled.svg`
@@ -79,7 +87,14 @@ const AddBtn = styled.button`
   font-size: 16px;
   font-weight: 500;
   line-height: calc(18 / 16);
-  color: #EFEDE8;
+  color: #efede8;
+  @media screen and (min-width: 768px) {
+    bottom: 0px;
+    left: 478px;
+    height: 52px;
+    line-height: calc(24 / 16);
+
+  }
 `;
 
 export {
