@@ -2,20 +2,18 @@ import { Field } from 'formik';
 import styled from 'styled-components';
 import { ErrorMessage } from 'formik';
 
-
-
 export const Container = styled.div`
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-background-color: var(--color-background);
-padding: 20px;
-border-radius: 16px;
-box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
-z-index: 1000;
-width: 300px;
-background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-background);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 300px;
+  background-color: black;
 `;
 
 export const InputsContainer = styled.div`
@@ -36,7 +34,7 @@ export const InputEl = styled(Field)`
   padding: 8px 14px;
   background-color: transparent;
   font-size: 14px;
-  line-height: 1.28; /* 128.571% */
+  line-height: 1.28;
   color: white;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -54,7 +52,7 @@ export const InputEl = styled(Field)`
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
-    line-height: 1.5; /* 150% */
+    line-height: 1.5;
   }
 `;
 
@@ -73,13 +71,11 @@ export const WeightInputLabel = styled.label`
 `;
 
 export const WeightInput = styled(InputEl)`
-border: ${props => props.border || '1px solid var(--color-main-one)'};
+  border: ${props => props.border || '1px solid var(--color-main-one)'};
   @media screen and (min-width: 768px) {
     width: 155px;
   }
 `;
-
-
 
 export const FieldLabel = styled.span`
   position: absolute;
@@ -157,12 +153,11 @@ export const PFOutlinedBtn = styled(PFButton)`
 `;
 
 export const ErrorMessageStyled = styled(ErrorMessage)`
-color: white;
-margin-top: 4px;
-line-height: 1.5;
-letter-spacing: 0.12px;
-@media screen and (min-width: 768px) {
-width: 155px;
-}
-
-`
+  color: white;
+  margin-top: 4px;
+  line-height: 1.5;
+  letter-spacing: 0.12px;
+  @media screen and (min-width: 768px) {
+    width: 155px;
+  }
+`;
