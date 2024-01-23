@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import sprite from '../../../images/sprite.svg';
 import {
   CaloriesWrapp,
+  CustomColor,
+  CustomWrapper,
   LinkToDiary,
   ModalStyle,
   NextProductBtn,
@@ -44,13 +46,18 @@ export default function BasicModalExercise({
           <WellDoneText>Well Done</WellDoneText>
 
           <CaloriesWrapp>
-            <div>
-              Your time: {minutes}:{seconds}
-            </div>
+            <CustomWrapper>
+              Your time:{' '}
+              <CustomColor>
+                {minutes}:{seconds}
+              </CustomColor>
+            </CustomWrapper>
           </CaloriesWrapp>
 
           <CaloriesWrapp>
-            <div>Burned calories: {burnedCalories}</div>
+            <CustomWrapper>
+              Burned calories: <CustomColor>{burnedCalories}</CustomColor>
+            </CustomWrapper>
           </CaloriesWrapp>
 
           <NextProductBtn type="button">

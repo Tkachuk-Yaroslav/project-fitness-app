@@ -90,3 +90,13 @@ export const ModalStyle = styled.div`
     width: 430px;
   }
 `;
+
+export const CustomColor = styled.div`
+  color: var(--orange-color);
+`;
+
+export const CustomWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
