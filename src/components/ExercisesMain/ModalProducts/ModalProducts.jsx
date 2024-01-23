@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { format } from 'date-fns';
 import {
   Container,
+  ModalStyles,
   InputsContainer,
   Calories,
   CaloriesValue,
@@ -16,6 +17,8 @@ import {
   WeightInputLabel,
   ErrorMessageStyled,
 } from './ModalProducts.styled';
+import Modal from 'react-modal';
+import 'overlayscrollbars/overlayscrollbars.css';
 import { addProduct } from 'api/addProductApi';
 
 const ModalProducts = ({ id, title, calories, onClick }) => {
@@ -43,9 +46,8 @@ const ModalProducts = ({ id, title, calories, onClick }) => {
 
   const schema = Yup.object().shape({
     amount: Yup.number()
-      .max(700, 'Weight should not exceed 700 grams')
-      .required('Weight is required')
-      .positive('Weight must be above zero'),
+      .max(999, 'Weight should not exceed 999 grams')
+      .required('Weight is required'),
   });
 
   const calculateCalories = amount => {
@@ -54,7 +56,7 @@ const ModalProducts = ({ id, title, calories, onClick }) => {
   };
 
   const handleWeightChange = (event, setFieldValue) => {
-    const amount = event.target.value;
+    const amount = event.target.value.slice(0, 3);
     const calories = calculateCalories(amount);
     setCalculatedCalories(calories);
     setFieldValue('amount', Number(amount));
@@ -102,7 +104,11 @@ const ModalProducts = ({ id, title, calories, onClick }) => {
   }, [isModalOpen]);
 
   return (
-    <>
+    <Modal
+      style={ModalStyles}
+      isOpen={isModalOpen}
+      onRequestClose={handleCloseClick}
+    >
       {isModalOpen && (
         <div className="overlay" onClick={handleOverlayClick}>
           <Formik
@@ -167,7 +173,7 @@ const ModalProducts = ({ id, title, calories, onClick }) => {
           </Formik>
         </div>
       )}
-    </>
+    </Modal>
   );
 };
 

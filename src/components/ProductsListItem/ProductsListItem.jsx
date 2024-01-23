@@ -49,10 +49,7 @@ const ProductsListItem = ({
                 {firstValue ? 'Recommended' : 'Not recommended'}
               </ProductsCardStatusCountTrue>
             </StyleSheetManager>
-            <ProductsCardStatusAdd
-              onClick={openModalToggle}
-              type="button"
-            >
+            <ProductsCardStatusAdd onClick={openModalToggle} type="button">
               Add
             </ProductsCardStatusAdd>
           </ProductsCardStatusCount>
