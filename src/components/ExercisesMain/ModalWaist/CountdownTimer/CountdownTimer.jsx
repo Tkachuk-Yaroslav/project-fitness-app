@@ -1,6 +1,6 @@
-import { CountdownCircleTimer } from 'react-countdown-circle-timer';
-import { useState } from 'react';
-import sprite from '../sprite.svg';
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import { useState } from "react";
+import sprite from "../sprite.svg";
 import {
   StartBtn,
   PauseBtn,
@@ -9,10 +9,11 @@ import {
   Clock,
   IconWrapper,
   BurnedCalories,
-} from './CountdownTimer.styled';
+} from "./CountdownTimer.styled";
 
-const CountdownTimer = ({ customKey = 1, timer = 3, handleTime, dynamicBurnCal }) => {
+const CountdownTimer = ({ key = 1, timer = 3, handleTime, dynamicBurnCal }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [burnedCalories, setBurnedCalories] = useState(dynamicBurnCal);
 
   const formatNumber = (number) => (number < 10 ? `0${number}` : number);
 
@@ -38,16 +39,20 @@ const CountdownTimer = ({ customKey = 1, timer = 3, handleTime, dynamicBurnCal }
     <TimerWrapper>
       <TimerTitle>Time</TimerTitle>
       <CountdownCircleTimer
-        key={customKey}
+        key={key}
         size="124"
         isPlaying={isPlaying}
         duration={timer * 60}
-        colors={['#E6533C']}
+        colors={["#E6533C"]}
         strokeWidth={4}
         strokeDashoffset={true}
         trailColor="#262625"
         onUpdate={(remainingTime) => {
           handleTime(remainingTime);
+          // Обновление значения сожженных калорий при обновлении таймера
+          const percentage = (timer * 60 - remainingTime) / (timer * 60);
+          const updatedBurnedCalories = Math.round(dynamicBurnCal * percentage);
+          setBurnedCalories(updatedBurnedCalories);
         }}
         onComplete={() => ({ shouldRepeat: true })}
       >
@@ -65,7 +70,7 @@ const CountdownTimer = ({ customKey = 1, timer = 3, handleTime, dynamicBurnCal }
         )}
       </IconWrapper>
       <BurnedCalories>
-        Burned calories:&nbsp;<span>{dynamicBurnCal}</span>
+        Burned calories:&nbsp;<span>{burnedCalories}</span>
       </BurnedCalories>
     </TimerWrapper>
   );
