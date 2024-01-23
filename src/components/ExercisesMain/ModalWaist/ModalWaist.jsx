@@ -9,7 +9,8 @@ import {
   ModalStyles,
   ModalWrapp,
   Svg,
-  ContentWrap,AddBtn
+  ContentWrap,
+  AddBtn,
 } from './ModalWaist.styled';
 import { useParams } from 'react-router-dom';
 import { getAllExercises } from 'api/ApiExercises';
@@ -64,21 +65,20 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
 
                 <ExerciseContent>
                   <Gif src={exercise.gifUrl} alt={exercise.name} />
-                 <ContentWrap>
-                 <ModalWaistList
-                    name={exercise.name}
-                    bodypart={exercise.bodyPart}
-                    target={exercise.target}
-                    equipment={exercise.equipment}
-                  />
-                <CountdownTimer
-                  customKey={exercise._id}
-                  timer={3}
-                  handleTime={() => {}}
-                  dynamicBurnCal={0}
-                />
-                 </ContentWrap>
-                <AddBtn>Add to diary</AddBtn>
+                  <ContentWrap>
+                    <ModalWaistList
+                      name={exercise.name}
+                      bodypart={exercise.bodyPart}
+                      target={exercise.target}
+                      equipment={exercise.equipment}
+                    />
+                    <CountdownTimer
+                      timer={`${exercise.time}`}
+                      handleTime={() => {}}
+                      dynamicBurnCal={`${exercise.burnedCalories}`}
+                    />
+                  </ContentWrap>
+                  <AddBtn>Add to diary</AddBtn>
                 </ExerciseContent>
               </div>
             )
