@@ -1,17 +1,21 @@
+//import CountdownTimer from './CountdownTimer';
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import {
+  Button,
   ButtonCloseModal,
   ExerciseContent,
+  ExerciseWrapper,
   Gif,
   ModalStyles,
   ModalWrapp,
+  SvgIconClose,
 } from './ModalWaist.styled';
 import { useParams } from 'react-router-dom';
 import { getAllExercises } from 'api/ApiExercises';
 import ModalWaistList from './ModalWaistList';
 import sprite from '../../../images/sprite.svg';
-import CountdownTimer from './CountdownTimer';
+import CountdownTimer from './CountdownTimer/CountdownTimer';
 
 const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
   const { body_parts, muscles, equipmentId } = useParams();
@@ -38,24 +42,33 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
     <Modal style={ModalStyles} isOpen={isOpen} onRequestClose={closeModal}>
       <ModalWrapp>
         <ButtonCloseModal onClick={closeModal}>
-          <svg>
+          <SvgIconClose>
             <use href={`${sprite}#icon-x`} />
-          </svg>
+          </SvgIconClose>
         </ButtonCloseModal>
 
         {allExercises.map(
           (exercise, index) =>
             exercise._id === id && (
               <div className="ExerciseItemt" key={index}>
-                <ExerciseContent>
+                <ExerciseWrapper>
                   <Gif src={exercise.gifUrl} alt={exercise.name} />
+                  <CountdownTimer
+                    timer={`${exercise.time}`}
+                    handleTime={() => {}}
+                    dynamicBurnCal={`${exercise.burnedCalories}`}
+                  />
+                </ExerciseWrapper>
+                <ExerciseContent>
                   <ModalWaistList
                     name={exercise.name}
                     bodypart={exercise.bodyPart}
                     target={exercise.target}
                     equipment={exercise.equipment}
                   />
+                  <Button type="button">Add to diary</Button>
                 </ExerciseContent>
+
                 <CountdownTimer
                   customKey={exercise._id}
                   timer={3}
