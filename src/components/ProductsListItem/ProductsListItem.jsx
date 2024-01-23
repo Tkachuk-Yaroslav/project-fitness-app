@@ -74,17 +74,13 @@ const ProductsListItem = ({
           </ProductsCardInfoItem>
         </ProductsCardInfoList>
       </ProductsCard>
-      {isModalOpen && (
-        <ModalProducts
-          id={id}
-          title={title}
-          calories={calories}
-          onClick={() => {
-            // handle the click logic if needed
-          }}
-          onClose={openModalToggle}
-        />
-      )}
+      <ModalProducts
+        id={id}
+        title={title}
+        calories={calories}
+        isOpen={isModalOpen}
+        onClose={openModalToggle}
+      />
     </>
   );
 };

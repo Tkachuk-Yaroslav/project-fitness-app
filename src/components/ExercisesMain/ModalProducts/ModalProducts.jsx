@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { format } from 'date-fns';
@@ -17,17 +17,18 @@ import {
   WeightInputLabel,
   ErrorMessageStyled,
 } from './ModalProducts.styled';
+import { ButtonCloseModal, Svg } from '../ModalWaist/ModalWaist.styled';
 import Modal from 'react-modal';
+import sprite from '../../../images/sprite.svg';
 import 'overlayscrollbars/overlayscrollbars.css';
 import { addProduct } from 'api/addProductApi';
 
-const ModalProducts = ({ id, title, calories, onClick }) => {
+const ModalProducts = ({ id, title, calories, onClick, isOpen, onClose }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(true);
 
   const initialValues = {
     productId: id,
-    date: format(new Date(), 'dd/MM/yyyy'),
+    date: format(new Date(), 'dd/mm/yyyy'),
     amount: '',
   };
 
@@ -65,7 +66,6 @@ const ModalProducts = ({ id, title, calories, onClick }) => {
 
   const handleSubmit = (values, actions) => {
     actions.resetForm();
-    setIsModalOpen(false);
     handleAddToDiaryClick(values);
     console.log('string', values);
     addProduct(values)
@@ -77,101 +77,72 @@ const ModalProducts = ({ id, title, calories, onClick }) => {
       });
   };
 
-  const handleCloseClick = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleOverlayClick = e => {
-    if (e.target.classList.contains('overlay')) {
-      setIsModalOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    const body = document.body;
-
-    if (isModalOpen) {
-      setTimeout(() => {
-        body.style.overflow = 'hidden';
-      }, 0);
-    } else {
-      body.style.overflow = '';
-    }
-
-    return () => {
-      body.style.overflow = '';
-    };
-  }, [isModalOpen]);
-
   return (
-    <Modal
-      style={ModalStyles}
-      isOpen={isModalOpen}
-      onRequestClose={handleCloseClick}
-    >
-      {isModalOpen && (
-        <div className="overlay" onClick={handleOverlayClick}>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={schema}
-            onSubmit={handleSubmit}
-          >
-            {({ values, errors, touched, setFieldValue }) => (
-              <Form autoComplete="off">
-                <Container>
-                  <InputsContainer>
-                    <div>
-                      <label htmlFor="product">
-                        <ProductInput
-                          name="product"
-                          type="text"
-                          value={title}
-                          readOnly
-                        />
-                      </label>
-                    </div>
+    <Modal style={ModalStyles} isOpen={isOpen} onRequestClose={onClose}>
+      <ButtonCloseModal onClick={onClose}>
+        <Svg>
+          <use href={`${sprite}#icon-x-modal`} />
+        </Svg>
+      </ButtonCloseModal>
+      {isOpen && (
+        <Formik
+          initialValues={initialValues}
+          validationSchema={schema}
+          onSubmit={handleSubmit}
+        >
+          {({ values, errors, touched, setFieldValue }) => (
+            <Form autoComplete="off">
+              <Container>
+                <InputsContainer>
+                  <div>
+                    <label htmlFor="product">
+                      <ProductInput
+                        name="product"
+                        type="text"
+                        value={title}
+                        readOnly
+                      />
+                    </label>
+                  </div>
 
-                    <div>
-                      <WeightInputLabel htmlFor="amount">
-                        <WeightInput
-                          name="amount"
-                          type="text"
-                          onChange={e => handleWeightChange(e, setFieldValue)}
-                          onKeyPress={e => {
-                            const onlyDigits = /^[0-9\b]+$/;
-                            if (!onlyDigits.test(e.key)) {
-                              e.preventDefault();
-                            }
-                          }}
-                          value={values.amount}
-                          border={
-                            errors.amount &&
-                            touched.amount &&
-                            '1px solid #D80027'
+                  <div>
+                    <WeightInputLabel htmlFor="amount">
+                      <WeightInput
+                        name="amount"
+                        type="text"
+                        onChange={e => handleWeightChange(e, setFieldValue)}
+                        onKeyPress={e => {
+                          const onlyDigits = /^[0-9\b]+$/;
+                          if (!onlyDigits.test(e.key)) {
+                            e.preventDefault();
                           }
-                        />
-                        <FieldLabel>grams</FieldLabel>
-                      </WeightInputLabel>
-                      <ErrorMessageStyled name="amount" component="p" />
-                    </div>
-                  </InputsContainer>
+                        }}
+                        value={values.amount}
+                        border={
+                          errors.amount && touched.amount && '1px solid #D80027'
+                        }
+                      />
+                      <FieldLabel>grams</FieldLabel>
+                    </WeightInputLabel>
+                    <ErrorMessageStyled name="amount" component="p" />
+                  </div>
+                </InputsContainer>
 
-                  <Calories>
-                    Calories:
-                    <CaloriesValue>{calculatedCalories}</CaloriesValue>
-                  </Calories>
+                <Calories>
+                  Calories:
+                  <CaloriesValue>{calculatedCalories}</CaloriesValue>
+                </Calories>
 
-                  <ButtonsContainer>
-                    <PFPrimaryBtn type="submit">Add to diary</PFPrimaryBtn>
-                    <PFOutlinedBtn type="button" onClick={handleCloseClick}>
-                      Cancel
-                    </PFOutlinedBtn>
-                  </ButtonsContainer>
-                </Container>
-              </Form>
-            )}
-          </Formik>
-        </div>
+                <ButtonsContainer>
+                  <PFPrimaryBtn type="submit">Add to diary</PFPrimaryBtn>
+                  <PFOutlinedBtn type="button" onClick={onClose}>
+                    Cancel
+                  </PFOutlinedBtn>
+                </ButtonsContainer>
+              </Container>
+            </Form>
+          )}
+        </Formik>
       )}
     </Modal>
   );

@@ -82,6 +82,7 @@ export const WeightInputLabel = styled.label`
 `;
 
 export const WeightInput = styled.input`
+  cursor: none;
   width: 100%;
   border-radius: 12px;
   padding: 8px 14px;
