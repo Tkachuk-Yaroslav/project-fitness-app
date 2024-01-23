@@ -13,6 +13,7 @@ export const WrapperUserForm = styled('div')({
 
 export const WrapperRadio = styled('div')({
   display: 'flex',
+  flexWrap: 'wrap',
   justifyContent: 'space-between',
   alignItems: 'flex-end',
   gap: 5,
