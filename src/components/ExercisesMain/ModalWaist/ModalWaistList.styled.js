@@ -41,13 +41,16 @@ export const ExerciseFormSub = styled.p`
 `;
 
 export const ExerciseFormTitle = styled.p`
+text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
   color: rgb(239, 237, 232);
   font-size: 14px;
   font-weight: 700;
   line-height: 18px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   width: 100%;
   text-align: left;
 
