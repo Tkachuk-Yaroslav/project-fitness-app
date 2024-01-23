@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import Modal from 'react-modal';
-import 'overlayscrollbars/overlayscrollbars.css';
+import React, { useEffect, useState } from "react";
+import Modal from "react-modal";
+import "overlayscrollbars/overlayscrollbars.css";
 import {
   ButtonCloseModal,
   ExerciseContent,
@@ -10,13 +10,13 @@ import {
   Svg,
   ContentWrap,
   AddBtn,
-} from './ModalWaist.styled';
-import { useParams } from 'react-router-dom';
-import { getAllExercises } from 'api/ApiExercises';
-import ModalWaistList from './ModalWaistList';
-import sprite from '../../../images/sprite.svg';
-import CountdownTimer from './CountdownTimer';
-import './stylesModal.css';
+} from "./ModalWaist.styled";
+import { useParams } from "react-router-dom";
+import { getAllExercises } from "api/ApiExercises";
+import ModalWaistList from "./ModalWaistList";
+import sprite from "../../../images/sprite.svg";
+import CountdownTimer from "./CountdownTimer/CountdownTimer";
+import "./stylesModal.css";
 
 const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
   const { body_parts, muscles, equipmentId } = useParams();
@@ -48,7 +48,7 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
       calories: selectedExercise.calories,
     };
 
-    console.log(data, 'Обєкт пост запитом на бек');
+    console.log(data, "Обєкт пост запитом на бек");
 
     // відправка даних
   };
