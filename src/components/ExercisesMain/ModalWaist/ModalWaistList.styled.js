@@ -31,13 +31,17 @@ export const ExerciseFormItem = styled.li`
 
   @media screen and (min-width: 768px) {
     width: 168px;
+    height: 70px;
   }
 `;
 
 export const ExerciseFormSub = styled.p`
   color: rgba(239, 237, 232, 0.4);
   font-size: 12px;
-  line-height: 16px;
+  line-height: calc(16/12);
+  @media screen and (min-width: 768px) {
+    line-height: calc(18/12);
+  }
 `;
 
 export const ExerciseFormTitle = styled.p`
@@ -53,6 +57,11 @@ text-overflow: ellipsis;
   overflow: hidden;
   width: 100%;
   text-align: left;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: calc(24/16)
+  }
 
   &:hover {
     overflow: visible;
