@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   DashboardSection,
   DashboardList,
@@ -12,10 +12,43 @@ import {
 import sprite from '../../images/sprite.svg';
 import { useSelector } from 'react-redux';
 
+import axios from 'axios';
+
+const apiUrl =
+  'https://project-fitness-app-back.onrender.com/api/dairy/archive';
+
 const DayDashboard = () => {
-  const { user } = useSelector(state => state.auth)
+  const { user } = useSelector(state => state.auth);
+  const [dashboardData, setDashboardData] = useState(null);
+  const dailyPhysicalActivity = 110;
+  const caloriesRemaining =
+    user.bmr - (dashboardData && dashboardData.consumedCalories);
+  const sportsRemaining =
+    dailyPhysicalActivity - (dashboardData && dashboardData.consumedBurned);
+
+  // user.bmr - (dashboardData && dashboardData.consumedCalories)
+  // (dashboardData && dashboardData.consumedBurned)
+  const params = {
+    date: '2024-01-17T13:57:32.000Z',
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(apiUrl, { params });
+        setDashboardData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('error:', error);
+      }
+    };
+
+    fetchData();
+    // eslint-disable-next-line
+  }, []);
+
   return (
-      <div>
+    <div>
       <DashboardSection>
         <DashboardList>
           <DashboardItems $index={1}>
@@ -34,7 +67,7 @@ const DayDashboard = () => {
               </svg>
               Daily physical activity
             </DashboardTitle>
-            <DashboardData>110 min</DashboardData>
+            <DashboardData>{dailyPhysicalActivity} min</DashboardData>
           </DashboardItems>
           <DashboardItems>
             <DashboardTitle>
@@ -43,7 +76,9 @@ const DayDashboard = () => {
               </svg>
               Сalories consumed
             </DashboardTitle>
-            <DashboardData>707</DashboardData>
+            <DashboardData>
+              {dashboardData && dashboardData.consumedCalories}
+            </DashboardData>
           </DashboardItems>
           <DashboardItems>
             <DashboardTitle>
@@ -52,25 +87,30 @@ const DayDashboard = () => {
               </svg>
               Сalories burned
             </DashboardTitle>
-            <DashboardData>855</DashboardData>
+            <DashboardData>
+              {dashboardData && dashboardData.consumedBurned}
+            </DashboardData>
           </DashboardItems>
-          <DashboardItems>
+          <DashboardItems $caloriesRemaining={caloriesRemaining}>
             <DashboardTitle>
               <svg width={20} height={20}>
                 <use xlinkHref={`${sprite}#icon-bubble`} />
               </svg>
               Calories remaining
             </DashboardTitle>
-            <DashboardData>1493</DashboardData>
+            <DashboardData $index={1}>{caloriesRemaining}</DashboardData>
           </DashboardItems>
-          <DashboardItems>
+          <DashboardItems $sportsRemaining={sportsRemaining}>
             <DashboardTitle>
               <svg width={20} height={20}>
                 <use xlinkHref={`${sprite}#icon-running-figure`} />
               </svg>
               Sports remaining
             </DashboardTitle>
-            <DashboardData>85 min</DashboardData>
+            <DashboardData>
+              {sportsRemaining < 0 ? `+${-sportsRemaining}` : sportsRemaining}{' '}
+              min
+            </DashboardData>{' '}
           </DashboardItems>
         </DashboardList>
         <DashboardTextContainer>

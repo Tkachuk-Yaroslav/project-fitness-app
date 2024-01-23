@@ -47,7 +47,7 @@ export const ProductsItem = styled.li`
       width: ${props => {
         if (props.$index === 0) return '204px'; // Ширина для першого елемента
         if (props.$index === 1) return '128px'; // Ширина для другого елемента
-        if (props.$index === 2 || props.index === 3) return '90px'; // Ширина для третього елемента
+        if (props.$index === 2 || props.$index === 3) return '90px'; // Ширина для третього елемента
         if (props.$index === 4) return '80px';
         // Додайте інші ширини, якщо потрібно
         //   return '100px'; // Ширина за замовчуванням
@@ -60,7 +60,7 @@ export const ProductsItem = styled.li`
       width: ${props => {
         if (props.$index === 0) return '212px';
         if (props.$index === 1) return '166px';
-        if (props.$index === 2 || props.index === 3) return '105px';
+        if (props.$index === 2 || props.$index === 3) return '105px';
         if (props.$index === 4) return '110px';
       }};
       /* Інші стилі для <p>, якщо потрібно */
