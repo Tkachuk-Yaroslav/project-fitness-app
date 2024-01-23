@@ -118,7 +118,7 @@ const ModalProducts = ({ id, title, calories, onClick, isOpen, onClose }) => {
                           }
                         }}
                         value={values.amount}
-                        border={
+                        $border={
                           errors.amount && touched.amount && '1px solid #D80027'
                         }
                       />
