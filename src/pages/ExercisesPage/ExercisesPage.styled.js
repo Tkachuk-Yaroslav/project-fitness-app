@@ -17,15 +17,13 @@ export const CategoriesList = styled.ul`
 export const ContainerWrapper = styled.div`
 display: flex;
   flex-direction: column;
-  padding-top: 40px;
-
+  
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top: 72px;
-  }
+      }
 `
 export const ListElement = styled.li`
 align-items: center;
