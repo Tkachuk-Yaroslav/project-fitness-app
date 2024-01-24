@@ -12,6 +12,7 @@ import { debounce } from 'lodash';
 
 import { getAllCategories } from 'api/productsListApi';
 import { FiltersWrap } from './Filters.styled';
+import { InputLabel } from '@mui/material';
 
 const recommendationOptions = ['All', 'Recommended', 'Not recommended'];
 
@@ -216,6 +217,7 @@ const Filters = ({ filters, onChangeFilters }) => {
         onChange={handleCategoryChange}
         options={categories}
       />
+
       <CustomSelect
         value={filters.allowed}
         onChange={handleRecommendationChange}
