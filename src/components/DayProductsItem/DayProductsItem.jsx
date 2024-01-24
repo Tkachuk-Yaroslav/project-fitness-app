@@ -1,5 +1,5 @@
 import React from 'react';
-
+import 'overlayscrollbars/overlayscrollbars.css';
 import {
   ProductsContainer,
   ProductsList,
@@ -26,9 +26,9 @@ const DayProductsItem = product => {
         </ProductsItem>
         <ProductsItem $index={2}>
           <ProductsTitle>Calories</ProductsTitle>
-          <ProductsData>{product.product.calories}</ProductsData>
+          <ProductsData>{Math.round(product.product.calories)}</ProductsData>
         </ProductsItem>
-        <ProductsItem index={3}>
+        <ProductsItem $index={3}>
           <ProductsTitle>Weight</ProductsTitle>
           <ProductsData>{product.product.amount}</ProductsData>
         </ProductsItem>
