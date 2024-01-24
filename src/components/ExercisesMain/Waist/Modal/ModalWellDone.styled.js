@@ -5,39 +5,40 @@ import styled from 'styled-components';
 // import { theme } from 'styles/theme';
 // import '@fontsource/inter';
 
-const ButtonCloseModal = styled.button`
-  display: flex;
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  line-height: 0;
-  cursor: pointer;
-  background-color: green;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  align-items: center;
-  justify-content: center;
-  transition-property: background-color, border-color;
-  /* transition-duration: var(--transition-duration);
-  transition-timing-function: var(--transition-timing-function); */
-`;
+// const ButtonCloseModal = styled.button`
+//   display: flex;
+//   position: absolute;
+//   top: 24px;
+//   right: 24px;
+//   width: 24px;
+//   height: 24px;
+//   border-radius: 50%;
+//   line-height: 0;
+//   cursor: pointer;
+//   background-color: green;
+//   border: 1px solid rgba(0, 0, 0, 0.1);
+//   align-items: center;
+//   justify-content: center;
+//   transition-property: background-color, border-color;
+//   /* transition-duration: var(--transition-duration);
+//   transition-timing-function: var(--transition-timing-function); */
+// `;
 
-const ModalStyles = {
+export const ModalStyles = {
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
   },
   content: {
-    width: '440px',
-    height: '632px',
+    // width: '440px',
+    // height: '253px',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
   },
+  ReactModal__Content: 'rgba(0, 0, 0, 0.6)',
 };
 
-export { ButtonCloseModal, ModalStyles };
+//  export { ButtonCloseModal, ModalStyles };
 // =============================
 
 // import { Link } from 'react-router-dom';
