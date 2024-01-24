@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ import {
   WellDoneText,
 } from './ModalWindowExerciseWellDone.styled';
 import thumb_up from '../../../images/thumb_up.png';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
 
 export default function BasicModalExercise({
   isModalOpen,
@@ -26,15 +26,15 @@ export default function BasicModalExercise({
   // const [open, setOpen] = React.useState(false);
   // const handleOpen = () => setOpen(true);
 
-  useEffect(() => {
-    if (isModalOpen) {
-      toast.success('Ok!', {
-        duration: 3000,
-        position: 'top-center',
-      });
-      console.log('test');
-    }
-  }, [isModalOpen]);
+  // useEffect(() => {
+  //   if (isModalOpen) {
+  //     toast.success('Ok!', {
+  //       duration: 3000,
+  //       position: 'top-center',
+  //     });
+  //     console.log('test');
+  //   }
+  // }, [isModalOpen]);
 
   const handleClose = () => {
     setIsModalBasicExserciseOpen(false);

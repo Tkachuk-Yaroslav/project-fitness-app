@@ -19,6 +19,7 @@ import CountdownTimer from './CountdownTimer';
 import './stylesModal.css';
 import { useDispatch } from 'react-redux';
 import { setExerciseThunk } from '../../../redux/diary/thunks';
+import toast from 'react-hot-toast';
 
 const ModalWaist = ({
   filter,
@@ -72,12 +73,21 @@ const ModalWaist = ({
     dispatch(setExerciseThunk(data));
     const result = await dispatch(setExerciseThunk(data));
 
+    console.log(result);
+
+    if (result.meta.requestStatus === 'rejected') {
+      console.log('test');
+      toast.error('Exercise not completed', {
+        duration: 3000,
+        position: 'top-center',
+      });
+    }
+
     if (result.meta.requestStatus === 'fulfilled') {
       closeModal();
       setIsBasicModalExerciseOpen(true);
     }
     // Результат можна використовувати тут
-    console.log(result);
 
     // відправка даних
   };
