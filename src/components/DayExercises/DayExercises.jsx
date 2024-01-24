@@ -7,6 +7,7 @@ import {
   ExercisesTitle,
   ExercisesLink,
   ProductsContainer,
+  SvgExercise,
 } from './DayExercises.styled';
 import DayExercisesItem from 'components/DayExercisesItem/DayExercisesItem';
 import sprite from '../../images/sprite.svg';
@@ -36,9 +37,9 @@ const DayExercises = () => {
           <ExercisesTitle>Exercises</ExercisesTitle>
           <ExercisesLink>
             Add exercise
-            <svg width={16} height={16}>
+            <SvgExercise width={16} height={16}>
               <use xlinkHref={`${sprite}#icon-arrow-right`} />
-            </svg>
+            </SvgExercise>
           </ExercisesLink>
         </ProductsContainer>
         <OverlayScrollbarsComponent defer>

@@ -27,6 +27,20 @@ export const ProductsSection = styled.section`
   }
 `;
 
+export const SvgExercise = styled.svg`
+  width: 16px;
+  height: 16px;
+  stroke: var(--orange-color);
+  margin-left: 8px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+`;
+
 export const ProductsContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -50,5 +64,12 @@ export const ProductsLink = styled(Link)`
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: calc(24 / 16);
+  }
+  &:hover,
+  &:focus {
+    color: var(--white-color);
+    ${SvgExercise} {
+      stroke: var(--white-color);
+    }
   }
 `;

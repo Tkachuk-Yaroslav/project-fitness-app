@@ -33,11 +33,7 @@ export const ProductsCardDiet = styled.span`
   padding: 5px 7.5px;
   border-radius: 4px;
   background: rgba(239, 237, 232, 0.05);
-  max-width: 100%;
-
-  @media screen and (max-width: 768px) {
-    max-width: 100px;
-  }
+  max-width: 90px;
 `;
 export const ProductsCardDietText = styled.p`
   color: var(--white-color);
@@ -74,6 +70,20 @@ export const ProductsCardStatusCountTrue = styled.p`
   }
 `;
 
+export const SvgExercise = styled.svg`
+  width: 16px;
+  height: 16px;
+  stroke: var(--orange-color);
+  margin-left: 8px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+`;
+
 export const ProductsCardStatusAdd = styled.button`
   background: transparent;
   border: none;
@@ -88,18 +98,8 @@ export const ProductsCardStatusAdd = styled.button`
   &:hover,
   &:focus {
     color: var(--white-color);
-  }
-
-  &::after {
-    content: url(../../../../src/components/products/img/Icon.svg);
-    display: block;
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-    margin-top: -3px;
-    &:hover,
-    &:focus {
-      fill: var(--white-color);
+    ${SvgExercise} {
+      stroke: var(--white-color);
     }
   }
 `;
@@ -108,12 +108,11 @@ export const ProductsCardTitle = styled.h4`
   font-size: 24px;
   line-height: 1.3;
   color: var(--white-color);
-
-  margin-bottom: 8px;
+  text-transform: capitalize;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 250px;
+  max-width: 240px;
 `;
 
 export const ProductsCardInfoList = styled.ul`
@@ -140,4 +139,10 @@ export const ProductsCardInfoValue = styled.p`
   color: var(--white);
   font-size: 12px;
   line-height: 18px;
+  text-transform: capitalize;
+`;
+
+export const Value = styled.span`
+  color: var(--white-color);
+  margin-left: 4px;
 `;
