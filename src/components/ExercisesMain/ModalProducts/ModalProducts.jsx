@@ -28,7 +28,7 @@ const ModalProducts = ({ id, title, calories, onClick, isOpen, onClose }) => {
 
   const initialValues = {
     productId: id,
-    date: format(new Date(), 'dd/mm/yyyy'),
+    date: format(new Date(), 'dd/MM/yyyy'),
     amount: '',
   };
 
