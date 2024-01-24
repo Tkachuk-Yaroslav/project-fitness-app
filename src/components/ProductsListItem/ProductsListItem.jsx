@@ -12,6 +12,8 @@ import {
   ProductsCardInfoList,
   ProductsCardInfoItem,
   ProductsCardInfoValue,
+  SvgExercise,
+  Value,
 } from './ProductsListItem.styled';
 import {
   IconTitleDiv,
@@ -35,7 +37,6 @@ const ProductsListItem = ({
   const openModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
-
   return (
     <>
       <ProductsCard>
@@ -51,6 +52,9 @@ const ProductsListItem = ({
             </StyleSheetManager>
             <ProductsCardStatusAdd onClick={openModalToggle} type="button">
               Add
+              <SvgExercise>
+                <use href={`${sprite}#icon-arrow-right`}></use>
+              </SvgExercise>
             </ProductsCardStatusAdd>
           </ProductsCardStatusCount>
         </ProductsCardStatus>
@@ -62,15 +66,22 @@ const ProductsListItem = ({
           </SpanIconRun>
           <ProductsCardTitle>{title ? title : 'title'}</ProductsCardTitle>
         </IconTitleDiv>
+
         <ProductsCardInfoList>
           <ProductsCardInfoItem>
-            <ProductsCardInfoValue>Calories: {calories}</ProductsCardInfoValue>
+            <ProductsCardInfoValue>
+              Calories:<Value>{calories}</Value>
+            </ProductsCardInfoValue>
           </ProductsCardInfoItem>
           <ProductsCardInfoItem>
-            <ProductsCardInfoValue>Category: {category}</ProductsCardInfoValue>
+            <ProductsCardInfoValue>
+              Category:<Value> {category}</Value>
+            </ProductsCardInfoValue>
           </ProductsCardInfoItem>
           <ProductsCardInfoItem>
-            <ProductsCardInfoValue>Weight: {weight}</ProductsCardInfoValue>
+            <ProductsCardInfoValue>
+              Weight:<Value>{weight}</Value>
+            </ProductsCardInfoValue>
           </ProductsCardInfoItem>
         </ProductsCardInfoList>
       </ProductsCard>
