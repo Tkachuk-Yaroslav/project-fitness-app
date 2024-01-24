@@ -23,7 +23,15 @@ import sprite from '../../../images/sprite.svg';
 import 'overlayscrollbars/overlayscrollbars.css';
 import { addProduct } from 'api/addProductApi';
 
-const ModalProducts = ({ id, title, calories, onClick, isOpen, onClose }) => {
+const ModalProducts = ({
+  id,
+  title,
+  calories,
+  onClick,
+  isOpen,
+  onClose,
+  setProductsWellDoneIsModalOpen,
+}) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
 
   const initialValues = {
@@ -71,6 +79,8 @@ const ModalProducts = ({ id, title, calories, onClick, isOpen, onClose }) => {
     addProduct(values)
       .then(response => {
         console.log('Product added successfully:', response);
+        onClose();
+        setProductsWellDoneIsModalOpen(true);
       })
       .catch(error => {
         console.error('Error adding product:', error);
