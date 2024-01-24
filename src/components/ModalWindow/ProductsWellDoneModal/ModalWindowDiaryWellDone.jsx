@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import sprite from '../../../images/sprite.svg';
 import {
   CaloriesWrapp,
+  CustomColor,
+  CustomWrapper,
   LinkToDiary,
   ModalStyle,
   NextProductBtn,
@@ -24,41 +26,40 @@ export default function BasicModalDiaryWellDone({
   // const handleClose = () => setOpen(false);
 
   return (
-    <div>
-      {/* <Button onClick={handleOpen}>Open modal Diary Well Done</Button> */}
-      <Modal
-        open={isProductsWellDoneModalOpen}
-        onClose={setProductsWellDoneIsModalOpen}
-      >
-        <ModalStyle>
-          <div onClick={() => setProductsWellDoneIsModalOpen(false)}>
-            <SvgIconX>
-              <use href={`${sprite}#icon-x`}></use>
-            </SvgIconX>
-          </div>
+    <Modal
+      open={isProductsWellDoneModalOpen}
+      onClose={setProductsWellDoneIsModalOpen}
+    >
+      <ModalStyle>
+        <div onClick={() => setProductsWellDoneIsModalOpen(false)}>
+          <SvgIconX>
+            <use href={`${sprite}#icon-x`}></use>
+          </SvgIconX>
+        </div>
 
-          <div>
-            <img src={avocado} alt="avocado" />
-          </div>
+        <div>
+          <img src={avocado} alt="avocado" />
+        </div>
 
-          <WellDoneText>Well Done</WellDoneText>
+        <WellDoneText>Well Done</WellDoneText>
 
-          <CaloriesWrapp>
-            <div>Calories: </div> {numberOfCalories}
-          </CaloriesWrapp>
+        <CaloriesWrapp>
+          <CustomWrapper>
+            Calories: <CustomColor>{numberOfCalories}</CustomColor>
+          </CustomWrapper>
+        </CaloriesWrapp>
 
-          <NextProductBtn type="button">
-            <Link to="/diary">Next product</Link>
-          </NextProductBtn>
+        <NextProductBtn type="button">
+          <Link to="/diary">Next product</Link>
+        </NextProductBtn>
 
-          <LinkToDiary to="/diary">
-            To the diary
-            <SvgArrow>
-              <use href={`${sprite}#arrow-white`}></use>
-            </SvgArrow>
-          </LinkToDiary>
-        </ModalStyle>
-      </Modal>
-    </div>
+        <LinkToDiary to="/diary">
+          To the diary
+          <SvgArrow>
+            <use href={`${sprite}#arrow-white`}></use>
+          </SvgArrow>
+        </LinkToDiary>
+      </ModalStyle>
+    </Modal>
   );
 }
