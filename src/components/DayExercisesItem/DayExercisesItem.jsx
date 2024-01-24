@@ -13,8 +13,6 @@ import sprite from '../../images/sprite.svg';
 import axios from 'axios';
 import { getDiaryData } from 'api/dairy';
 
-import { StyleSheetManager } from 'styled-components';
-
 import { ParentContext } from '../DayExercises/DayExercises';
 
 const DayExercisesItem = exercise => {

@@ -11,8 +11,6 @@ import {
 import DayExercisesItem from 'components/DayExercisesItem/DayExercisesItem';
 import sprite from '../../images/sprite.svg';
 
-import axios from 'axios';
-import { useSelector } from 'react-redux';
 import { getDiaryData } from 'api/dairy';
 
 export const ParentContext = React.createContext();
