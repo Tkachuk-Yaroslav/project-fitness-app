@@ -22,6 +22,7 @@ import {
 } from 'components/ExercisesMain/Waist/ExercisesItem/ExercisesItem.styled';
 import sprite from '../../images/sprite.svg';
 import ModalProducts from 'components/ExercisesMain/ModalProducts';
+import BasicModalDiaryWellDone from 'components/ModalWindow/ProductsWellDoneModal/ModalWindowDiaryWellDone';
 
 const ProductsListItem = ({
   id,
@@ -33,6 +34,9 @@ const ProductsListItem = ({
 }) => {
   const firstValue = Boolean(groupBloodNotAllowed['1']);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [isProductsWellDoneModalOpen, setProductsWellDoneIsModalOpen] =
+    useState(false);
 
   const openModalToggle = () => {
     setIsModalOpen(!isModalOpen);
@@ -91,6 +95,13 @@ const ProductsListItem = ({
         calories={calories}
         isOpen={isModalOpen}
         onClose={openModalToggle}
+        setProductsWellDoneIsModalOpen={setProductsWellDoneIsModalOpen}
+      />
+      <BasicModalDiaryWellDone
+        isProductsWellDoneModalOpen={isProductsWellDoneModalOpen}
+        setProductsWellDoneIsModalOpen={setProductsWellDoneIsModalOpen}
+        numberOfCalories={calories}
+        closeModalProductsToggle={openModalToggle}
       />
     </>
   );
