@@ -1,113 +1,100 @@
-# React homework template
+# React & Node.js app
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+ Power Pulse - is a web-based fitness app that helps users lead an active and healthy lifestyle. The application provides convenient tools for keeping a training diary, tracking nutrition and managing a personal profile.
 
-## Создание репозитория по шаблону
+ ## The main functions of the application:
 
-Используй этот репозиторий организации GoIT как шаблон для создания репозитория
-своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
-`«Create a new repository»`, как показано на изображении.
+ + **Workout Diary** : Users can keep a diary of their workouts, recording exercises performed, workout time, and calories burned.
+ + **Food Diary** : The application allows you to keep a food log, indicating the meals and the number of calories consumed. You can also choose recommended products by blood type.
+ + **Exercise List** : Users can select exercises from a list that covers different body parts, muscles and equipment.
+ + **User profile** : Each user has a personal profile with information. Calories are calculated according to the data entered by the user.
+  
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+  ## Development team: 
+  + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Tkachuk-Yaroslav)
+   YAROSLAV TKACHUK **Team Lead** **&** **Full Stack Developer**
+  + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/khar-and) ANDRII KHARCHENKO **Team Lead** **&** **Full Stack Developer**
+ + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SvetlanaRomaniuk111)
+   SVITLANA ROMANIUK **Scrum Master** **&** **Full Stack Developer**
+  +  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Fatiuk)
+   ANDRII FATIUK **Full Stack Developer**
+ + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/VolodymyrBodniak)
+   VOLODYMYR BODNIAK **Full Stack Developer**
+  +  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/andsnk)
+   ANDRII SNISHCHUK **Full Stack Developer**
+   + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KramchaninAlena)
+   ALONA KRAMCHANIN **Full Stack Developer**
+   + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/agsulimko)
+   ARTEM SULYMKO **Full Stack Developer**
+   + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AnSh202302)
+   ANTONINA SHELIAH **Full Stack Developer**
+   + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Movash)
+   OLEKSANDR ANDRUSHCHENKO **Full Stack Developer**
+   + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Andrew300189)
+   ANDRII KOZYR **Full Stack Developer**
 
-На следующем шаге откроется страница создания нового репозитория. Заполни поле
-его имени, убедись что репозиторий публичный, после чего нажми кнопку
-`«Create repository from template»`.
+   ## Technologies:
+  | <!-- -->      | <!-- -->        | <!-- -->      | <!-- --> |
+|:-------------:|:---------------:|:-------------:|:-------------:|
+| HTML/CSS           | JavaScript      | Axios          | Swager |
+| Styled Components  | React           | Node.js        | VSCode
+|Formik              | Redux Toolkit   | Express        | Git
+|Pagination          | React Router    | MongoDB        | GitHub
+   
+   ## API
+   Our team developed the server part of the project [Fitnes APP Backend](https://github.com/khar-and/project-fitness-app-back)
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+   ## Installation and Startup
 
-После того как репозиторий будет создан, необходимо перейти в настройки
-созданного репозитория на вкладку `Settings` > `Actions` > `General` как
-показано на изображении.
+   + Встановіть необхідні залежності за допомогою команди `npm install`.
+   + Запустіть додаток за допомогою команди `npm start`.
+  
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
 
-Проскролив страницу до самого конца, в секции `«Workflow permissions»` выбери
-опцию `«Read and write permissions»` и поставь галочку в чекбоксе. Это
-необходимо для автоматизации процесса деплоя проекта.
+  # React & Node.js Додаток
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+  Fitness App є веб-додатком для фітнесу, який допомагає користувачам вести активний та здоровий спосіб життя. Додаток надає зручні інструменти для ведення щоденника тренувань, відстеження харчування та управління особистим профілем.
 
-Теперь у тебя есть личный репозиторий проекта, со структурой файлов и папок
-репозитория-шаблона. Далее работай с ним как с любым другим личным репозиторием,
-клонируй его себе на компьютер, пиши код, делай коммиты и отправляй их на
-GitHub.
+  ## Основні функції додатку:
+  + Щоденник тренувань: Користувачі можуть вести щоденник своїх тренувань, фіксуючи виконані вправи, час тренування та спалені калорії.
+  + Щоденник харчування: Додаток дозволяє вести журнал харчування, вказуючи прийоми їжі та кількість спожитих калорій. Також можна вибрати рекомендовані страви по групі крові. 
+  + Список вправ: Користувачі можуть вибирати вправи зі списка, який охоплює різні частини тіла, м'язи та обладнання.
+  + Профіль користувача: У кожного користувача є особистий профіль з інформацією. Калорії розраховуються згідно введених даних користувачем.
+  
+  ## Команда розробників:
+  + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Tkachuk-Yaroslav)
+   Ярослав Ткачук **Team Lead** **&** **Full Stack Developer**
+  + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/khar-and) Андрій Харченко **Team Lead** **&** **Full Stack Developer**
+ + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SvetlanaRomaniuk111)
+   Світлана Романюк **Scrum Master** **&** **Full Stack Developer**
+  +  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Fatiuk)
+   Андрій Фатюк **Full Stack Developer**
+ + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/VolodymyrBodniak)
+   Володимир Бодняк **Full Stack Developer**
+  +  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/andsnk)
+   Андрій Сніщук **Full Stack Developer**
+   + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KramchaninAlena)
+    Альона Крамчанін **Full Stack Developer**
+   + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/agsulimko)
+   Артем Сулимко **Full Stack Developer**
+   + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AnSh202302)
+   Антоніна Шеляг **Full Stack Developer**
+   + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Movash)
+   Олександр Андрущенко **Full Stack Developer**
+   + [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Andrew300189)
+   Андрій Козир **Full Stack Developer**
 
-## Подготовка к работе
+ ## Технології:
+  | <!-- -->      | <!-- -->        | <!-- -->      | <!-- --> |
+|:-------------:|:---------------:|:-------------:|:-------------:|
+| HTML/CSS           | JavaScript      | Axios          | Swager |
+| Styled Components  | React           | Node.js        | VSCode
+|Formik              | Redux Toolkit   | Express        | Git
+|Pagination          | React Router    | MongoDB        | GitHub
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Установи базовые зависимости проекта командой `npm install`.
-3. Запусти режим разработки, выполнив команду `npm start`.
-4. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+ ## API
+   Наша команда розробників успішно розробила серверну частину для додатку [Fitnes APP Backend](https://github.com/khar-and/project-fitness-app-back)
 
-## Деплой
-
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
-
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
-
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Статус деплоя
-
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
-
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
-
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеш в начале строки обязателен.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+## Встановлення та Запуск
++ Встановіть необхідні залежності за допомогою команди `npm install`.
+ + Запустіть додаток за допомогою команди `npm start`.
