@@ -22,6 +22,7 @@ import Modal from 'react-modal';
 import sprite from '../../../images/sprite.svg';
 import 'overlayscrollbars/overlayscrollbars.css';
 import { addProduct } from 'api/addProductApi';
+import toast from 'react-hot-toast';
 
 const ModalProducts = ({
   id,
@@ -86,6 +87,10 @@ const ModalProducts = ({
       })
       .catch(error => {
         console.error('Error adding product:', error);
+        toast.error('Error adding product', {
+          duration: 3000,
+          position: 'top-center',
+        });
       });
   };
 
