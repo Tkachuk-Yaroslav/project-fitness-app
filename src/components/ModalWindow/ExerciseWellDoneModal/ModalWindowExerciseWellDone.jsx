@@ -1,7 +1,6 @@
 import React from 'react';
 // import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import { Link } from 'react-router-dom';
 import sprite from '../../../images/sprite.svg';
 import {
   CaloriesWrapp,
@@ -15,7 +14,6 @@ import {
   WellDoneText,
 } from './ModalWindowExerciseWellDone.styled';
 import thumb_up from '../../../images/thumb_up.png';
-// import toast from 'react-hot-toast';
 
 export default function BasicModalExercise({
   isModalOpen,
@@ -23,19 +21,6 @@ export default function BasicModalExercise({
   remaningTime,
   burnedCalories,
 }) {
-  // const [open, setOpen] = React.useState(false);
-  // const handleOpen = () => setOpen(true);
-
-  // useEffect(() => {
-  //   if (isModalOpen) {
-  //     toast.success('Ok!', {
-  //       duration: 3000,
-  //       position: 'top-center',
-  //     });
-  //     console.log('test');
-  //   }
-  // }, [isModalOpen]);
-
   const handleClose = () => {
     setIsModalBasicExserciseOpen(false);
   };
@@ -77,8 +62,11 @@ export default function BasicModalExercise({
           </CustomWrapper>
         </CaloriesWrapp>
 
-        <NextProductBtn type="button">
-          <Link to="/exercises">Next exercise</Link>
+        <NextProductBtn
+          type="button"
+          onClick={() => setIsModalBasicExserciseOpen(false)}
+        >
+          <p>Next exercise</p>
         </NextProductBtn>
 
         <LinkToDiary to="/diary">

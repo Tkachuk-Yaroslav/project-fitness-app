@@ -1,7 +1,6 @@
 import * as React from 'react';
 // import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import { Link } from 'react-router-dom';
 import sprite from '../../../images/sprite.svg';
 import {
   CaloriesWrapp,
@@ -21,10 +20,6 @@ export default function BasicModalDiaryWellDone({
   setProductsWellDoneIsModalOpen,
   numberOfCalories,
 }) {
-  // const [open, setOpen] = React.useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
-
   return (
     <Modal
       open={isProductsWellDoneModalOpen}
@@ -49,8 +44,11 @@ export default function BasicModalDiaryWellDone({
           </CustomWrapper>
         </CaloriesWrapp>
 
-        <NextProductBtn type="button">
-          <Link to="/diary">Next product</Link>
+        <NextProductBtn
+          type="button"
+          onClick={() => setProductsWellDoneIsModalOpen(false)}
+        >
+          <p>Next product</p>
         </NextProductBtn>
 
         <LinkToDiary to="/diary">
