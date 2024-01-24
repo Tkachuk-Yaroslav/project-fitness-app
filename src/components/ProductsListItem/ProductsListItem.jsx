@@ -38,6 +38,12 @@ const ProductsListItem = ({
   const [isProductsWellDoneModalOpen, setProductsWellDoneIsModalOpen] =
     useState(false);
 
+  const [calculatedCalories, setCalculatedCalories] = useState(0);
+
+  const handleChildStateChange = newState => {
+    setCalculatedCalories(newState);
+  };
+
   const openModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -96,11 +102,12 @@ const ProductsListItem = ({
         isOpen={isModalOpen}
         onClose={openModalToggle}
         setProductsWellDoneIsModalOpen={setProductsWellDoneIsModalOpen}
+        onStateChange={handleChildStateChange}
       />
       <BasicModalDiaryWellDone
         isProductsWellDoneModalOpen={isProductsWellDoneModalOpen}
         setProductsWellDoneIsModalOpen={setProductsWellDoneIsModalOpen}
-        numberOfCalories={calories}
+        numberOfCalories={calculatedCalories}
         closeModalProductsToggle={openModalToggle}
       />
     </>

@@ -31,6 +31,7 @@ const ModalProducts = ({
   isOpen,
   onClose,
   setProductsWellDoneIsModalOpen,
+  onStateChange,
 }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
 
@@ -61,6 +62,7 @@ const ModalProducts = ({
 
   const calculateCalories = amount => {
     const calculated = (calories * amount) / 100;
+    onStateChange(calculated);
     return parseFloat(calculated);
   };
 
