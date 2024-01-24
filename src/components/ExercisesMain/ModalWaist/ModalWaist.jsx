@@ -162,9 +162,9 @@ import ModalWaistList from "./ModalWaistList";
 import sprite from "../../../images/sprite.svg";
 import CountdownTimer from "./CountdownTimer/CountdownTimer";
 import "./stylesModal.css";
-
+import toast from "react-hot-toast";
 import ModalWellDone from "../Waist/Modal/ModalWellDone";
-
+import Loader from "components/Loader/Loader";
 const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [isExerciseAdded, setIsExerciseAdded] = useState(false);
@@ -174,7 +174,7 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
   const { body_parts, muscles, equipmentId } = useParams();
   const [allExercises, setExercises] = useState([]);
   const [selectedExercise, setSelectedExercise] = useState(null);
-
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchAllExercises = async () => {
       try {
@@ -207,18 +207,26 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
 
     const fetchPostExercises = async () => {
       try {
-        const result = await addExerciseToDairy(data);
-        console.log("Exercise added to dairy successfully:", result);
+        setIsLoading(true);
+        await addExerciseToDairy(data);
+
         setIsExerciseAdded(true);
         setIsOrderModalOpen(true);
+        setIsLoading(false);
       } catch (error) {
-        console.error("Failed to add exercise to dairy:", error);
+        toast.error("Failed to add exercise to dairy", {
+          duration: 3000,
+          position: "top-center",
+        });
       }
     };
 
-    console.log("isExerciseAdded=", isExerciseAdded);
-    console.log(data, "Object for backend post request");
-    fetchPostExercises();
+    currentTimes
+      ? fetchPostExercises()
+      : toast.error("Exercise not completed", {
+          duration: 3000,
+          position: "top-center",
+        });
   };
 
   const handleSendClick = () => {
