@@ -46,8 +46,8 @@
 
    ## Installation and Startup
 
-   + Встановіть необхідні залежності за допомогою команди `npm install`.
-   + Запустіть додаток за допомогою команди `npm start`.
+   + Install the necessary dependencies using the command `npm install`.
+   + Run the application using the command `npm start`.
   
 
 
