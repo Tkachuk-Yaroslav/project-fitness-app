@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheetManager } from 'styled-components';
 import {
   ProductsCard,
@@ -21,8 +21,10 @@ import {
   SvgIconRun,
 } from 'components/ExercisesMain/Waist/ExercisesItem/ExercisesItem.styled';
 import sprite from '../../images/sprite.svg';
+import ModalProducts from 'components/ExercisesMain/ModalProducts';
 
 const ProductsListItem = ({
+  id,
   title,
   calories,
   category,
@@ -30,7 +32,11 @@ const ProductsListItem = ({
   groupBloodNotAllowed,
 }) => {
   const firstValue = Boolean(groupBloodNotAllowed['1']);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const openModalToggle = () => {
+   setIsModalOpen(!isModalOpen);
+  };
   return (
     <ProductsCard>
       <ProductsCardStatus>
@@ -43,11 +49,8 @@ const ProductsListItem = ({
               {firstValue ? 'Recommended' : 'Not recommended'}
             </ProductsCardStatusCountTrue>
           </StyleSheetManager>
-
           <ProductsCardStatusAdd
-            // onClick={() => {
-            //   openModalToggle(el);
-            // }}
+            onClick={openModalToggle}
             type="button"
           >
             Add
@@ -84,6 +87,13 @@ const ProductsListItem = ({
         </ProductsCardInfoItem>
       </ProductsCardInfoList>
     </ProductsCard>
+    <ModalProducts
+        id={id}
+        title={title}
+        calories={calories}
+        isOpen={isModalOpen}
+        onClose={openModalToggle}
+      />
   );
 };
 

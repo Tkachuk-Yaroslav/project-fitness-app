@@ -48,7 +48,8 @@ const ExerciseContent = styled.div`
   @media screen and (min-width: 768px) {
     flex-direction: row;
     align-items: normal;
-  }`;
+  }
+`;
 
 const Gif = styled.img`
   object-fit: cover;
@@ -95,7 +96,6 @@ const AddBtn = styled.button`
     left: 478px;
     height: 52px;
     line-height: calc(24 / 16);
-
   }
 `;
 

@@ -103,6 +103,10 @@ export const AuthCont = styled('div')(() => {
     },
     '.navigate-link': {
       textDecoration: 'underline',
+      transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+      '&:hover, &:focus': {
+        color: 'var(--light-orange-color)',
+      },
     },
     '@media screen and (min-width: 768px)': {
       marginTop: '105px',

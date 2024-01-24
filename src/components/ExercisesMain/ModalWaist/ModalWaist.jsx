@@ -42,15 +42,16 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
 	}, []);
 
 	const handleSubmit = () => {
-		const currentDate = `${String(new Date().getDay() + 1).padStart(2, '0')}/${String(
-			new Date().getMonth() + 1
-		).padStart(2, '0')}/${new Date().getFullYear()}`;
+		const currentDate = `${String(new Date().getDate()).padStart(2, '0')}/${String(
+  new Date().getMonth() + 1
+).padStart(2, '0')}/${new Date().getFullYear()}`;
 		const data = {
 			exerciseId: selectedExercise._id,
 			date: currentDate,
 			time: 180 - remaningTime,
 			calories: burnedCalories,
 		};
+    console.log(data)
 		dispatch(setExerciseThunk(data));
 		// відправка даних
 	};
