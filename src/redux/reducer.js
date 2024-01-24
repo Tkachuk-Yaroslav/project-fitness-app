@@ -6,11 +6,12 @@ import storage from 'redux-persist/lib/storage';
 import { headerReducer } from './error/slice';
 import { exercisesReducer } from './exercises/slice';
 import { diaryReducer } from './diary/slice';
+import { diaryPageReducer } from './diaryPage/slice';
 
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'user'],
+  whitelist: ['token', 'user', 'diary'],
 };
 
 const authPersistedReducer = persistReducer(authPersistConfig, authReducer);
@@ -21,4 +22,5 @@ export const reducer = combineReducers({
   header: headerReducer,
   exercises: exercisesReducer,
   diary: diaryReducer,
+  diaryPage: diaryPageReducer,
 });

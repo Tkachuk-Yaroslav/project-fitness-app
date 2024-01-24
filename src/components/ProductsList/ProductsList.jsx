@@ -8,6 +8,7 @@ const ProductsList = ({ products }) => {
         ({ _id, groupBloodNotAllowed, weight, calories, category, title }) => (
           <ProductsListItem
             key={_id}
+            id={_id}
             weight={weight}
             calories={calories}
             category={category}

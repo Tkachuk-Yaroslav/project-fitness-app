@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 // import styled from 'styled-components';
 import { createGlobalStyle, styled } from 'styled-components';
 
-
 export const ExercisesSection = styled.section`
   width: 335px;
   max-height: 1064px;
@@ -41,6 +40,20 @@ export const ExercisesTitle = styled.h3`
   line-height: calc(18 / 14);
 `;
 
+export const SvgExercise = styled.svg`
+  width: 16px;
+  height: 16px;
+  stroke: var(--orange-color);
+  margin-left: 8px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+`;
+
 export const ExercisesLink = styled(Link)`
   display: flex;
   gap: 8px;
@@ -54,6 +67,13 @@ export const ExercisesLink = styled(Link)`
     font-size: 16px;
     line-height: calc(24 / 16);
   }
+  &:hover,
+  &:focus {
+    color: var(--white-color);
+    ${SvgExercise} {
+      stroke: var(--white-color);
+    }
+  }
 `;
 
 export const StyledScrollbar = createGlobalStyle`
@@ -62,4 +82,4 @@ export const StyledScrollbar = createGlobalStyle`
     --os-handle-bg: rgba(239, 237, 232, 0.10);
     --os-handle-bg-hover: #EF8964;
     --os-handle-bg-active: #E6533C;
-}`
+}`;
