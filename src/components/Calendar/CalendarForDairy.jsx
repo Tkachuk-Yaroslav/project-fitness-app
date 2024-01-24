@@ -5,19 +5,29 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import sprite from '../../images/sprite.svg';
 import { useState, useEffect } from 'react';
 import { useField } from 'formik';
+import { setExerciseThunk } from '../../redux/diaryPage/thunk';
+import { useDispatch } from 'react-redux';
+import { format } from 'date-fns';
 
-const Calendar = ({ name }) => {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [field, , { setValue }] = useField(name);
+const Calendar = ({ name, onChangeData }) => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  console.log('selectedDate', selectedDate);
+  const dispatch = useDispatch();
+
+  // const formatDate = format(new Date(selectedDate), 'dd/MM/yyyy');
+  // console.log('formatDate', formatDate);
+  // const formatDateString = String(formatDate);
+  // console.log('formatDateString', formatDateString.toisosstring);
+
   useEffect(() => {
-    handleDateChange(new Date(field.value));
+    const params = { date: selectedDate };
+    dispatch(setExerciseThunk(params));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [selectedDate]);
 
   const handleDateChange = async date => {
     setSelectedDate(date);
-    setValue(date);
-    // console.log(field);
+    onChangeData(date);
   };
   return (
     <>
@@ -27,7 +37,7 @@ const Calendar = ({ name }) => {
         </IconSvg>
 
         <DatePicker
-          {...field}
+          // {...field}
           selected={selectedDate}
           onChange={handleDateChange}
           customInput={<InputField name={name} style={{ cursor: 'pointer' }} />}
