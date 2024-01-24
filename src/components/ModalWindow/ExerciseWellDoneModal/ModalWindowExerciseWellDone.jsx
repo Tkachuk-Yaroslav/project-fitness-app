@@ -29,49 +29,46 @@ export default function BasicModalExercise({
   const seconds = remaningTime % 60;
 
   return (
-    <div>
-      {/* <Button onClick={handleOpen}>Open modal Exercise Well Done</Button> */}
-      <Modal open={isModalOpen} onClose={handleClose}>
-        <ModalStyle>
-          <div onClick={() => setIsModalBasicExserciseOpen(false)}>
-            <SvgIconX>
-              <use href={`${sprite}#icon-x`}></use>
-            </SvgIconX>
-          </div>
+    <Modal open={isModalOpen} onClose={handleClose}>
+      <ModalStyle>
+        <div onClick={() => setIsModalBasicExserciseOpen(false)}>
+          <SvgIconX>
+            <use href={`${sprite}#icon-x`}></use>
+          </SvgIconX>
+        </div>
 
-          <div>
-            <img src={thumb_up} alt="thumb_up" />
-          </div>
+        <div>
+          <img src={thumb_up} alt="thumb_up" />
+        </div>
 
-          <WellDoneText>Well Done</WellDoneText>
+        <WellDoneText>Well Done</WellDoneText>
 
-          <CaloriesWrapp>
-            <CustomWrapper>
-              Your time:{' '}
-              <CustomColor>
-                {minutes}:{seconds}
-              </CustomColor>
-            </CustomWrapper>
-          </CaloriesWrapp>
+        <CaloriesWrapp>
+          <CustomWrapper>
+            Your time:{' '}
+            <CustomColor>
+              {minutes}:{seconds}
+            </CustomColor>
+          </CustomWrapper>
+        </CaloriesWrapp>
 
-          <CaloriesWrapp>
-            <CustomWrapper>
-              Burned calories: <CustomColor>{burnedCalories}</CustomColor>
-            </CustomWrapper>
-          </CaloriesWrapp>
+        <CaloriesWrapp>
+          <CustomWrapper>
+            Burned calories: <CustomColor>{burnedCalories}</CustomColor>
+          </CustomWrapper>
+        </CaloriesWrapp>
 
-          <NextProductBtn type="button">
-            <Link to="/exercises">Next exercise</Link>
-          </NextProductBtn>
+        <NextProductBtn type="button">
+          <Link to="/exercises">Next exercise</Link>
+        </NextProductBtn>
 
-          <LinkToDiary to="/diary">
-            To the diary
-            <Svg>
-              <use href={`${sprite}#arrow-white`}></use>
-            </Svg>
-          </LinkToDiary>
-        </ModalStyle>
-      </Modal>
-    </div>
+        <LinkToDiary to="/diary">
+          To the diary
+          <Svg>
+            <use href={`${sprite}#arrow-white`}></use>
+          </Svg>
+        </LinkToDiary>
+      </ModalStyle>
+    </Modal>
   );
 }
