@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 // import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { Link } from 'react-router-dom';
@@ -15,6 +15,7 @@ import {
   WellDoneText,
 } from './ModalWindowExerciseWellDone.styled';
 import thumb_up from '../../../images/thumb_up.png';
+import toast from 'react-hot-toast';
 
 export default function BasicModalExercise({
   isModalOpen,
@@ -24,9 +25,27 @@ export default function BasicModalExercise({
 }) {
   // const [open, setOpen] = React.useState(false);
   // const handleOpen = () => setOpen(true);
-  const handleClose = () => setIsModalBasicExserciseOpen(false);
-  const minutes = Math.floor(remaningTime / 60);
-  const seconds = remaningTime % 60;
+
+  useEffect(() => {
+    if (isModalOpen) {
+      toast.success('Ok!', {
+        duration: 3000,
+        position: 'top-center',
+      });
+      console.log('test');
+    }
+  }, [isModalOpen]);
+
+  const handleClose = () => {
+    setIsModalBasicExserciseOpen(false);
+  };
+
+  const diffTime = 180 - remaningTime;
+  const minutes = Math.floor(diffTime / 60);
+  const seconds = diffTime % 60;
+
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(seconds).padStart(2, '0');
 
   return (
     <Modal open={isModalOpen} onClose={handleClose}>
@@ -47,7 +66,7 @@ export default function BasicModalExercise({
           <CustomWrapper>
             Your time:{' '}
             <CustomColor>
-              {minutes}:{seconds}
+              {formattedMinutes}:{formattedSeconds} minutes
             </CustomColor>
           </CustomWrapper>
         </CaloriesWrapp>
