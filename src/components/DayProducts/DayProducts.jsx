@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import 'overlayscrollbars/overlayscrollbars.css';
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
+import '../../components/styles/ScrollbarStyled/scrollbarStyled.css'; 
 import {
   ProductsSection,
   ProductsTitle,
   ProductsLink,
   ProductsContainer,
   SvgExercise,
+  NoDataTitle, 
+  NoDataWrap, 
+  ProductsTitleList, 
+  ProductsTitleItem,
 } from './DayProducts.styled';
 import DayProductsItem from 'components/DayProductsItem/DayProductsItem';
 import sprite from '../../images/sprite.svg';
@@ -30,13 +37,21 @@ const DayProducts = () => {
       <ProductsSection>
         <ProductsContainer>
           <ProductsTitle>Products</ProductsTitle>
-          <ProductsLink>
+          <ProductsLink to={'/products'}>
             Add product
             <SvgExercise width={16} height={16}>
               <use xlinkHref={`${sprite}#icon-arrow-right`} />
             </SvgExercise>
           </ProductsLink>
         </ProductsContainer>
+          <ProductsTitleList>
+            <ProductsTitleItem $index={0}>Title</ProductsTitleItem>
+            <ProductsTitleItem $index={1}>Category</ProductsTitleItem>
+            <ProductsTitleItem $index={2}>Calories</ProductsTitleItem>
+            <ProductsTitleItem $index={3}>Weight</ProductsTitleItem>
+            <ProductsTitleItem>Recommend</ProductsTitleItem>
+          </ProductsTitleList>
+          <OverlayScrollbarsComponent defer>
         {diaryProdData.length > 0
           ? diaryProdData.map(product => {
               console.log(product, 'Один продукт');
@@ -49,11 +64,8 @@ const DayProducts = () => {
                 </ParentContext.Provider>
               );
             })
-          : null}
-
-        {/* <DayProductsItem />
-        <DayProductsItem />
-        <DayProductsItem /> */}
+          : <NoDataWrap><NoDataTitle>Not found products</NoDataTitle></NoDataWrap> }
+        </OverlayScrollbarsComponent>
       </ProductsSection>
     </>
   );

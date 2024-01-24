@@ -3,8 +3,16 @@ export const ProductsContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  &:not(:last-child) {
+    margin-bottom: 40px; 
+  }
+  @media screen and (min-width: 768px) {
+    &:not(:last-child) {
+    margin-bottom: 8px; 
+  }
+  }
   @media screen and (min-width: 1440px) {
-    margin-left: 16px
+    margin-left: 16px;
   }
 `;
 
@@ -26,8 +34,7 @@ export const ProductsList = styled.ul`
 export const ProductsItem = styled.li`
   && > p {
     width: ${props => {
-            if (props.$index === 0 || props.$index === 1 || props.$index === 2) return '298px';
-
+      if (props.$index === 0 || props.$index === 1 || props.$index === 2) return '298px';
       if (props.$index === 3) return '80px';
       if (props.$index === 4) return '80px';
       if (props.$index === 5) return '76px';
@@ -68,6 +75,9 @@ export const ProductsTitle = styled.h4`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  @media screen and (min-width: 768px) {
+    display:none;
+  }
   @media screen and (max-width: 1439px) {
     max-width: 78px;
   }
@@ -98,11 +108,10 @@ export const TrashBtn = styled.button`
   top: 280px;
   right: 6px;
   @media screen and (min-width: 768px) {
-    top: 34px;
+    top: 10px;
     right: 16px;
   }
   @media screen and (min-width: 1440px) {
-    top: 34px;
     right: 20px;
   }
 `;
