@@ -16,7 +16,7 @@ import { InputLabel } from '@mui/material';
 
 const recommendationOptions = ['All', 'Recommended', 'Not recommended'];
 
-const CustomSelect = ({ value, onChange, options }) => (
+const CustomSelect = ({ label, id, value, onChange, options }) => (
   <FormControl
     sx={{
       '.MuiInputLabel-root': {
@@ -46,8 +46,12 @@ const CustomSelect = ({ value, onChange, options }) => (
       },
     }}
   >
+    <InputLabel id={`${id}-label`}>{label}</InputLabel>
     <Select
+      labelId={`${id}-label`}
+      id={id}
       value={value}
+      label={label}
       onChange={onChange}
       IconComponent={KeyboardArrowDownIcon}
       MenuProps={{
@@ -216,12 +220,15 @@ const Filters = ({ filters, onChangeFilters }) => {
         value={filters.category}
         onChange={handleCategoryChange}
         options={categories}
+        label="Category"
+        id="category-select"
       />
-
       <CustomSelect
         value={filters.allowed}
         onChange={handleRecommendationChange}
         options={recommendationOptions}
+        label="Recommendation"
+        id="recommendation-select"
       />
     </FiltersWrap>
   );
