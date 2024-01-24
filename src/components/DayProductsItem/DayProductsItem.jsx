@@ -1,5 +1,6 @@
-import React from 'react';
 import 'overlayscrollbars/overlayscrollbars.css';
+import React, { useContext } from 'react';
+
 import {
   ProductsContainer,
   ProductsList,
@@ -10,9 +11,27 @@ import {
   IndicatorIcon,
 } from './DayProductsItem.styled';
 import sprite from '../../images/sprite.svg';
+import axios from 'axios';
+import { getDiaryData } from 'api/dairy';
+import { ParentContext } from '../DayProducts/DayProducts';
 
 const DayProductsItem = product => {
   console.log(product, 'пропс в DayProductsItem');
+
+  const { setDiaryProdData } = useContext(ParentContext);
+  const handleDelete = async () => {
+    try {
+      // Викликаємо API для видалення вправи
+      await axios.delete(
+        `https://project-fitness-app-back.onrender.com/api/dairy/delProduct/${product.product._id}`
+      );
+      // Викликаємо функцію оновлення стану в компоненті, що містить список продуктів
+      const data = await getDiaryData();
+      setDiaryProdData(data.consumedProducts);
+    } catch (error) {
+      console.error('Error deleting produts:', error);
+    }
+  };
   return (
     <ProductsContainer>
       <ProductsList>
@@ -40,7 +59,7 @@ const DayProductsItem = product => {
           </ProductsData>
         </ProductsItem>
       </ProductsList>
-      <TrashBtn>
+      <TrashBtn onClick={handleDelete}>
         <svg width={20} height={20}>
           <use xlinkHref={`${sprite}#icon-trash`} />
         </svg>

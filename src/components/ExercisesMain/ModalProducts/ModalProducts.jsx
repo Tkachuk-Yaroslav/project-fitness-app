@@ -22,8 +22,18 @@ import Modal from 'react-modal';
 import sprite from '../../../images/sprite.svg';
 import 'overlayscrollbars/overlayscrollbars.css';
 import { addProduct } from 'api/addProductApi';
+import toast from 'react-hot-toast';
 
-const ModalProducts = ({ id, title, calories, onClick, isOpen, onClose }) => {
+const ModalProducts = ({
+  id,
+  title,
+  calories,
+  onClick,
+  isOpen,
+  onClose,
+  setProductsWellDoneIsModalOpen,
+  onStateChange,
+}) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
 
   const initialValues = {
@@ -53,6 +63,7 @@ const ModalProducts = ({ id, title, calories, onClick, isOpen, onClose }) => {
 
   const calculateCalories = amount => {
     const calculated = (calories * amount) / 100;
+    onStateChange(calculated);
     return parseFloat(calculated);
   };
 
@@ -71,9 +82,15 @@ const ModalProducts = ({ id, title, calories, onClick, isOpen, onClose }) => {
     addProduct(values)
       .then(response => {
         console.log('Product added successfully:', response);
+        onClose();
+        setProductsWellDoneIsModalOpen(true);
       })
       .catch(error => {
         console.error('Error adding product:', error);
+        toast.error('Error adding product', {
+          duration: 3000,
+          position: 'top-center',
+        });
       });
   };
 
