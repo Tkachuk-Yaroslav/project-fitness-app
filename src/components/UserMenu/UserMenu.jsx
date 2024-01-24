@@ -91,10 +91,16 @@ const UserMenu = () => {
             <use href={`${sprite}#icon-settings`}></use>
           </ProfileSvg>
         </NavLink>
-        <AvatarHeader>
-          {user.avatarURL ? <img src={user.avatarURL} alt="" /> : avatarLogo}
-          {/* <img src={user.avatarURL ? avatarUser : avatarLogo} alt="" /> */}
-        </AvatarHeader>
+        <NavLink
+          to={'/profile'}
+          aria-label="Click to go to the Profile page"
+          onClick={handleProfileClick}
+        >
+          <AvatarHeader>
+            {user.avatarURL ? <img src={user.avatarURL} alt="" /> : avatarLogo}
+            {/* <img src={user.avatarURL ? avatarUser : avatarLogo} alt="" /> */}
+          </AvatarHeader>
+        </NavLink>
         {/* <LogoutBtn type="button" onClick={handleLogOut}> */}
         <LogoutBtn
           type="button"
