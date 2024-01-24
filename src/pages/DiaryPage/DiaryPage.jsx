@@ -12,19 +12,17 @@ const DiaryPage = () => {
   return (
     <Container>
       <Formik
-      
-      initialValues={{
-        day: new Date()
-      }}
+        initialValues={{
+          day: new Date(),
+        }}
       >
-
-        {()=>(
+        {() => (
           <form>
-            <Calendar name="day"/>
+            <Calendar name="day" />
           </form>
         )}
       </Formik>
-      
+
       <DiaryContainer>
         <DayDashboard />
         <DiaryInfoContainer>
@@ -35,5 +33,5 @@ const DiaryPage = () => {
     </Container>
   );
 };
-const WrapedDiaryPage = WithDataRedirect(DiaryPage)
+const WrapedDiaryPage = WithDataRedirect(DiaryPage);
 export default WrapedDiaryPage;

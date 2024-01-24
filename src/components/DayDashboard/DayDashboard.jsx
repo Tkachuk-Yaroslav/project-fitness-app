@@ -20,20 +20,22 @@ const DayDashboard = () => {
 	const { user } = useSelector((state) => state.auth);
 	const [dashboardData, setDashboardData] = useState(null);
 	const dailyPhysicalActivity = 110;
-	const caloriesRemaining = user.bmr - (dashboardData && dashboardData.consumedCalories);
-	const sportsRemaining = dailyPhysicalActivity - (dashboardData && dashboardData.consumedBurned);
+	const caloriesRemaining = Math.round(user.bmr - (dashboardData && dashboardData.consumedCalories));
+	const sportsRemaining = Math.round(dailyPhysicalActivity - (dashboardData && dashboardData.consumedBurned / 60));
 
 	// user.bmr - (dashboardData && dashboardData.consumedCalories)
 	// (dashboardData && dashboardData.consumedBurned)
 	const params = {
-		date: '2024-01-17T13:57:32.000Z',
+		// date: '2024-01-17T13:57:32.000Z',
+    		date: "24/01/2024"
 	};
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response = await axios.get(apiUrl, { params });
-				setDashboardData(response.data);
+				setDashboardData(response.data)
+        // console.log(response.data);
 			} catch (error) {
 				console.error('error:', error);
 			}
@@ -72,7 +74,7 @@ const DayDashboard = () => {
 							</svg>
 							Сalories consumed
 						</DashboardTitle>
-						<DashboardData>{dashboardData && dashboardData.consumedCalories}</DashboardData>
+						<DashboardData>{Math.round(dashboardData && dashboardData.consumedCalories)}</DashboardData>
 					</DashboardItems>
 					<DashboardItems>
 						<DashboardTitle>

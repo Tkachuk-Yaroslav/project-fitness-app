@@ -31,10 +31,9 @@ export const ProductsCardStatus = styled.label`
 export const ProductsCardDiet = styled.span`
   display: inline-flex;
   padding: 5px 7.5px;
-  justify-content: center;
-  align-items: center;
   border-radius: 4px;
   background: rgba(239, 237, 232, 0.05);
+  max-width: 90px;
 `;
 export const ProductsCardDietText = styled.p`
   color: var(--white-color);
@@ -42,6 +41,9 @@ export const ProductsCardDietText = styled.p`
   font-weight: 700;
   line-height: normal;
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const ProductsCardStatusCount = styled.div`
@@ -68,6 +70,20 @@ export const ProductsCardStatusCountTrue = styled.p`
   }
 `;
 
+export const SvgExercise = styled.svg`
+  width: 16px;
+  height: 16px;
+  stroke: var(--orange-color);
+  margin-left: 8px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+`;
+
 export const ProductsCardStatusAdd = styled.button`
   background: transparent;
   border: none;
@@ -82,54 +98,34 @@ export const ProductsCardStatusAdd = styled.button`
   &:hover,
   &:focus {
     color: var(--white-color);
-  }
-
-  &::after {
-    content: url(../../../../src/components/products/img/Icon.svg);
-    display: block;
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-    margin-top: -3px;
-    &:hover,
-    &:focus {
-      fill: var(--white-color);
+    ${SvgExercise} {
+      stroke: var(--white-color);
     }
   }
 `;
 
 export const ProductsCardTitle = styled.h4`
-  position: relative;
   font-size: 24px;
-  line-height: 1.333;
+  line-height: 1.3;
   color: var(--white-color);
-
-  margin-bottom: 8px;
+  text-transform: capitalize;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding-left: 40px;
-  max-width: 100%;
-  &::before {
-    content: url(../../../../src/components/products/img/run.svg);
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 0;
-    top: calc(50% - 12px);
-  }
+  max-width: 240px;
 `;
 
 export const ProductsCardInfoList = styled.ul`
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
-  gap: 16px;
+  width: 100%;
 `;
 
 export const ProductsCardInfoItem = styled.li`
-  width: 40%;
   display: flex;
   flex-direction: row;
+  max-width: 130px;
   gap: 4px;
   color: rgba(239, 237, 232, 0.4);
   font-size: 12px;
@@ -143,4 +139,10 @@ export const ProductsCardInfoValue = styled.p`
   color: var(--white);
   font-size: 12px;
   line-height: 18px;
+  text-transform: capitalize;
+`;
+
+export const Value = styled.span`
+  color: var(--white-color);
+  margin-left: 4px;
 `;

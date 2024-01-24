@@ -11,25 +11,26 @@ import {
 } from './DayProductsItem.styled';
 import sprite from '../../images/sprite.svg';
 
-const DayProductsItem = () => {
+const DayProductsItem = product => {
+  console.log(product, 'пропс в DayProductsItem');
   return (
     <ProductsContainer>
       <ProductsList>
         <ProductsItem $index={0}>
           <ProductsTitle>Title</ProductsTitle>
-          <ProductsData>Bread Hercules grain</ProductsData>
+          <ProductsData>{product.product.product.title}</ProductsData>
         </ProductsItem>
         <ProductsItem $index={1}>
           <ProductsTitle>Category</ProductsTitle>
-          <ProductsData>Flour</ProductsData>
+          <ProductsData>{product.product.product.category}</ProductsData>
         </ProductsItem>
         <ProductsItem $index={2}>
           <ProductsTitle>Calories</ProductsTitle>
-          <ProductsData>289</ProductsData>
+          <ProductsData>{product.product.calories}</ProductsData>
         </ProductsItem>
         <ProductsItem index={3}>
           <ProductsTitle>Weight</ProductsTitle>
-          <ProductsData>100</ProductsData>
+          <ProductsData>{product.product.amount}</ProductsData>
         </ProductsItem>
         <ProductsItem $index={4}>
           <ProductsTitle>Recommend</ProductsTitle>

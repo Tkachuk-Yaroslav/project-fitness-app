@@ -87,6 +87,9 @@ export const ProductsData = styled.p`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+    &::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const TrashBtn = styled.button`
