@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   ButtonStart,
   ContainerWrapper,
@@ -12,19 +12,19 @@ import {
   SpanListInfoTarget,
   SvgIconRun,
   SvgExercise,
-} from 'components/ExercisesMain/Waist/ExercisesItem/ExercisesItem.styled';
-import sprite from '../../../../images/sprite.svg';
+} from "components/ExercisesMain/Waist/ExercisesItem/ExercisesItem.styled";
+import sprite from "../../../../images/sprite.svg";
 
 const texts = {
-  cardLabel: 'WORKOUT',
-  btnLabel: 'Start',
+  cardLabel: "WORKOUT",
+  btnLabel: "Start",
   list: {
-    burnedCalories: 'Burned calories:',
-    bodyPart: 'Body part:',
-    target: 'Target:',
+    burnedCalories: "Burned calories:",
+    bodyPart: "Body part:",
+    target: "Target:",
   },
 };
-const capitalizeFirstLetter = string => {
+const capitalizeFirstLetter = (string) => {
   const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
   return newString;
 };

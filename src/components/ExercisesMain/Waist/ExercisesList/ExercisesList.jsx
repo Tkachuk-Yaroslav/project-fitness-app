@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
-import ExerciseItem from 'components/ExercisesMain/Waist/ExercisesItem/ExercisesItem';
-import ModalWaist from '../../ModalWaist/ModalWaist';
-import Modal from 'react-modal';
-import waist1x from '../../../../images/waist-1x.jpg';
-import waist2x from '../../../../images/waist-2x.jpg';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
+import ExerciseItem from "components/ExercisesMain/Waist/ExercisesItem/ExercisesItem";
+import ModalWaist from "../../ModalWaist/ModalWaist";
+import Modal from "react-modal";
+import waist1x from "../../../../images/waist-1x.jpg";
+import waist2x from "../../../../images/waist-2x.jpg";
 import {
   ButtonBack,
   CartaDiv,
@@ -14,13 +14,13 @@ import {
   ImgWaist,
   // eslint-disable-next-line
   NoExercisesTitle,
-} from '../ExercisesList/ExercisesList.styled';
-import { getAllExercises } from '../../../../api/ApiExercises';
-import { SvgExercise } from '../ExercisesItem/ExercisesItem.styled';
-import sprite from '../../../../images/sprite.svg';
-import Loader from 'components/Loader/Loader';
+} from "../ExercisesList/ExercisesList.styled";
+import { getAllExercises } from "../../../../api/ApiExercises";
+import { SvgExercise } from "../ExercisesItem/ExercisesItem.styled";
+import sprite from "../../../../images/sprite.svg";
+import Loader from "components/Loader/Loader";
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 const ExercisesList = ({ filter }) => {
   const { body_parts, muscles, equipmentId } = useParams();
@@ -30,7 +30,7 @@ const ExercisesList = ({ filter }) => {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
 
-  const openModal = id => {
+  const openModal = (id) => {
     setModalIsOpen(true);
     setModalId(id);
   };
@@ -61,13 +61,13 @@ const ExercisesList = ({ filter }) => {
 
   const capitalizedBodyParts = body_parts
     ? body_parts.slice(0, 1).toUpperCase() + body_parts.slice(1)
-    : '';
+    : "";
   const capitalizedEquipmentId = equipmentId
     ? equipmentId.slice(0, 1).toUpperCase() + equipmentId.slice(1)
-    : '';
+    : "";
   const capitalizedMuscles = muscles
     ? muscles.slice(0, 1).toUpperCase() + muscles.slice(1)
-    : '';
+    : "";
 
   return (
     <ContainerWaist className="ContainerWaist">
