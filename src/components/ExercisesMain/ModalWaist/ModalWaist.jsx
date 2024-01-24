@@ -58,7 +58,7 @@ const ModalWaist = ({ filter, isOpen, closeModal, id }) => {
       time: 180 - remaningTime,
       calories: burnedCalories,
     };
-    console.log(data);
+
     dispatch(setExerciseThunk(data));
     // відправка даних
     remaningTime

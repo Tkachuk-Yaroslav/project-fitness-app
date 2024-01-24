@@ -18,16 +18,12 @@ export const ContainerPage = styled.div`
 `;
 
 export const ContainerWrapper = styled.div`
-  /* display: grid; */
-  /* margin: 0 auto; */
   width: 335px;
-  /* grid-template-columns: 1fr;
-  gap: 20px; */
+
   @media screen and (min-width: 768px) {
-    /* grid-template-columns: 335px 335px; */
     width: 702px;
     height: 760px;
-    /* gap: 32px 16px; */
+
     overflow-y: auto;
     overflow-x: hidden; /* Hide horizontal scrollbar */
 
@@ -40,16 +36,11 @@ export const ContainerWrapper = styled.div`
     &::-webkit-scrollbar-thumb {
       background-color: var(--light-orange-color);
       border-radius: 12px;
-      height: 153px; /* Adjust thumb height */
+      height: 153px;
     }
 
     &::-webkit-scrollbar-track {
-      background-color: rgba(
-        239,
-        237,
-        232,
-        0.1
-      ); /* Set scrollbar track color to gray */
+      background-color: rgba(239, 237, 232, 0.1);
     }
 
     /* Scrollbar styling for Firefox */
@@ -73,16 +64,11 @@ export const ContainerWrapper = styled.div`
     &::-webkit-scrollbar-thumb {
       background-color: var(--light-orange-color);
       border-radius: 12px;
-      height: 153px; /* Adjust thumb height */
+      height: 153px;
     }
 
     &::-webkit-scrollbar-track {
-      background-color: rgba(
-        239,
-        237,
-        232,
-        0.1
-      ); /* Set scrollbar track color to gray */
+      background-color: rgba(239, 237, 232, 0.1);
     }
 
     /* Scrollbar styling for Firefox */

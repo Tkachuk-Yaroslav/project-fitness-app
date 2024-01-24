@@ -121,7 +121,6 @@ const H3 = styled.h3`
   text-align: left;
 
   @media screen and (min-width: 768px) {
-    /* width: 285px; */
     font-size: 24px;
     line-height: 1.33;
     height: 32px;
@@ -129,7 +128,6 @@ const H3 = styled.h3`
 
   @media screen and (min-width: 1440px) {
     width: 333px;
-    /* width: 263px; */
   }
 `;
 const ListInfo = styled.li`
