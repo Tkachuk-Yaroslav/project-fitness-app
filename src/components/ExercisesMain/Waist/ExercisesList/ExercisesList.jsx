@@ -19,6 +19,7 @@ import { getAllExercises } from '../../../../api/ApiExercises';
 import { SvgExercise } from '../ExercisesItem/ExercisesItem.styled';
 import sprite from '../../../../images/sprite.svg';
 import Loader from 'components/Loader/Loader';
+import BasicModalExercise from 'components/ModalWindow/ExerciseWellDoneModal/ModalWindowExerciseWellDone';
 
 Modal.setAppElement('#root');
 
@@ -28,6 +29,10 @@ const ExercisesList = ({ filter }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalId, setModalId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [remaningTime, setRemaningTime] = useState();
+  const [burnedCalories, setBurnedCalories] = useState();
+  const [isBasicModalExerciseOpen, setIsBasicModalExerciseOpen] =
+    useState(false);
   const location = useLocation();
 
   const openModal = id => {
@@ -108,6 +113,17 @@ const ExercisesList = ({ filter }) => {
               isOpen={modalIsOpen}
               closeModal={closeModal}
               id={modalId}
+              remaningTime={remaningTime}
+              burnedCalories={burnedCalories}
+              setRemaningTime={setRemaningTime}
+              setBurnedCalories={setBurnedCalories}
+              setIsBasicModalExerciseOpen={setIsBasicModalExerciseOpen}
+            />
+            <BasicModalExercise
+              isModalOpen={isBasicModalExerciseOpen}
+              setIsModalBasicExserciseOpen={setIsBasicModalExerciseOpen}
+              remaningTime={remaningTime}
+              burnedCalories={burnedCalories}
             />
           </CartaDiv>
         </ContainerWrapper>
