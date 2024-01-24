@@ -53,9 +53,7 @@ const DayExercisesItem = exercise => {
         </ProductsItem>
         <ProductsItem $index={4}>
           <ProductsTitle>Burned Calories</ProductsTitle>
-          <ProductsData>
-            {exercise.exercise.exercise.burnedCalories}
-          </ProductsData>
+          <ProductsData>{exercise.exercise.calories}</ProductsData>
         </ProductsItem>
         <ProductsItem $index={5}>
           <ProductsTitle>Time</ProductsTitle>
