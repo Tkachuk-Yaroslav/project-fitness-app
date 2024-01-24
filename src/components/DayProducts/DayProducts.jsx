@@ -10,6 +10,7 @@ import DayProductsItem from 'components/DayProductsItem/DayProductsItem';
 import sprite from '../../images/sprite.svg';
 import { getDiaryData } from 'api/dairy';
 
+export const ParentContext = React.createContext();
 const DayProducts = () => {
   const [diaryProdData, setDiaryProdData] = useState([]);
 
@@ -39,7 +40,14 @@ const DayProducts = () => {
         {diaryProdData.length > 0
           ? diaryProdData.map(product => {
               console.log(product, 'Один продукт');
-              return <DayProductsItem key={product._id} product={product} />;
+              return (
+                <ParentContext.Provider
+                  key={product._id}
+                  value={{ diaryProdData, setDiaryProdData }}
+                >
+                  <DayProductsItem product={product} />
+                </ParentContext.Provider>
+              );
             })
           : null}
 
