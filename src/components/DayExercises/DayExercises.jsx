@@ -13,14 +13,24 @@ import sprite from '../../images/sprite.svg';
 
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import { getDiaryData } from 'api/dairy';
+
+export const ParentContext = React.createContext();
 
 const DayExercises = () => {
-  const exercises = useSelector(state => state.diary.exercises);
-  const [diaryData, setDiaryData] = useState(exercises);
-  const handleChildStateChange = (childState) => {
-    // Оновити стан батьківського компонента на основі стану дочірнього
-    setDiaryData(childState);
-  };
+  const [diaryData, setDiaryData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getDiaryData();
+        setDiaryData(data.exercisesDone);
+      } catch (error) {}
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <ExercisesSection>
@@ -34,18 +44,22 @@ const DayExercises = () => {
           </ExercisesLink>
         </ProductsContainer>
         <OverlayScrollbarsComponent defer>
-          {diaryData.length &&
-            diaryData.map(exercise => {
-              console.log(exercise);
-              return (
-                <DayExercisesItem
-                  key={exercise._id}
-                  exercise={exercise}
-                  time={exercise.time}
-                  handleChildStateChange={handleChildStateChange}
-                />
-              );
-            })}
+          {diaryData.length > 0
+            ? diaryData.map(exercise => {
+                return (
+                  <ParentContext.Provider
+                    key={exercise._id}
+                    value={{ diaryData, setDiaryData }}
+                  >
+                    <DayExercisesItem
+                      key={exercise._id}
+                      exercise={exercise}
+                      time={exercise.time}
+                    />
+                  </ParentContext.Provider>
+                );
+              })
+            : null}
         </OverlayScrollbarsComponent>
       </ExercisesSection>
     </>
