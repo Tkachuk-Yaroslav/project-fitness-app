@@ -27,7 +27,7 @@ const DayDashboard = () => {
 	// (dashboardData && dashboardData.consumedBurned)
 	const params = {
 		// date: '2024-01-17T13:57:32.000Z',
-    		date: "23/01/2024"
+    		date: "24/01/2024"
 	};
 
 	useEffect(() => {

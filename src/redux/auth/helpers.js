@@ -8,6 +8,7 @@ export const handleRefreshFul = (state, { payload }) => {
   // console.log(payload, 'uidcbubcd');
   state.user = { ...payload };
   state.isLoggedIn = true;
+  state.diary = {...state.diary}
 };
 
 export const handleRefreshRej = state => {
