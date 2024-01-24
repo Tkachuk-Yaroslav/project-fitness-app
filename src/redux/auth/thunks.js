@@ -78,11 +78,10 @@ export const updateAvatarThunk = createAsyncThunk(
     try {
       const formData = new FormData();
       formData.append('avatar', file);
-
       const res = await avatar(formData, {
         headers: { 'content-type': 'multipart/form-data' },
       });
-      return res.data;
+      return res.avatarURL;
     } catch (error) {
       return rejectWithValue(error.message);
     }
