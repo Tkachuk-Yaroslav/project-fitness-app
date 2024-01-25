@@ -8,34 +8,44 @@ import { Formik } from 'formik';
 import WithDataRedirect from 'HOC/HocRedirect';
 import CalendarForDiary from 'components/Calendar/CalendarForDairy';
 import { format } from 'date-fns';
+
+export const DiaryContext = React.createContext();
 const DiaryPage = () => {
   const [data, setData] = useState(new Date());
+  const [dataDash, setDataDash] = useState({});
   const formatDateDP = format(new Date(data), 'dd/MM/yyyy');
   console.log('formatDateDP', formatDateDP);
   const handleChange = newState => {
     setData(newState);
   };
 
+  console.log(dataDash, 'dataDash');
+
   return (
     <Container>
-      <Formik
-        initialValues={{
-          day: new Date(),
-        }}
-      >
-        {() => (
-          <form>
-            <CalendarForDiary name="day" onChangeData={handleChange} />
-          </form>
-        )}
-      </Formik>
+      <div>
+        <Formik
+          initialValues={{
+            day: new Date(),
+          }}
+        >
+          {() => (
+            <form>
+              <CalendarForDiary name="day" onChangeData={handleChange} />
+            </form>
+          )}
+        </Formik>
+      </div>
 
       <DiaryContainer>
-        <DayDashboard calendarData={formatDateDP} />
-        <DiaryInfoContainer>
-          <DayProducts calendarData={formatDateDP} />
-          <DayExercises calendarData={formatDateDP} />
-        </DiaryInfoContainer>
+        <DiaryContext.Provider value={{ dataDash, setDataDash }}>
+          <DayDashboard calendarData={formatDateDP} dataDash={dataDash} />
+
+          <DiaryInfoContainer>
+            <DayProducts calendarData={formatDateDP} />
+            <DayExercises calendarData={formatDateDP} />
+          </DiaryInfoContainer>
+        </DiaryContext.Provider>
       </DiaryContainer>
     </Container>
   );

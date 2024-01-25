@@ -14,10 +14,13 @@ import axios from 'axios';
 import { getDiaryData } from 'api/dairy';
 
 import { Parent2Context } from '../DayExercises/DayExercises';
+import { DiaryContext } from '../../pages/DiaryPage/DiaryPage';
 
 const DayExercisesItem = (exercise, calendarData) => {
   console.log(exercise.exercise._id, 'exercse');
   const { setDiaryData } = useContext(Parent2Context);
+  const { setDataDash } = useContext(DiaryContext);
+
   const handleDelete = async () => {
     try {
       // Викликаємо API для видалення вправи
@@ -28,6 +31,10 @@ const DayExercisesItem = (exercise, calendarData) => {
       const data = await getDiaryData(exercise.calendarData);
       // const data = await testData();
       setDiaryData(data.exercisesDone);
+      setDataDash({
+        consumedBurned: data.consumedBurned,
+        consumedCalories: data.consumedCalories,
+      });
     } catch (error) {
       console.error('Error deleting exercise:', error);
     }
