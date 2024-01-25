@@ -46,13 +46,15 @@ const DayProducts = ({ calendarData }) => {
             </SvgExercise>
           </ProductsLink>
         </ProductsContainer>
-        <ProductsTitleList>
-          <ProductsTitleItem $index={0}>Title</ProductsTitleItem>
-          <ProductsTitleItem $index={1}>Category</ProductsTitleItem>
-          <ProductsTitleItem $index={2}>Calories</ProductsTitleItem>
-          <ProductsTitleItem $index={3}>Weight</ProductsTitleItem>
-          <ProductsTitleItem>Recommend</ProductsTitleItem>
-        </ProductsTitleList>
+        {diaryProdData.length > 0 ? (
+          <ProductsTitleList>
+            <ProductsTitleItem $index={0}>Title</ProductsTitleItem>
+            <ProductsTitleItem $index={1}>Category</ProductsTitleItem>
+            <ProductsTitleItem $index={2}>Calories</ProductsTitleItem>
+            <ProductsTitleItem $index={3}>Weight</ProductsTitleItem>
+            <ProductsTitleItem>Recommend</ProductsTitleItem>
+          </ProductsTitleList>
+        ) : null}
         <OverlayScrollbarsComponent defer>
           {diaryProdData.length > 0 ? (
             diaryProdData.map(product => {
