@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://project-fitness-app-back.onrender.com/api/';
 
-export const getProducts = async (allowed, category, query) => {
+export const getProducts = async (allowed, category, query, page) => {
   let allowedValue;
 
   if (allowed === 'All') {
@@ -18,6 +18,7 @@ export const getProducts = async (allowed, category, query) => {
       allowed: allowedValue || 'all',
       category,
       query,
+      page: page || 1,
     },
   });
   return data;
