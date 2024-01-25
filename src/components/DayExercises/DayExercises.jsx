@@ -29,7 +29,6 @@ const DayExercises = ({ calendarData }) => {
     const fetchData = async () => {
       try {
         const data = await getDiaryData(calendarData);
-        // const data = await testData();
         setDiaryData(data.exercisesDone);
         setDataDash({
           consumedBurned: data.consumedBurned,

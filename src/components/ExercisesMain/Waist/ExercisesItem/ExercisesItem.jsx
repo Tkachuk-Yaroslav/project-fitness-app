@@ -36,7 +36,6 @@ const ExerciseItem = ({ exercise, openModal }) => {
         <ButtonStart
           className="ButtonStart"
           type="button"
-          // onClick={openModal}
           onClick={() => openModal(exercise._id)}
           aria-label="Open BasicModalWindow"
         >

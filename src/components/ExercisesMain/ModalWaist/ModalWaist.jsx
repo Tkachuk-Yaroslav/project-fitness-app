@@ -86,9 +86,7 @@ const ModalWaist = ({
       closeModal();
       setIsBasicModalExerciseOpen(true);
     }
-    // Результат можна використовувати тут
 
-    // відправка даних
   };
 
   return (
