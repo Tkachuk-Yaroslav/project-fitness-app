@@ -132,13 +132,10 @@ export const AuthCont = styled('div')(() => {
         marginBottom: '64px',
       },
       '.eye-cont': {
-        // display: 'flex',
-        // alignItems: 'center',
         width: 'fit-content',
       },
       '.eye-btn': {
         top: '15px',
-        // transform: 'translateX(-345px)',
       },
       '.submit': {
         fontSize: '20px',
@@ -151,9 +148,6 @@ export const AuthCont = styled('div')(() => {
     },
     '@media screen and (min-width: 1440px)': {
       marginTop: '116px',
-      // '.eye-btn': {
-      //   transform: 'translateX(-885px)',
-      // },
     },
   };
 });

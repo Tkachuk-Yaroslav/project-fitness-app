@@ -1,22 +1,23 @@
 import { styled } from 'styled-components';
 
-export const StatisticsCalCont = styled.div`
+export const StatisticsHeightCont = styled.div`
   display: flex;
   flex-direction: column;
-  width: 83px;
+  min-width: 83px;
   gap: 4px;
   .circle {
     width: 20px;
     height: 20px;
-    border-radius: 10px;
+    border-radius: 50%;
     background-color: var(--beige-color);
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .running {
+  .icon-svg {
     width: 12px;
     height: 12px;
+    fill: var(--white-color);
   }
   .content-wrapper {
     display: flex;
@@ -36,14 +37,14 @@ export const StatisticsCalCont = styled.div`
     opacity: 65%;
   }
   @media screen and (min-width: 768px) {
-    width: 114px;
+    min-width: 114px;
     gap: 8px;
     .circle {
       width: 24px;
       height: 24px;
       border-radius: 12px;
     }
-    .running {
+    .icon-svg {
       width: 16px;
       height: 16px;
     }

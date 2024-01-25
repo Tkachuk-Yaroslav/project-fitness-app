@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage';
 import { headerReducer } from './error/slice';
 import { exercisesReducer } from './exercises/slice';
 import { diaryReducer } from './diary/slice';
+import { statisticReducer } from './statistics/slice';
 import { diaryPageReducer } from './diaryPage/slice';
 
 const authPersistConfig = {
@@ -22,5 +23,6 @@ export const reducer = combineReducers({
   header: headerReducer,
   exercises: exercisesReducer,
   diary: diaryReducer,
+  statistic: statisticReducer,
   diaryPage: diaryPageReducer,
 });
