@@ -317,6 +317,23 @@ export const IconSvg = styled.svg`
   right: 14px;
 `;
 
+export const IconSvgDiary = styled.svg`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  fill: #EF8964;
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    right: -18px;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 16px;
+    right: -20px;
+  }
+`;
+
 export const CalendarGlobalStyles = createGlobalStyle`
  .react-datepicker__wrapper {
     position: relative;
@@ -469,5 +486,22 @@ export const InputField = styled.input`
 
   &:hover {
     border-color: #e6533c; /* Змінюємо колір бордера на червоний при ховері */
+  }
+`;
+export const InputFieldDiary = styled.input`
+  color: #efede8;
+  background-color: transparent;
+  border: none;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: calc(20 / 18);
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: calc(32 / 24);
   }
 `;
