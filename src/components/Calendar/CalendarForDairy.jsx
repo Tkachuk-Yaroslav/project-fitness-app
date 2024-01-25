@@ -1,5 +1,5 @@
 import DatePicker from 'react-datepicker';
-import { CalendarGlobalStyles,IconSvgDiary,InputFieldDiary } from './Calendar.styled';
+import { CalendarGlobalStyles,IconSvgDiary,InputFieldDiary, CalendarDiaryStyles} from './Calendar.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 import sprite from '../../images/sprite.svg';
@@ -25,7 +25,7 @@ const CalendarForDiary = ({ name, onChangeData }) => {
   };
   return (
     <>
-      <div style={{ width: 150, position: 'relative' }}>
+      <CalendarDiaryStyles>
         <IconSvgDiary width="18" height="18">
           <use href={`${sprite}#icon-calendar-orange`}></use>
         </IconSvgDiary>
@@ -42,7 +42,7 @@ const CalendarForDiary = ({ name, onChangeData }) => {
         />
 
         <CalendarGlobalStyles />
-      </div>
+      </CalendarDiaryStyles>
     </>
   );
 };

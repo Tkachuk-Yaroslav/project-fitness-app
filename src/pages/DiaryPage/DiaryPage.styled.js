@@ -26,7 +26,9 @@ export const DiaryInfoContainer = styled.div`
 `;
 
 export const DiaryTitleContainer = styled.div`
+position: relative;
   display: flex;
+  width:100%;
   justify-content: space-between;
   align-items: center;
   margin-top: 40px;
