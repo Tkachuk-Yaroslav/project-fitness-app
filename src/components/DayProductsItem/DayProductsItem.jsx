@@ -14,10 +14,12 @@ import sprite from '../../images/sprite.svg';
 import axios from 'axios';
 import { getDiaryData } from 'api/dairy';
 import { ParentContext } from '../DayProducts/DayProducts';
+import { DiaryContext } from '../../pages/DiaryPage/DiaryPage';
 
 const DayProductsItem = (product, calendarData) => {
   console.log(product.calendarData, 'calendarData in DayProductsItem');
-  console.log(product, 'пропс в DayProductsItem');
+  // console.log(product, 'пропс в DayProductsItem');
+  const { setDataDash } = useContext(DiaryContext);
 
   const { setDiaryProdData } = useContext(ParentContext);
   const handleDelete = async () => {
@@ -30,6 +32,10 @@ const DayProductsItem = (product, calendarData) => {
       const data = await getDiaryData(product.calendarData);
       // const data = await testData();
       setDiaryProdData(data.consumedProducts);
+      setDataDash({
+        consumedBurned: data.consumedBurned,
+        consumedCalories: data.consumedCalories,
+      });
     } catch (error) {
       console.error('Error deleting produts:', error);
     }

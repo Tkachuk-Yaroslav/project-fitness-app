@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   DashboardSection,
   DashboardList,
@@ -13,16 +13,21 @@ import sprite from '../../images/sprite.svg';
 import { useSelector } from 'react-redux';
 
 import { getDiaryData } from 'api/dairy';
+import { DiaryContext } from '../../pages/DiaryPage/DiaryPage';
 
-const DayDashboard = ({ calendarData }) => {
+const DayDashboard = ({ calendarData, dataDash }) => {
   const { user } = useSelector(state => state.auth);
-  const [dashboardData, setDashboardData] = useState(null);
+  // const [dashboardData, setDashboardData] = useState(null);
+  console.log(dataDash, 'dataDash dataDash dataDash dataDash');
+
+  const { setDataDash } = useContext(DiaryContext);
   const dailyPhysicalActivity = 110;
   const caloriesRemaining = Math.round(
-    user.bmr - (dashboardData && dashboardData.consumedCalories)
+    // user.bmr - (dashboardData && dashboardData.consumedCalories)
+    user.bmr - (dataDash && dataDash.consumedCalories)
   );
   const sportsRemaining = Math.round(
-    dailyPhysicalActivity - (dashboardData && dashboardData.consumedBurned / 60)
+    dailyPhysicalActivity - (dataDash && dataDash.consumedBurned / 60)
   );
 
   // user.bmr - (dashboardData && dashboardData.consumedCalories)
@@ -37,7 +42,11 @@ const DayDashboard = ({ calendarData }) => {
       try {
         // const response = await axios.get(apiUrl, { params });
         const response = await getDiaryData(calendarData);
-        setDashboardData(response);
+        // setDashboardData(response);
+        setDataDash({
+          consumedBurned: response.consumedBurned,
+          consumedCalories: response.consumedCalories,
+        });
         // console.log(response.data);
       } catch (error) {
         console.error('error:', error);
@@ -45,7 +54,7 @@ const DayDashboard = ({ calendarData }) => {
     };
 
     fetchData();
-  }, [calendarData]);
+  }, [calendarData, setDataDash]);
 
   return (
     <div>
@@ -77,7 +86,7 @@ const DayDashboard = ({ calendarData }) => {
               Сalories consumed
             </DashboardTitle>
             <DashboardData>
-              {Math.round(dashboardData && dashboardData.consumedCalories)}
+              {Math.round(dataDash && dataDash.consumedCalories)}
             </DashboardData>
           </DashboardItems>
           <DashboardItems>
@@ -87,9 +96,7 @@ const DayDashboard = ({ calendarData }) => {
               </svg>
               Сalories burned
             </DashboardTitle>
-            <DashboardData>
-              {dashboardData && dashboardData.consumedBurned}
-            </DashboardData>
+            <DashboardData>{dataDash && dataDash.consumedBurned}</DashboardData>
           </DashboardItems>
           <DashboardItems $caloriesRemaining={caloriesRemaining}>
             <DashboardTitle>
