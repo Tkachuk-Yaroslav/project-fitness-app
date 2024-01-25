@@ -47,5 +47,5 @@ const DiaryPage = () => {
     </Container>
   );
 };
-const WrapedDiaryPage = WithDataRedirect(DiaryPage);
-export default WrapedDiaryPage;
+const WrappedDiaryPage = WithDataRedirect(DiaryPage);
+export default WrappedDiaryPage;
