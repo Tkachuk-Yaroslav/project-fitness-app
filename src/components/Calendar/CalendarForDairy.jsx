@@ -8,13 +8,12 @@ import { format } from 'date-fns';
 
 const CalendarForDiary = ({ name, onChangeData }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  console.log('selectedDate', selectedDate);
 
   const formatDate = format(new Date(selectedDate), 'dd/MM/yyyy');
 
   useEffect(() => {
+    // eslint-disable-next-line
     const params = { date: formatDate };
-    console.log(params, 'params');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

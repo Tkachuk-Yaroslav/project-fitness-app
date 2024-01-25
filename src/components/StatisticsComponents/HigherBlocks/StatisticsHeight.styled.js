@@ -3,7 +3,6 @@ import { styled } from 'styled-components';
 export const StatisticsHeightCont = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 83px;
   gap: 4px;
   .circle {
     width: 20px;
@@ -37,7 +36,6 @@ export const StatisticsHeightCont = styled.div`
     opacity: 65%;
   }
   @media screen and (min-width: 768px) {
-    min-width: 114px;
     gap: 8px;
     .circle {
       width: 24px;
