@@ -18,19 +18,15 @@ import { DiaryContext } from '../../pages/DiaryPage/DiaryPage';
 
 const DayProductsItem = (product, calendarData) => {
   console.log(product.calendarData, 'calendarData in DayProductsItem');
-  // console.log(product, 'пропс в DayProductsItem');
   const { setDataDash } = useContext(DiaryContext);
 
   const { setDiaryProdData } = useContext(ParentContext);
   const handleDelete = async () => {
     try {
-      // Викликаємо API для видалення вправи
       await axios.delete(
         `https://project-fitness-app-back.onrender.com/api/dairy/delProduct/${product.product._id}`
       );
-      // Викликаємо функцію оновлення стану в компоненті, що містить список продуктів
       const data = await getDiaryData(product.calendarData);
-      // const data = await testData();
       setDiaryProdData(data.consumedProducts);
       setDataDash({
         consumedBurned: data.consumedBurned,

@@ -23,13 +23,10 @@ const DayExercisesItem = (exercise, calendarData) => {
 
   const handleDelete = async () => {
     try {
-      // Викликаємо API для видалення вправи
       await axios.delete(
         `https://project-fitness-app-back.onrender.com/api/dairy/delExercise/${exercise.exercise._id}`
       );
-      // Викликаємо функцію оновлення стану в компоненті, що містить список вправ
       const data = await getDiaryData(exercise.calendarData);
-      // const data = await testData();
       setDiaryData(data.exercisesDone);
       setDataDash({
         consumedBurned: data.consumedBurned,

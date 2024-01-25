@@ -11,9 +11,6 @@ const CalendarForDiary = ({ name, onChangeData }) => {
   console.log('selectedDate', selectedDate);
 
   const formatDate = format(new Date(selectedDate), 'dd/MM/yyyy');
-  // console.log('formatDate', formatDate);
-  // const formatDateString = String(formatDate);
-  // console.log('formatDateString', formatDateString.toisosstring);
 
   useEffect(() => {
     const params = { date: formatDate };

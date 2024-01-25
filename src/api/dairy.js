@@ -7,18 +7,6 @@ export const setExercise = async body => {
   return data;
 };
 
-const params = {
-  // date: '2024-01-17T13:57:32.000Z',
-  date: '24/01/2024',
-};
-
-export const testData = async () => {
-  const { data } = await axios.get('/dairy/archive', { params });
-  console.log(data);
-  // console.log(data)
-  return data;
-};
-
 export const getDiaryData = async param => {
   console.log('param', param);
 
@@ -28,6 +16,5 @@ export const getDiaryData = async param => {
   console.log('paramssss', params);
 
   const { data } = await axios.get('/dairy/archive', { params });
-  // console.log(data)
   return data;
 };

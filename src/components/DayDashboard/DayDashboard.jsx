@@ -17,37 +17,25 @@ import { DiaryContext } from '../../pages/DiaryPage/DiaryPage';
 
 const DayDashboard = ({ calendarData, dataDash }) => {
   const { user } = useSelector(state => state.auth);
-  // const [dashboardData, setDashboardData] = useState(null);
   console.log(dataDash, 'dataDash dataDash dataDash dataDash');
 
   const { setDataDash } = useContext(DiaryContext);
   const dailyPhysicalActivity = 110;
   const caloriesRemaining = Math.round(
-    // user.bmr - (dashboardData && dashboardData.consumedCalories)
     user.bmr - (dataDash && dataDash.consumedCalories)
   );
   const sportsRemaining = Math.round(
     dailyPhysicalActivity - (dataDash && dataDash.consumedBurned / 60)
   );
 
-  // user.bmr - (dashboardData && dashboardData.consumedCalories)
-  // (dashboardData && dashboardData.consumedBurned)
-  //   const params = {
-  //     // date: '2024-01-17T13:57:32.000Z',
-  //     date: '24/01/2024',
-  //   };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await axios.get(apiUrl, { params });
         const response = await getDiaryData(calendarData);
-        // setDashboardData(response);
         setDataDash({
           consumedBurned: response.consumedBurned,
           consumedCalories: response.consumedCalories,
         });
-        // console.log(response.data);
       } catch (error) {
         console.error('error:', error);
       }
