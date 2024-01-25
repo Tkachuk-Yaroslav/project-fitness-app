@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 
 const ButtonCloseModal = styled.button`
-  display: flex;
+  display: none;
   position: absolute;
   top: 14px;
   right: 14px;
@@ -98,7 +98,8 @@ const AddBtn = styled.button`
     line-height: calc(24 / 16);
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: var(--light-orange-color);
   }
 `;
