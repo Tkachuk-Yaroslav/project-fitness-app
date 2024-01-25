@@ -7,6 +7,7 @@ export const handleAuth = (state, { payload }) => {
 export const handleRefreshFul = (state, { payload }) => {
   state.user = { ...payload };
   state.isLoggedIn = true;
+  state.diary = {...state.diary}
 };
 
 export const handleRefreshRej = state => {

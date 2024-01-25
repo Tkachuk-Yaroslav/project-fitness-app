@@ -104,7 +104,7 @@
 			</path>
 		</symbol>
 		<symbol id="icon-arrow-right" viewBox="0 0 42 32">
-			<path fill="none" stroke="#e6533c" style="stroke: var(--color3, #e6533c)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.8" d="M23.467 29.333l13.333-13.333M36.8 16l-13.333-13.333M36.8 16h-32">
+			<path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.8" d="M23.467 29.333l13.333-13.333M36.8 16l-13.333-13.333M36.8 16h-32">
 			</path>
 		</symbol>
 		<symbol id="icon-eye-off" viewBox="0 0 32 32">
@@ -727,6 +727,10 @@
 			<path fill="#efede8" style="fill: var(--color1, #efede8)" d="M23.686 6.602c1.823 0 3.301-1.478 3.301-3.301s-1.478-3.301-3.301-3.301c-1.823 0-3.301 1.478-3.301 3.301s1.478 3.301 3.301 3.301z">
 			</path>
 		</symbol>
+
+		<symbol id="arrow-white" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M7.5 14L14 7.5M14 7.5L7.5 1M14 7.5H1" stroke="#EFEDE8" stroke-opacity="0.3" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
 
 		<symbol id="pagination-btn" viewBox="0 0 32 32">
           <path fill="none" stroke="#e6533c" style="stroke: var(--color1, #e6533c)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.2857" d="M30.857 16c0 8.205-6.652 14.857-14.857 14.857s-14.857-6.652-14.857-14.857c0-8.205 6.652-14.857 14.857-14.857s14.857 6.652 14.857 14.857z"></path>

@@ -34,7 +34,7 @@ export const StyledNavLink = styled(NavLink)`
   border-radius: 12px;
 
   &:hover,
-  :focus {
+  &:focus {
     background-color: var(--orange-color);
   }
 `;
@@ -70,6 +70,7 @@ export const AvatarHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     width: 46px;

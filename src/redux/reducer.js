@@ -7,11 +7,12 @@ import { headerReducer } from './error/slice';
 import { exercisesReducer } from './exercises/slice';
 import { diaryReducer } from './diary/slice';
 import { statisticReducer } from './statistics/slice';
+import { diaryPageReducer } from './diaryPage/slice';
 
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'user'],
+  whitelist: ['token', 'user', 'diary'],
 };
 
 const authPersistedReducer = persistReducer(authPersistConfig, authReducer);
@@ -23,4 +24,5 @@ export const reducer = combineReducers({
   exercises: exercisesReducer,
   diary: diaryReducer,
   statistic: statisticReducer,
+  diaryPage: diaryPageReducer,
 });

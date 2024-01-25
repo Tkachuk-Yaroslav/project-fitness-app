@@ -1,43 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import 'overlayscrollbars/overlayscrollbars.css';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
-import './scrollbarStyled.css';
+import '../../components/styles/ScrollbarStyled/scrollbarStyled.css'; 
 import {
   ExercisesSection,
   ExercisesTitle,
   ExercisesLink,
   ProductsContainer,
+  SvgExercise,
+  NoDataTitle, 
+   NoDataWrap, ExercisesTitleList, ExercisesTitleItem
 } from './DayExercises.styled';
 import DayExercisesItem from 'components/DayExercisesItem/DayExercisesItem';
 import sprite from '../../images/sprite.svg';
 
-import axios from 'axios';
+import { getDiaryData } from 'api/dairy';
 
-const apiUrl =
-  'https://project-fitness-app-back.onrender.com/api/dairy/archive';
+export const ParentContext = React.createContext();
 
 const DayExercises = () => {
-  const [exercisesData, setExercisesData] = useState([])
-
-  const params = {
-    // date: '2024-01-17T13:57:32.000Z',
-    date: '23/01/2024',
-  };
+  const [diaryData, setDiaryData] = useState([]);
 
   useEffect(() => {
-    console.log(exercisesData)
     const fetchData = async () => {
       try {
-        const response = await axios.get(apiUrl, { params });
-        setExercisesData(response.data.exercisesDone);
-        console.log(response.data.exercisesDone);
-      } catch (error) {
-        console.error('error:', error);
-      }
+        const data = await getDiaryData();
+        setDiaryData(data.exercisesDone);
+      } catch (error) {}
     };
 
     fetchData();
-    // eslint-disable-next-line
   }, []);
 
   return (
@@ -45,18 +37,39 @@ const DayExercises = () => {
       <ExercisesSection>
         <ProductsContainer>
           <ExercisesTitle>Exercises</ExercisesTitle>
-          <ExercisesLink>
+          <ExercisesLink to={'/exercises'}>
             Add exercise
-            <svg width={16} height={16}>
+            <SvgExercise width={16} height={16}>
               <use xlinkHref={`${sprite}#icon-arrow-right`} />
-            </svg>
+            </SvgExercise>
           </ExercisesLink>
         </ProductsContainer>
-        <OverlayScrollbarsComponent defer>
-          {exercisesData.length &&
-            exercisesData.map((exercise) => {
-              return <DayExercisesItem key={exercise._id} exercise={exercise.exercise} time={exercise.time}/>;
-            })}
+        <ExercisesTitleList>
+            <ExercisesTitleItem $index={0}>Part</ExercisesTitleItem>
+            <ExercisesTitleItem $index={1}>Equipment</ExercisesTitleItem>
+            <ExercisesTitleItem $index={2}>Name</ExercisesTitleItem>
+            <ExercisesTitleItem $index={3}>Target</ExercisesTitleItem>
+            <ExercisesTitleItem $index={4}>Burned Calories</ExercisesTitleItem>
+            <ExercisesTitleItem>Time</ExercisesTitleItem>
+          </ExercisesTitleList>
+
+          <OverlayScrollbarsComponent defer>
+          {diaryData.length > 0
+            ? diaryData.map(exercise => {
+                return (
+                  <ParentContext.Provider
+                    key={exercise._id}
+                    value={{ diaryData, setDiaryData }}
+                  >
+                    <DayExercisesItem
+                      key={exercise._id}
+                      exercise={exercise}
+                      time={exercise.time}
+                    />
+                  </ParentContext.Provider>
+                );
+              })
+            : <NoDataWrap><NoDataTitle>Not found exercises</NoDataTitle></NoDataWrap>}
         </OverlayScrollbarsComponent>
       </ExercisesSection>
     </>

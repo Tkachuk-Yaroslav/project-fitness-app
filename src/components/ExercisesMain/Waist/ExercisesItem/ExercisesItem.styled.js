@@ -44,6 +44,16 @@ const CardLabel = styled.p`
   background: rgba(239, 237, 232, 0.05);
   text-transform: uppercase;
 `;
+
+const SvgExercise = styled.svg`
+  width: 16px;
+  height: 16px;
+  stroke: var(--orange-color);
+
+  @media screen and (min-width: 768px) {
+  }
+`;
+
 const ButtonStart = styled.button`
   font-size: 14px;
   font-weight: 400;
@@ -56,14 +66,12 @@ const ButtonStart = styled.button`
   gap: 8px;
   padding: 0;
 
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    color: var(--white-color);
-  }
+  &:hover,
   &:focus {
     color: var(--white-color);
+    ${SvgExercise} {
+      stroke: var(--white-color);
+    }
   }
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -75,13 +83,6 @@ const ButtonStart = styled.button`
   }
 `;
 
-const SvgExercise = styled.svg`
-  width: 16px;
-  height: 16px;
-
-  @media screen and (min-width: 768px) {
-  }
-`;
 export const IconTitleDiv = styled.div`
   display: flex;
   align-items: center;
