@@ -14,12 +14,9 @@ const DiaryPage = () => {
   const [data, setData] = useState(new Date());
   const [dataDash, setDataDash] = useState({});
   const formatDateDP = format(new Date(data), 'dd/MM/yyyy');
-  console.log('formatDateDP', formatDateDP);
   const handleChange = newState => {
     setData(newState);
   };
-
-  console.log(dataDash, 'dataDash');
 
   return (
     <Container>

@@ -17,7 +17,6 @@ import { ParentContext } from '../DayProducts/DayProducts';
 import { DiaryContext } from '../../pages/DiaryPage/DiaryPage';
 
 const DayProductsItem = (product, calendarData) => {
-  console.log(product.calendarData, 'calendarData in DayProductsItem');
   const { setDataDash } = useContext(DiaryContext);
 
   const { setDiaryProdData } = useContext(ParentContext);

@@ -17,7 +17,6 @@ import { DiaryContext } from '../../pages/DiaryPage/DiaryPage';
 
 const DayDashboard = ({ calendarData, dataDash }) => {
   const { user } = useSelector(state => state.auth);
-  console.log(dataDash, 'dataDash dataDash dataDash dataDash');
 
   const { setDataDash } = useContext(DiaryContext);
   const dailyPhysicalActivity = 110;

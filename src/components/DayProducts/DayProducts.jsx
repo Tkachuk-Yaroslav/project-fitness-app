@@ -37,7 +37,6 @@ const DayProducts = ({ calendarData }) => {
 
     fetchData();
   }, [calendarData, setDataDash]);
-  console.log(diaryProdData, 'diareProdData');
   return (
     <>
       <ProductsSection>
@@ -62,7 +61,6 @@ const DayProducts = ({ calendarData }) => {
         <OverlayScrollbarsComponent defer>
           {diaryProdData.length > 0 ? (
             diaryProdData.map(product => {
-              console.log(product, 'Один продукт');
               return (
                 <ParentContext.Provider
                   key={product._id}
