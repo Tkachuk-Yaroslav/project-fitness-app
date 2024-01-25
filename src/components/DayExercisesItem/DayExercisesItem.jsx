@@ -17,7 +17,6 @@ import { Parent2Context } from '../DayExercises/DayExercises';
 import { DiaryContext } from '../../pages/DiaryPage/DiaryPage';
 
 const DayExercisesItem = (exercise, calendarData) => {
-  console.log(exercise.exercise._id, 'exercse');
   const { setDiaryData } = useContext(Parent2Context);
   const { setDataDash } = useContext(DiaryContext);
 

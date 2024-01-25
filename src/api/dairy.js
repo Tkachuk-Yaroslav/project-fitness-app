@@ -8,12 +8,9 @@ export const setExercise = async body => {
 };
 
 export const getDiaryData = async param => {
-  console.log('param', param);
-
   const params = {
     date: param,
   };
-  console.log('paramssss', params);
 
   const { data } = await axios.get('/dairy/archive', { params });
   return data;
