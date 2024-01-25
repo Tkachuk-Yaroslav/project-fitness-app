@@ -97,6 +97,10 @@ const AddBtn = styled.button`
     height: 52px;
     line-height: calc(24 / 16);
   }
+
+  &:hover {
+    background-color: var(--light-orange-color);
+  }
 `;
 
 export {

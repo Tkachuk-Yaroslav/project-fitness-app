@@ -18,19 +18,21 @@ import sprite from '../../images/sprite.svg';
 import { getDiaryData } from 'api/dairy';
 
 export const ParentContext = React.createContext();
-const DayProducts = () => {
+const DayProducts = ({ calendarData }) => {
   const [diaryProdData, setDiaryProdData] = useState([]);
+  console.log(calendarData, 'calendarData');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getDiaryData();
+        const data = await getDiaryData(calendarData);
+        // const data = await testData();
         setDiaryProdData(data.consumedProducts);
       } catch (error) {}
     };
 
     fetchData();
-  }, []);
+  }, [calendarData]);
   console.log(diaryProdData, 'diareProdData');
   return (
     <>
@@ -62,7 +64,10 @@ const DayProducts = () => {
                   key={product._id}
                   value={{ diaryProdData, setDiaryProdData }}
                 >
-                  <DayProductsItem product={product} />
+                  <DayProductsItem
+                    product={product}
+                    calendarData={calendarData}
+                  />
                 </ParentContext.Provider>
               );
             })
