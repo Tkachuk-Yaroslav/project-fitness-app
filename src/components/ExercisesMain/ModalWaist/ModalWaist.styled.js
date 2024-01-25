@@ -19,6 +19,9 @@ const ButtonCloseModal = styled.button`
   ba & > svg path {
     fill: currentColor;
   }
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 `;
 
 const ModalStyles = {
