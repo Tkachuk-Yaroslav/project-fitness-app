@@ -6,6 +6,7 @@ import { PageBgWrapperCont } from 'components/PageBgWrapperCont/PageBgWrapperCon
 import { Container } from 'components/styles/Container/Container';
 import { Button } from './ProductsPage.styled';
 import { getProducts } from 'api/productsListApi';
+import WithDataRedirect from 'HOC/HocRedirect';
 
 const ProductsPage = () => {
   const [filters, setFilters] = useState({
@@ -83,4 +84,5 @@ const ProductsPage = () => {
   );
 };
 
-export default ProductsPage;
+const WrappedProductsPage = WithDataRedirect(ProductsPage);
+export default WrappedProductsPage;
