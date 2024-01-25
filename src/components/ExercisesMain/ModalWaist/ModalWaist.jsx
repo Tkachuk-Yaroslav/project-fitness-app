@@ -70,7 +70,6 @@ const ModalWaist = ({
       calories: burnedCalories,
     };
     console.log(data);
-    dispatch(setExerciseThunk(data));
     const result = await dispatch(setExerciseThunk(data));
 
     console.log(result);
