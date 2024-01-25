@@ -19,8 +19,6 @@ const UserMenu = () => {
 
   const handleLogOut = () => dispatch(logoutThunk());
   const avatarUser = useSelector(state => state.auth.user.avatarURL);
-  // заглушки для бека
-  // const avatarUser = null;
 
   const user = {
     avatarURL: avatarUser,
@@ -98,10 +96,8 @@ const UserMenu = () => {
         >
           <AvatarHeader>
             {user.avatarURL ? <img src={user.avatarURL} alt="" /> : avatarLogo}
-            {/* <img src={user.avatarURL ? avatarUser : avatarLogo} alt="" /> */}
           </AvatarHeader>
         </NavLink>
-        {/* <LogoutBtn type="button" onClick={handleLogOut}> */}
         <LogoutBtn
           type="button"
           onClick={handleLogOut}

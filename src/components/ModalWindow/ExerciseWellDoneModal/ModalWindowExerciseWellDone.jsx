@@ -1,5 +1,4 @@
 import React from 'react';
-// import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import sprite from '../../../images/sprite.svg';
 import {

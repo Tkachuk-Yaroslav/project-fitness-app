@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  // fetchBodyParts,
-  // fetchEquipment,
-  // fetchMuscles,
-  setExerciseThunk,
-} from './thunks';
+import { setExerciseThunk } from './thunks';
 
 const initialState = {
   exercises: [],
@@ -12,15 +7,6 @@ const initialState = {
   isLoading: false,
   error: null,
 };
-
-// const handlePending = state => {
-//   state.isLoading = true;
-// };
-
-// const handleRejected = (state, action) => {
-//   state.isLoading = false;
-//   state.error = action.payload;
-// };
 
 export const diarySlice = createSlice({
   name: 'diary',
