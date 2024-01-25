@@ -4,7 +4,6 @@ import Filters from 'components/Filters/Filters';
 import ProductsList from 'components/ProductsList/ProductsList';
 import { PageBgWrapperCont } from 'components/PageBgWrapperCont/PageBgWrapperCont.styled';
 import { Container } from 'components/styles/Container/Container';
-import { Button } from './ProductsPage.styled';
 import { getProducts } from 'api/productsListApi';
 
 const ProductsPage = () => {
@@ -74,10 +73,11 @@ const ProductsPage = () => {
       {isLoading && <Loader />}
       <PageBgWrapperCont>
         <Filters filters={filters} onChangeFilters={handleChangeFilters} />
-        <ProductsList products={products} />
-        <Button onClick={fetchMoreProducts} disabled={currentPage >= maxPages}>
-          {currentPage < maxPages ? 'Load More' : 'No More Products'}
-        </Button>
+        <ProductsList
+          products={products}
+          fetchMoreProducts={fetchMoreProducts}
+          isFetchButtonDisabled={currentPage >= maxPages}
+        />
       </PageBgWrapperCont>
     </Container>
   );
