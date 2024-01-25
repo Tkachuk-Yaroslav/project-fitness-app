@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import 'overlayscrollbars/overlayscrollbars.css';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import '../../components/styles/ScrollbarStyled/scrollbarStyled.css';
@@ -16,11 +16,12 @@ import {
 import DayProductsItem from 'components/DayProductsItem/DayProductsItem';
 import sprite from '../../images/sprite.svg';
 import { getDiaryData } from 'api/dairy';
+import { DiaryContext } from '../../pages/DiaryPage/DiaryPage';
 
 export const ParentContext = React.createContext();
 const DayProducts = ({ calendarData }) => {
   const [diaryProdData, setDiaryProdData] = useState([]);
-  console.log(calendarData, 'calendarData');
+  const { setDataDash } = useContext(DiaryContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,11 +29,15 @@ const DayProducts = ({ calendarData }) => {
         const data = await getDiaryData(calendarData);
         // const data = await testData();
         setDiaryProdData(data.consumedProducts);
+        setDataDash({
+          consumedBurned: data.consumedBurned,
+          consumedCalories: data.consumedCalories,
+        });
       } catch (error) {}
     };
 
     fetchData();
-  }, [calendarData]);
+  }, [calendarData, setDataDash]);
   console.log(diaryProdData, 'diareProdData');
   return (
     <>
