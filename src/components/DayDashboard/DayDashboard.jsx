@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux';
 
 import { getDiaryData } from 'api/dairy';
 
-const DayDashboard = () => {
+const DayDashboard = ({ calendarData }) => {
   const { user } = useSelector(state => state.auth);
   const [dashboardData, setDashboardData] = useState(null);
   const dailyPhysicalActivity = 110;
@@ -36,7 +36,7 @@ const DayDashboard = () => {
     const fetchData = async () => {
       try {
         // const response = await axios.get(apiUrl, { params });
-        const response = await getDiaryData();
+        const response = await getDiaryData(calendarData);
         setDashboardData(response);
         // console.log(response.data);
       } catch (error) {
@@ -45,8 +45,7 @@ const DayDashboard = () => {
     };
 
     fetchData();
-    // eslint-disable-next-line
-  }, []);
+  }, [calendarData]);
 
   return (
     <div>
