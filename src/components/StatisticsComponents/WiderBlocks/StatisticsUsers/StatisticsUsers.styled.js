@@ -1,24 +1,23 @@
 import { styled } from 'styled-components';
 
-export const StatisticsVideoCont = styled.div`
+export const StatisticsUsersCont = styled.div`
   display: flex;
-  width: 110px;
+  min-width: 110px;
   gap: 8px;
   align-items: center;
   .circle {
     width: 30px;
     height: 30px;
-    border-radius: 15px;
+    border-radius: 50%;
     background-color: var(--light-orange-color);
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .play {
-    margin-left: 3px;
-    margin-top: 1px;
-    width: 11px;
-    height: 11px;
+  .icon-svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--white-color);
   }
   .content-wrapper {
     display: flex;
@@ -37,16 +36,14 @@ export const StatisticsVideoCont = styled.div`
     opacity: 65%;
   }
   @media screen and (min-width: 768px) {
-    width: 147px;
+    min-width: 147px;
     gap: 12px;
     .circle {
       width: 40px;
       height: 40px;
       border-radius: 20px;
     }
-    .play {
-      margin-left: 5px;
-      margin-top: 1px;
+    .icon-svg {
       width: 17px;
       height: 17px;
     }
