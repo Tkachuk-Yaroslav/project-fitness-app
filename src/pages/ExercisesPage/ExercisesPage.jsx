@@ -7,6 +7,7 @@ import {
 } from "./ExercisesPage.styled";
 import TitlePage from "components/ExercisesMain/Exercises/TitlePage/TitlePage";
 import { Outlet } from "react-router-dom/dist";
+import WithDataRedirect from "HOC/HocRedirect";
 
 function Exercises() {
   return (
@@ -30,4 +31,6 @@ function Exercises() {
   );
 }
 
-export default Exercises;
+const WrappedExercisesPage = WithDataRedirect(Exercises);
+export default WrappedExercisesPage;
+
