@@ -88,7 +88,10 @@ export const NoDataTitle = styled.p`
 export const NoDataWrap = styled.div`
   display: flex;
   justify-content: center;
-  padding: 96px;
+  padding: 94px;
+  @media screen and (min-width: 768px) {
+    padding: 50px;
+  }
 `;
 
 export const StyledScrollbar = createGlobalStyle`

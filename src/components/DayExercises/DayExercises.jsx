@@ -44,15 +44,16 @@ const DayExercises = () => {
             </SvgExercise>
           </ExercisesLink>
         </ProductsContainer>
-        <ExercisesTitleList>
-            <ExercisesTitleItem $index={0}>Part</ExercisesTitleItem>
-            <ExercisesTitleItem $index={1}>Equipment</ExercisesTitleItem>
-            <ExercisesTitleItem $index={2}>Name</ExercisesTitleItem>
-            <ExercisesTitleItem $index={3}>Target</ExercisesTitleItem>
-            <ExercisesTitleItem $index={4}>Burned Calories</ExercisesTitleItem>
-            <ExercisesTitleItem>Time</ExercisesTitleItem>
-          </ExercisesTitleList>
-
+        {diaryData.length > 0 ? (
+  <ExercisesTitleList>
+    <ExercisesTitleItem $index={0}>Part</ExercisesTitleItem>
+    <ExercisesTitleItem $index={1}>Equipment</ExercisesTitleItem>
+    <ExercisesTitleItem $index={2}>Name</ExercisesTitleItem>
+    <ExercisesTitleItem $index={3}>Target</ExercisesTitleItem>
+    <ExercisesTitleItem $index={4}>Burned Calories</ExercisesTitleItem>
+    <ExercisesTitleItem>Time</ExercisesTitleItem>
+  </ExercisesTitleList>
+) : null}
           <OverlayScrollbarsComponent defer>
           {diaryData.length > 0
             ? diaryData.map(exercise => {

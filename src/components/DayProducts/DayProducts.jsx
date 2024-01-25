@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import 'overlayscrollbars/overlayscrollbars.css';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
-import '../../components/styles/ScrollbarStyled/scrollbarStyled.css'; 
+import '../../components/styles/ScrollbarStyled/scrollbarStyled.css';
 import {
   ProductsSection,
   ProductsTitle,
   ProductsLink,
   ProductsContainer,
   SvgExercise,
-  NoDataTitle, 
-  NoDataWrap, 
-  ProductsTitleList, 
+  NoDataTitle,
+  NoDataWrap,
+  ProductsTitleList,
   ProductsTitleItem,
 } from './DayProducts.styled';
 import DayProductsItem from 'components/DayProductsItem/DayProductsItem';
@@ -44,6 +44,7 @@ const DayProducts = () => {
             </SvgExercise>
           </ProductsLink>
         </ProductsContainer>
+        {diaryProdData.length > 0 ? (
           <ProductsTitleList>
             <ProductsTitleItem $index={0}>Title</ProductsTitleItem>
             <ProductsTitleItem $index={1}>Category</ProductsTitleItem>
@@ -51,9 +52,10 @@ const DayProducts = () => {
             <ProductsTitleItem $index={3}>Weight</ProductsTitleItem>
             <ProductsTitleItem>Recommend</ProductsTitleItem>
           </ProductsTitleList>
-          <OverlayScrollbarsComponent defer>
-        {diaryProdData.length > 0
-          ? diaryProdData.map(product => {
+        ) : null}
+        <OverlayScrollbarsComponent defer>
+          {diaryProdData.length > 0 ? (
+            diaryProdData.map(product => {
               console.log(product, 'Один продукт');
               return (
                 <ParentContext.Provider
@@ -64,7 +66,11 @@ const DayProducts = () => {
                 </ParentContext.Provider>
               );
             })
-          : <NoDataWrap><NoDataTitle>Not found products</NoDataTitle></NoDataWrap> }
+          ) : (
+            <NoDataWrap>
+              <NoDataTitle>Not found products</NoDataTitle>
+            </NoDataWrap>
+          )}
         </OverlayScrollbarsComponent>
       </ProductsSection>
     </>
