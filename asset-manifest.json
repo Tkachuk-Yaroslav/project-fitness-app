@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/project-fitness-app/static/css/main.1ca8fd79.css",
-    "main.js": "/project-fitness-app/static/js/main.cc82400d.js",
+    "main.js": "/project-fitness-app/static/js/main.b0c5f52f.js",
     "static/js/818.fbcf35c9.chunk.js": "/project-fitness-app/static/js/818.fbcf35c9.chunk.js",
     "static/js/558.d2afefa9.chunk.js": "/project-fitness-app/static/js/558.d2afefa9.chunk.js",
     "static/js/494.f995faad.chunk.js": "/project-fitness-app/static/js/494.f995faad.chunk.js",
-    "static/css/388.eae34cc2.chunk.css": "/project-fitness-app/static/css/388.eae34cc2.chunk.css",
-    "static/js/388.c071bb0d.chunk.js": "/project-fitness-app/static/js/388.c071bb0d.chunk.js",
-    "static/js/358.bab80819.chunk.js": "/project-fitness-app/static/js/358.bab80819.chunk.js",
-    "static/js/657.f19c8805.chunk.js": "/project-fitness-app/static/js/657.f19c8805.chunk.js",
+    "static/css/379.d46f4d06.chunk.css": "/project-fitness-app/static/css/379.d46f4d06.chunk.css",
+    "static/js/379.2c52d4e8.chunk.js": "/project-fitness-app/static/js/379.2c52d4e8.chunk.js",
+    "static/js/358.c2dd0b3e.chunk.js": "/project-fitness-app/static/js/358.c2dd0b3e.chunk.js",
+    "static/js/657.6d205278.chunk.js": "/project-fitness-app/static/js/657.6d205278.chunk.js",
     "static/js/538.b9c2692f.chunk.js": "/project-fitness-app/static/js/538.b9c2692f.chunk.js",
     "static/js/372.24ddbc8b.chunk.js": "/project-fitness-app/static/js/372.24ddbc8b.chunk.js",
     "static/js/705.4580716e.chunk.js": "/project-fitness-app/static/js/705.4580716e.chunk.js",
@@ -35,14 +35,14 @@
     "static/media/avocado.png": "/project-fitness-app/static/media/avocado.4b09d53aa12a58ab901f.png",
     "index.html": "/project-fitness-app/index.html",
     "main.1ca8fd79.css.map": "/project-fitness-app/static/css/main.1ca8fd79.css.map",
-    "main.cc82400d.js.map": "/project-fitness-app/static/js/main.cc82400d.js.map",
+    "main.b0c5f52f.js.map": "/project-fitness-app/static/js/main.b0c5f52f.js.map",
     "818.fbcf35c9.chunk.js.map": "/project-fitness-app/static/js/818.fbcf35c9.chunk.js.map",
     "558.d2afefa9.chunk.js.map": "/project-fitness-app/static/js/558.d2afefa9.chunk.js.map",
     "494.f995faad.chunk.js.map": "/project-fitness-app/static/js/494.f995faad.chunk.js.map",
-    "388.eae34cc2.chunk.css.map": "/project-fitness-app/static/css/388.eae34cc2.chunk.css.map",
-    "388.c071bb0d.chunk.js.map": "/project-fitness-app/static/js/388.c071bb0d.chunk.js.map",
-    "358.bab80819.chunk.js.map": "/project-fitness-app/static/js/358.bab80819.chunk.js.map",
-    "657.f19c8805.chunk.js.map": "/project-fitness-app/static/js/657.f19c8805.chunk.js.map",
+    "379.d46f4d06.chunk.css.map": "/project-fitness-app/static/css/379.d46f4d06.chunk.css.map",
+    "379.2c52d4e8.chunk.js.map": "/project-fitness-app/static/js/379.2c52d4e8.chunk.js.map",
+    "358.c2dd0b3e.chunk.js.map": "/project-fitness-app/static/js/358.c2dd0b3e.chunk.js.map",
+    "657.6d205278.chunk.js.map": "/project-fitness-app/static/js/657.6d205278.chunk.js.map",
     "538.b9c2692f.chunk.js.map": "/project-fitness-app/static/js/538.b9c2692f.chunk.js.map",
     "372.24ddbc8b.chunk.js.map": "/project-fitness-app/static/js/372.24ddbc8b.chunk.js.map",
     "705.4580716e.chunk.js.map": "/project-fitness-app/static/js/705.4580716e.chunk.js.map",
@@ -55,6 +55,6 @@
   },
   "entrypoints": [
     "static/css/main.1ca8fd79.css",
-    "static/js/main.cc82400d.js"
+    "static/js/main.b0c5f52f.js"
   ]
 }
