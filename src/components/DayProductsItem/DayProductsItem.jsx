@@ -15,7 +15,8 @@ import axios from 'axios';
 import { getDiaryData } from 'api/dairy';
 import { ParentContext } from '../DayProducts/DayProducts';
 
-const DayProductsItem = product => {
+const DayProductsItem = (product, calendarData) => {
+  console.log(product.calendarData, 'calendarData in DayProductsItem');
   console.log(product, 'пропс в DayProductsItem');
 
   const { setDiaryProdData } = useContext(ParentContext);
@@ -26,7 +27,8 @@ const DayProductsItem = product => {
         `https://project-fitness-app-back.onrender.com/api/dairy/delProduct/${product.product._id}`
       );
       // Викликаємо функцію оновлення стану в компоненті, що містить список продуктів
-      const data = await getDiaryData();
+      const data = await getDiaryData(product.calendarData);
+      // const data = await testData();
       setDiaryProdData(data.consumedProducts);
     } catch (error) {
       console.error('Error deleting produts:', error);
