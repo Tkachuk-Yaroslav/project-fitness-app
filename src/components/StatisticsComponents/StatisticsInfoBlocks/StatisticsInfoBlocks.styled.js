@@ -58,6 +58,7 @@ export const StatisticsBlocksCont = styled.div`
     }
     &.hours {
       margin-top: 190px;
+      right: unset;
       left: 0;
     }
     &.exercises {
