@@ -7,7 +7,6 @@ const PublicRoute = ({ children }) => {
   const location = useLocation();
 
   return !isToken ? children : <Navigate to={location.state ?? '/diary'} />;
-  // Потрібна умова. Якщо ProfilePage вже заповнена, то переадресація на DiaryPage, інакше на ProfilePage
 };
 
 export default PublicRoute;
