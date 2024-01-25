@@ -54,7 +54,6 @@ const CountdownTimer = ({
 				strokeDashoffset={true}
 				trailColor='#262625'
 				onUpdate={(remainingTime) => {
-					// Обновление значения сожженных калорий при обновлении таймера
 					const percentage = (timer * 60 - remainingTime) / (timer * 60);
 					const updatedBurnedCalories = Math.round(dynamicBurnCal * percentage);
 					handleTime(remainingTime);

@@ -7,7 +7,6 @@ export const MobileMenuBtn = ({ onClick }) => {
       <Svg>
         <use href={`${sprite}#icon-menu`}></use>
       </Svg>
-      {/* </svg> */}
     </MobButton>
   );
 };

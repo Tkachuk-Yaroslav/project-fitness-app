@@ -16,16 +16,6 @@ import { logoutThunk } from '../../redux/auth/thunks';
 const MobileMenu = ({ isOpen }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(isOpen);
 
-  //   const closeMenu = () => {
-  //     setMenuIsOpen(false);
-  //   };
-
-  //   const handleEscKey = event => {
-  //     if (event.key === 'Escape') {
-  //       closeMenu();
-  //     }
-  //   };
-
   const closeMenu = useCallback(() => {
     setMenuIsOpen(false);
   }, [setMenuIsOpen]);

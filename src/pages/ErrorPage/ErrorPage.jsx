@@ -17,7 +17,6 @@ import { useDispatch } from 'react-redux';
 import { setErrorPage } from '../../redux/error/slice';
 
 const ErrorPage = () => {
-  //РОЗКОМЕНТУВАТИ
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 axios.defaults.baseURL = 'https://project-fitness-app-back.onrender.com/api/';
 
 export const setToken = token => {
@@ -12,7 +11,6 @@ const deleteToken = () => {
 };
 
 export async function signUp(body) {
-  // const { data } = await axios.post(`users/signup`, body);
   const { data } = await axios.post(`users/register`, body);
   setToken(data.token);
   return data;

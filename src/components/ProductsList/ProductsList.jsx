@@ -1,7 +1,12 @@
 import ProductsListItem from 'components/ProductsListItem/ProductsListItem';
 import { ProductsListWrap } from './ProductsList.styled';
+import { Button } from '../../pages/ProductsPage/ProductsPage.styled';
 
-const ProductsList = ({ products }) => {
+const ProductsList = ({
+  products,
+  fetchMoreProducts,
+  isFetchButtonDisabled,
+}) => {
   return (
     <ProductsListWrap>
       {products.map(
@@ -17,6 +22,9 @@ const ProductsList = ({ products }) => {
           />
         )
       )}
+      <Button onClick={fetchMoreProducts} disabled={isFetchButtonDisabled}>
+        {isFetchButtonDisabled ? 'No More Products' : 'Load More'}
+      </Button>
     </ProductsListWrap>
   );
 };

@@ -1,4 +1,3 @@
-// headerSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const headerSlice = createSlice({
