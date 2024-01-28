@@ -12,6 +12,7 @@ import {
 import sprite from "../../../../images/sprite.svg";
 import { Button } from "@mui/material";
 import { SettingsInputCompositeOutlined } from "@mui/icons-material";
+Modal.setAppElement("#root");
 const ModalWellDone = ({
   isOpen,
   closeModal,

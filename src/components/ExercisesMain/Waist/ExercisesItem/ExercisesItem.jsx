@@ -14,7 +14,7 @@ import {
   SvgExercise,
 } from "components/ExercisesMain/Waist/ExercisesItem/ExercisesItem.styled";
 import sprite from "../../../../images/sprite.svg";
-
+import Modal from "react-modal";
 const texts = {
   cardLabel: "WORKOUT",
   btnLabel: "Start",
@@ -38,7 +38,7 @@ const ExerciseItem = ({ exercise, openModal }) => {
           type="button"
           // onClick={openModal}
           onClick={() => openModal(exercise._id)}
-          aria-label="Open BasicModalWindow"
+          aria-label="Open ModalWaist"
         >
           {texts.btnLabel}
           <span>

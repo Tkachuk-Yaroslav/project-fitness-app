@@ -5,6 +5,7 @@ import ModalWaist from "../../ModalWaist/ModalWaist";
 import Modal from "react-modal";
 import waist1x from "../../../../images/waist-1x.jpg";
 import waist2x from "../../../../images/waist-2x.jpg";
+
 import {
   ButtonBack,
   CartaDiv,
